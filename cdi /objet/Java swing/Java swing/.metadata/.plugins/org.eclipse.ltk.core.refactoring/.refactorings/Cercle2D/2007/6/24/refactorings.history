@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<session version="1.0">
+<refactoring comment="Rename type 'cercle' to 'Cercle'&#13;&#10;- Original element: 'cercle'&#13;&#10;- Renamed element: 'Cercle'&#13;&#10;- Update references to refactored element&#13;&#10;- Update textual occurrences in comments and strings" description="Rename type 'cercle'" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/&lt;{cercle.java[cercle" matchStrategy="1" name="Cercle" qualified="false" references="true" similarDeclarations="false" stamp="1181660382173" textual="false" version="1.0"/>
+<refactoring comment="Rename type 'appli' to 'Appli'&#13;&#10;- Original element: 'appli'&#13;&#10;- Renamed element: 'Appli'&#13;&#10;- Update references to refactored element&#13;&#10;- Update textual occurrences in comments and strings" description="Rename type 'appli'" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/&lt;{appli.java[appli" matchStrategy="1" name="Appli" qualified="false" references="true" similarDeclarations="false" stamp="1181660399860" textual="false" version="1.0"/>
+</session>

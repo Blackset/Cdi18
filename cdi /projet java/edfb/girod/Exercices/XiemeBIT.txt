@@ -1,0 +1,83 @@
+Donnez l'algorithme d'une procédure qui, pour un entier, donne la valeur du x-ième bit de cet entier. Cette valeur sera donnée sous la forme d’un booléen : vrai si la valeur est 1, faux si elle est 0. 
+ 
+Le LSB (Lower Significant Bit) a pour numéro 0. 
+ 
+Il existe deux opérateurs sur les entiers qui sont MOD et DIV utilisables de la manière suivante:  7 MOD 3 = 1 reste de la division entière de 7 par 3  7 DIV 3 = 2 résultat de la division entière de 7 par 3. 
+ 
+ 
+9.1 JEUX D’ESSAI : donner la valeur du x-ième bit d’un entier.(procédure valeur_bit) 
+ 
+ 
+ nombre  poids  résultat 
+ 
+ 0  		0  	faux  
+ 1  		0  	vrai  
+ 63000  	1  	faux  
+ 47 		4  	faux  
+ 47  		5  	vrai  
+ 3  		-1  faux 
+ 
+ Programme valeur_du_bit_de_poids_x   // Ce programme donne la valeur du bit de poids x d’un entier   
+ 
+Variables nombre  : entier // nombre donné par l’opérateur     
+rang  : entier // rang du bit dans le nombre ( 0 = premier bit )     
+résultat  : booléen // vrai quand le bit n° rang est à 1 dans nombre   
+ 
+ 
+Procédure valeur_bit ( Entrée valnb : entier , Entrée poidsbit : entier , Sortie valbit : booléen ) 
+ 
+   // Calcul de la valeur du bit de poids x d’un nombre.       
+   // Le bit numéro zéro est le bit de poids le plus faible.       
+   // Si le poids du bit est négatif, la procédure rendra valbit à faux.  
+ 
+   // valnb est le nombre dont on veut connaître la valeur d’un bit      
+   // poidsbit est le poids du bit concerné ( 0 pour le bit de poids faible)     // valbit représente la valeur du bit ( vrai si le bit est à un dans valnb)  
+ 
+Début // saisie du nombre et du rang du bit à traiter  
+ 
+ Ecrire (‘donnez la valeur du nombre’)  
+ Lire (nombre)  
+ Ecrire (‘donnez le rang du bit dont vous voulez la valeur ( 0 = premier bit ) ‘)  
+ Lire (rang) 
+ 
+  // appel de la procédure qui fait tout le travail  
+ 
+ valeur_bit (nombre, rang, résultat) 
+ 
+  // résultat de la recherche  
+ 
+ Si     résultat     Alors   
+ Ecrire (‘La valeur du bit de poids ‘,rang,’ dans le nombre ‘,nombre,’ est 1’)  
+ Sinon   
+ Ecrire (‘La valeur du bit de poids ‘,rang,’ dans le nombre ‘,nombre,’ est 0’)  
+ Finsi 
+ 
+Fin 
+
+Procédure valeur_bit ( Entrée valnb : entier , Entrée poidsbit : entier ,     Sortie valbit : booléen ) 
+ 
+   // Calcul de la valeur du bit de poids x d’un nombre.      
+   // Le bit numéro zéro est le bit de poids le plus faible.      
+   // Si le poids du bit est négatif, la procédure rendra valbit à faux.   
+ 
+   // valnb est le nombre dont on veut connaître la valeur d’un bit      
+   // poidsbit est le poids du bit concerné ( 0 pour le bit de poids faible)      // valbit représente la valeur du bit ( vrai si le bit est à un dans valnb)    
+ 
+Début 
+ 
+ Si    poidsbit < 0    Alors   
+ valbit := Faux // il faut mettre un paramètre de plus   
+ Sinon   // divisions successives jusqu’à avoir un poids ou un nombre nul  
+ 
+  Tantque    ( poidsbit > 0 ) et ( valnb <> 0 )    Faire 
+ 
+   valnb := valnb div 2    
+   poidsbit := poidsbit - 1 
+ 
+  Fintantque 
+ 
+    // récupération du LSB de valnb  
+ 
+  valbit := ((valnb mod 2) = 1) 
+ 
+ Finsi Fin 

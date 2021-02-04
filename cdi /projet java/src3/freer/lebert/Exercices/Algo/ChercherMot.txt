@@ -1,0 +1,104 @@
+Phrase				Mot				retourne
+"."					""				Vrai
+"titi toto."		"toto"			Vrai
+"titi toto."		"tata"			Faux
+"titi ototo."		"toto"			Faux
+
+
+Fonction ChercherMot(entrée pPhrase : ChaineP, entrée pMot : ChaineM, entrée pTailleM : entier) : booléen
+// chercher un mot dans une phrase et dire s'il est présent ou non
+// pPhrase : phrasé donnée
+// pMot : mot recherché
+// pTailleM : taille du mot recherché
+Variables
+	PositionP : entier			// position dans la phrase
+	PositionM : entier			// position dans le mot
+	TailleP : entier			// taille de la phrase
+	TailleM : entier			// taille du mot
+	Succes : booléen			// valeur de retour
+Procédure
+	LongueurPhrase(entrée pPhrase : Chaine, sortie pTaille : entier)				// calculer la longeur de la phrase
+	DécouperMot(entrée pPhrase : ChaineP, entrée pPosition : entier) : entier		// découper chaque mot de la phrase
+Fonction
+	ComparerMot(entrée pPhrase : ChaineP, entrée pMot : ChaineM, entrée pPositionP : entier, entrée pTailleM : entier) : booléen		// comparer deux mots
+Début
+	// initialisation
+	PositionP := 1
+	TailleM := 0
+	Succes := Faux
+	LongeurPhrase(pPhrase, TailleP)
+	Répéter
+		// on s'arrête quand on a trouvé le mot ou qu'on arrive à la fin de la phrase
+		DécouperMot(pPhrase, PositionP, TailleM)
+		Si Taille(pMot) = TailleM alors
+			Succes = ComparerMot(pPhrase, pMot, PositionP, TailleM)
+		FinSi
+	Jusqu'à Succes ou PositionP >= TailleP
+	Retourner Succes
+Fin
+
+Procédure DécouperMot(entrée pPhrase : ChaineP, entrée sortie pPosition : entier, sortie pTaille : entier)
+// découper chaque mot de la phrase et retourner sa taille
+// pPhrase : phrase donnée
+// pPosition : position dans la phrase
+// pTaille : taille du mot découpé
+Début
+	TantQue pPhrase[pPosition + 1] <> ESPACE et pPhrase[pPosition + 1] <> FIN faire
+		// je m'arrête quand je rencontre un espace ou le caractère de fin
+		pTaille := pTaille + 1
+		pPosition := pPosition + 1
+	FinTantQue
+Fin
+
+Fonction ComparerMot(entrée pPhrase : ChaineP, entrée pMot : ChaineM, entrée pPositionP : entier, entrée pTailleM : entier) : booléen
+// comparer deux mots et dire s'ils sont égaux ou non
+// pPhrase : phrase donnée
+// pMot : mot donné
+// pPositionP : position dans la phrase
+// pTailleM : taille du mot
+Variable
+	Succes : booléen			// valeur de retour
+	PositionM : entier			// position dans le mot
+Début
+	Succes := Vrai
+	PositionM := 1
+	TantQue PositionM <= pTailleM et Succes faire
+		// je m'arrête quand j'arrive à la fin du mot ou quand les mots ne sont plus égaux
+		Si pPhrase[pPositionP] = pMot[PositionM] alors
+			Succes := Vrai
+		Sinon
+			Succes := Faux
+		FinSi
+		pPositionM := pPositionM + 1
+		pPositionP := pPositionP + 1
+	FinTantQue
+	Retourner Succes
+Fin
+
+Programme TestChercherMot
+// programme de test
+Constantes
+	P := 100					// taille du tableau phrase
+	M := 20						// taille du tableau mot
+	FIN := '.'					// caractère de fin
+	ESPACE := ' '				// caractère d'espace
+Type
+	ChaineP : tableau [P] de caractere		// tableau de caracteres pour la phrase
+	ChaineM : tableau [M] de caractere		// tableau de caracteres pour le mot
+Variables
+	Phrase : ChaineP			// phrase saisie
+	Mot : ChaineM				// mot saisi
+	TailleM : entier			// taille du mot
+Fonction
+	ChercherMot(entrée pPhrase : ChaineP, entrée pMot : ChaineM, entrée pTailleM : entier)		// cherche le mot dans la phrase
+Début
+	ecrire("Saisir une phrase : ")
+	lire(Phrase, FIN)
+	ecrire("Saisir un mot : ")
+	lire(Mot, TailleM)
+	Si ChercherMot(Phrase, Mot, TailleM) alors
+		ecrire("Le mot ", Mot, " est présent dans la phrase.")
+	Sinon
+		ecrire("Le mot ", Mot, " n'est pas présent dans la phrase.")
+	FinSi
+Fin

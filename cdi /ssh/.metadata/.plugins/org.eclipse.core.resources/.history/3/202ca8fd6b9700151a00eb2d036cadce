@@ -1,0 +1,10 @@
+package ExoObjet;
+
+public class Individu
+{
+		 private String Nom;
+		 private String Prénom;
+		 private String Adresse;
+	 
+	 
+}

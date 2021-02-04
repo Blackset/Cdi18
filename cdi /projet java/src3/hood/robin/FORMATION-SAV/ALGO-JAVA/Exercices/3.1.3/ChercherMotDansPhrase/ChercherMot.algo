@@ -1,0 +1,31 @@
+fonction ChercherMot(entrée phrase: chaineP, entrée mot: chaineM, entrée lMot: entier): booléen
+	// Cette fonction cherche un mot dans une phrase et renvoie vrai ou faux si le mot est présent ou non dans la phrase
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// mot est le tableau de caractère contenant le mot à rechercher dans phrase
+	
+	// lMot est la longueur du mot à rechercher
+		
+
+//VARIABLES
+lMotTrouver: entier		// Longueur du mot trouvé dans la phrase 0 si aucun mot
+
+numMot: entier			// Numéro du mot dans la phrase
+
+motExist: booléen		// Si le mot existe dans la phrase
+
+début
+	// Initialisation
+	
+	numMot := 1	
+		
+	répéter
+		// arrêt quand il n'y a plus de mot ou que le mot existe
+		ChercherMotDansPhrase(phrase, numMot, lMotTrouver)
+		
+		motExist = ComparerMot(phrase, mot, numMot, lMotTrouver, lMotChercher)
+	jusquà (lMotTrouver = 0) ou (motExist = vrai) 
+
+
+fin

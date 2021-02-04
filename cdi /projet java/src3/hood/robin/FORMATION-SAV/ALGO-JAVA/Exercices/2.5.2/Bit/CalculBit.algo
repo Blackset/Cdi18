@@ -1,0 +1,35 @@
+procédure CalculBit(entrée NbrEntier: entier, entrée RangBit: entier, sortie ValBit: entier)
+
+	// Cette procédure permet de donner la valeur d'un bit d'un nombre entier
+	
+	// NbrEntier est le nombre entier
+	
+	// RangBit est le rang du bit
+	
+	// ValBit est la valeur du bit
+	
+
+//CONSTANTES
+
+//TYPES
+
+//VARIABLES
+nbrBit : entier;
+
+début
+	// Initialisation
+	nbrEntier := nbrEntier div 2;
+	ValBit := faux;
+		
+	tantque (nbrEntier <> 0) et (0 < RangBit) faire
+		// arrêt quand la division ou RangBit sont égales à 0
+		
+		NbrEntier := NbrEntier div 2;
+		
+		RangBit := RangBit - 1		
+	fintantque
+	
+	si (NbrEntier mod 2 = 0) alors
+		ValBit := vrai;
+	finsi	
+fin

@@ -1,0 +1,108 @@
+package ExoObjet;
+
+
+public class Individu
+{
+		 private String nom;
+		 private String prénom;
+		 private String adresse;
+		 
+		 
+		 
+		    public String getnom()
+			{
+				return nom;
+			}
+		    /**
+		     * jhkgbjghkghkjhkjhk
+		     * @param nom
+		     * @return
+		     */
+			public boolean setnom (String nom)
+			{
+			if ( nom == null) 
+			{
+				return false;
+			}
+			else
+			{
+				nom = s_nom;
+				return true;
+			}
+			    
+			
+			}
+			public String getprénom()
+			{
+				return prénom;
+			}
+			
+			public boolean setPrénom (String prénom)
+			{
+			if ( prénom == null) 
+			{
+				return false;
+			}
+			else
+			{
+				prénom = nom;
+				return true;
+			}
+				
+			}
+			public String getAdresse()
+			{
+				return adresse;
+			}
+			public void setAdresse(String adresse)
+			{
+				adresse = adresse;
+			}
+			
+			public void lire()
+			
+			{
+				System.out.println ("entrer un nom : ");
+				this.Nom = lire.S();
+				
+			}
+			public void afficher()
+			
+			
+	
+	
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+			
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+procédure CompterLesCaracteres(entrée Texte : chaine, sortie NbrCarac : entier)
+
+	// Cette procédure calcule le nombre de caractère contenu dans une chaine.
+	
+	// Texte est un tableau de caractère contenant la chaine.
+	
+	// NbrCarac est le nombre de caractère contenu dans la chaine.
+
+//CONSTANTES
+CARACFIN = '.'; //Caractère de fin d'une chaine
+
+//VARIABLES
+i : entier; //Indice de parcours de la chaine
+
+début
+	//Initialisation
+	i := 1;
+	NbrCarac := 0;
+
+	écrire("Tapez une phrase")
+	lire(Texte)
+
+	tantque Texte[i] <> CARACFIN faire
+		//Compte le nombre de caractère contenu dans une chaine
+		NbrCarac = NbrCarac + 1
+		i = i + 1
+	fintantque 
+fin

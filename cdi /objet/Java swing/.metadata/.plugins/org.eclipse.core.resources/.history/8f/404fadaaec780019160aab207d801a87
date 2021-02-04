@@ -1,0 +1,27 @@
+import javax.swing.*;
+
+/*
+ * Created on 7 févr. 2005
+ */
+
+/**
+ * @author corre
+ * 
+ * cet essai de liste traite d'une liste fixe, avec les sélections
+ * par défaut, et un rendu de la liste par défaut
+ */
+public class Fenetre extends JFrame 
+{
+	public Fenetre()
+	{
+		setTitle("liste simple");
+		String [] table = {"Mickey","Minnie","Pluto","Dingo","Annabelle"};
+		JList jl = new JList(table);
+		JScrollPane js = new JScrollPane(jl);
+		getContentPane().add(js);
+		JLabel jlab = new JLabel("                                           ");
+		getContentPane().add(js);
+		setBounds(100,10,500,500);
+		setVisible(true);
+	}
+}

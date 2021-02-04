@@ -1,0 +1,37 @@
+procédure crypterMot(entrée phrase : chaine, entrée i : entier, entrée lg : entier, entrée NoMot :entier,
+					 entrée/sortie phraseCryptée : chaineCryptée, entrée/sortie j : entier)
+					 
+	//crypte un mot de la phrase dans la phraseCryptée en fonction du numéro du mot phrase est la phrase initiale
+	
+	//i est l'indice juste après le mot et dans la phrase
+	
+	//lg est la longueur du mot à crypter
+	
+	//NoMot est le numéro d'ordre du mot
+	
+	//phraseCryptée -en entrée : portion de phrase déjà cryptée
+	//				-en sortie : portion de phrase déjà cryptée plus le mot crypté
+	
+	//j : -en entrée : indice où nous écrirons le mot crypté
+	//	  -en sortie : indice après le mot crypté	
+
+début
+	//i se positionne sur la première lettre à crypter
+	i := i - lg;
+	
+	
+	tantque lg > 0 faire
+	// arrêt quand il ne reste plus de lettre à crypter
+	
+		phraseCryptée[j] := crypterCarac(phrase[i], noMot)// Cryptage d'un caractère
+		
+		i := i + 1
+		
+		j := j + 1
+		
+		lg := lg - 1
+		
+	fintantque
+		
+	
+fin

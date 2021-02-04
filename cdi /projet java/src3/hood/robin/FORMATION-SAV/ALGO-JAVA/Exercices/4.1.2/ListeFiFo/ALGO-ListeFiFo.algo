@@ -1,0 +1,30 @@
+//TYPES
+
+référence= pointeur de élément 
+
+élément= enregistrement
+			
+			valeur: entier   	// contient l'information que l'on désire conserver  
+			
+			suivant: référence  // pointeur vers l'élément suivant de la liste  
+		
+		 finenregistrement
+
+// INTERFACES
+
+procédure initListe(sortie tete: référence)
+	// cette procédure initialise la référence de tete de la liste
+	
+procédure ajouterEntier(entrée sortie tete: référence, entrée valeur: entier)
+	// cette procédure retourne la nouvelle référence de tete
+	
+	// tete la référence de tête de la liste vaut null si la liste est vide
+	
+	// valeur est la valeur à ajouter à la liste
+	
+procédure retirerEntier(entrée sortie tete: référence, sortie val: entier)
+	// cette procédure retourne la nouvelle référence de tete
+		
+	// tete la référence de tête de la liste vaut null si la liste est vide 
+	
+	// val la valeur retirée

@@ -1,0 +1,18 @@
+package ExoObjet;
+
+public class Individu
+{
+		 private String Nom;
+		 private String Prénom;
+		 private String Adresse;
+		public String getNom()
+		{
+			return Nom;
+		}
+		public void setNom(String nom)
+		{
+			Nom = nom;
+		}
+	 
+	 
+}

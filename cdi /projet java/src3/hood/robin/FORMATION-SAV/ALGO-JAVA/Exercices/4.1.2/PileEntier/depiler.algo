@@ -1,0 +1,26 @@
+fonction depiler(entrée sortie liste: pile, sortie val: entier): booléen
+	// cette fonction permet de retirer un élément de la liste
+	// si la liste est vide elle renvoie faux
+	
+	// liste est en entrée : la liste dans laquelle on ajoute une valeur
+	//			 en sortie : la liste avec le nouvel indice si elle n'est pas vide
+	
+	// val la valeur de l'entier dépilé
+	
+	// retourne vrai si l'indice recule, faux si la liste est pleine
+	
+	
+//VARIABLE
+depiler: booléen	// vrai si l'indice recule
+					// faux si l'indice vaut 0 --> liste vide
+	
+début
+	depiler:= faux
+	
+	si liste.indice > 0 alors
+		liste.indice:= liste.indice - 1	// on recule l'indice
+		depiler:= vrai					// on renvoie vrai
+	finsi
+
+	retourner depiler
+fin

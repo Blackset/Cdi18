@@ -1,0 +1,35 @@
+Procedure LongueurPhrase(entrée pPhrase : Chaine, sortie pTaille : entier)
+// compter le nombre de caracteres dans une phrase
+// pPhrase : phrase à étudier
+// pTaille : taille de la phrase
+Variable
+	Position : entier		// position dans la phrase
+Début
+	// initialisation
+	Position := 1
+	pTaille := 0
+	TantQue pPhrase[Position] <> STOP faire
+		// compter une lettre
+		pTaille := pTaille + 1
+		Position := Position + 1
+	FinTantQue
+Fin
+
+Programme TestLongueurPhrase
+// programme de test
+Constantes
+	N = 50									// taille du tableau
+	STOP = '.'								// caractère de fin de phrase
+Type
+	Chaine = tableau [N] de caractere		// tableau de caractères
+Variables
+	Phrase : Chaine							// phrase saisie par l'utilisateur
+	Taille : entier							// taille de la phrase saisie
+Procédure
+	LongueurPhrase(entrée pPhrase : Chaine, sortie pTaille : entier)		// calcule la taille d'une phrase donnée
+Début
+	ecrire("Saisir une phrase : ")
+	lire(Phrase, STOP)
+	LongeurPhrase(Phrase, Taille)
+	ecrire("La phrase compte ", Taille, " caractères.")
+Fin

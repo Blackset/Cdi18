@@ -1,0 +1,43 @@
+PROGRAMME  Compter une lettre dans une phrase. 
+	// Soit une chaîne de caractères terminée par le caractère '.'
+	// Donnez l'algorithme d'un programme qui compte le nombre occurrences d'une lettre donnée ( 'a' par exemple) dans cette chaîne. 
+	//
+
+Constantes
+	FINCHAINE='.' 	// Caractère de fin de chaîne
+	N=80			// Nbre maximum de caratères dans la chaîne
+	CIBLE:='a'		// Caractères à comptabiliser pour les occurences
+	
+Types
+	chaine=tableau [N] caractères // type de chaîne de caractères
+
+Variables
+	TexteSaisie : chaîne	// chaine de caratères dans laquelle on comptabilise les occurences de CIBLE
+	i			: entier	// Indice de parcours de la chaîne de caractères
+	Occ			: entier	// Nombre d'occurence dans TexteSaisie
+	
+
+DEBUT
+	// lecture de la phrase et compteur d'occurence
+	
+	i:=1
+	Occ:=0
+	
+	Ecrire ("Saisir un texte avec ", FINCHAINE, " comme caractère de fin") 
+	Lire (TexteSaisie)
+
+	TANTQUE TexteSaisie[i] <> '.'  FAIRE
+
+			Si TexteSaisie[i] = CIBLE alors
+				Occ:= Occ+1                    // si un caractère CIBLE est trouvé on incrémente le compteur
+			Finsi
+			
+			i:=i+1								// On teste le caractère suivant de TexteSaisie
+	Fintantque
+	
+	Ecrire ("Le nombre de ", CIBLE, "dans le texte sdaisie est de :", Occ)
+
+
+
+
+FIN

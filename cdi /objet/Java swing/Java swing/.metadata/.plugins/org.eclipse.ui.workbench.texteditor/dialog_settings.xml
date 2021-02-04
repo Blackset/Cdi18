@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="129" key="y"/>
+		<item value="TreeUI" key="selection"/>
+		<item value="387" key="x"/>
+		<list key="findhistory">
+			<item value="MouseList"/>
+			<item value="isCellEdit"/>
+			<item value="JTree"/>
+		</list>
+		<list value="JTree" key="replacehistory">
+		</list>
+	</section>
+</section>

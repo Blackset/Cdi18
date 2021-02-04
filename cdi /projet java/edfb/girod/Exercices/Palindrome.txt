@@ -1,0 +1,87 @@
+PROGRAMME  Rechercher une symétrie dans une chaîne de caractères
+	// Soit une chaîne de caractères terminée par un point. Ecrivez l'algorthme d'un programme permettant 
+	// d'affirmer si cette phrase ou non est un palindrome 
+ 
+	// Fournissez un programme de test de votre procédure. 
+	
+
+Constantes
+
+	N=80			// Nbre maximum de caratères dans la chaîne
+	FINCHAINE='.' 	// Caractère de fin de chaîne
+	
+Types
+	chaine=tableau [N] caractères // type de chaîne de caractères
+
+Variables
+	TexteSaisie : chaîne	// chaine de caratères dans laquelle on vérifie le palindrome
+	Resultat : Booléen // valeur du résultat de la procédure
+	NbreCarac	: entier	// Nombre de caractères dans TexteSaisie
+
+PROGRAMME DE TEST
+
+chaine		     		Resultat
+AA.							Ok
+38983.						Ok
+LAVAL.						Ok
+LAVAL A ETE A LAVAL.		Ok
+LAAL.						Ok
+LA AL.						Ok
+ .							Ok
+A.							Ok
+LIAAEL.						non
+.							oui
+AB.							non
+
+
+PROCEDURE Procédure VerifPalindrome (Entrée TexteSaisie : chaîne , Sortie Resultat : booléen) 
+								// TexteSaisie : phrase à étudier
+								// Resultat : valeur booléenne de la phrase
+
+
+
+
+
+DEBUT
+	
+	Resultat:=TRUE
+	
+	Ecrire ("Saisir un texte :") 
+	Lire (TexteSaisie)
+	
+	Compter-nombre-caractères (TexteSaisie, NbreCarac)
+
+	VerifPalindrome ( TexteSaisie, NbreCarac, Resultat )
+		
+			SI i>=j  // on affiche le résultat
+					Ecrire ("La phrase est un palindrome")
+			SINON
+					Ecrire ("La phrase n'est pas un palindrome")
+			FinSI
+FIN
+
+	
+	
+	
+	Procédure VerifPalindrome (Entrée TexteSaisie : chaîne , Sortie Resultat : booléen) 
+	
+		i : entier	// Indice de parcours droit de la chaîne de caractères
+		j : entier	// Indice de parcours gauche de la chaîne de caractères
+		
+		DEBUT
+			// on test les valeurs bout à bout (hors terminateur)
+	
+			i:=1           // premier caractère de TexteSaisie
+			j:=NbreCarac  // Dernier caractère de TexteSaisie
+		
+
+			TANTQUE (  i<j AND TexteSaisie[i]= TexteSaisie[j] ) FAIRE          
+								
+						i:= i+1
+						j:= j-1     
+							
+			Fintantque
+			
+			Resultat := ( i>=j)
+
+		FIN

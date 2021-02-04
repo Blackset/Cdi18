@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private static char[] traiterTableau()&apos; from &apos;compter.main()&apos; to &apos;compter&apos;&#x0D;&#x0A;- Original project: &apos;Brouillon&apos;&#x0D;&#x0A;- Method name: &apos;traiterTableau&apos;&#x0D;&#x0A;- Destination type: &apos;compter&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;traiterTableau&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;{compter.java" name="traiterTableau" replace="false" selection="566 348" stamp="1446732196782" version="1.0" visibility="2"/>
+</session>

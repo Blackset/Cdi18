@@ -1,0 +1,23 @@
+Programme StructurerDonnées
+// structurer des données associées à des pièces
+Constante
+	TAILLE := 1000		// nombre d'enregistrements
+Type
+	Pièce = Enregistremet
+		TypePièce : ("Sphérique", "Cubique", "Cylindrique")		// type de pièce
+		DimensionsPièce : Dimensions = Enregistrement
+			Hauteur : réel			// hauteur de la pièce (cube ou cylindre)
+			Rayon : réel			// rayon de la pièce (sphère ou cylindre)
+		FinEnregistrement
+		CouleurPièce : ("Jaune", "Vert", "Bleu", "Rouge", "Orange", "Mauve")		// couleur de la pièce
+		NumSériePièce : entier		// numéro de série de la pièce
+		DatePièce : Date = Enregistrement
+			Jour : ("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche")			// jour de fabrication de la pièce
+			Numero : entier			// numéro du jour de fabrication de la pièce
+			Mois : ("Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre")			// mois de fabrication de la pièce
+			Année : entier			// année de fabrication de la pièce
+		FinEnregistrement
+	FinEnregistrement
+Variable
+	Pièces : Tableau [TAILLE] de Pièce
+Fin

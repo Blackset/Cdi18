@@ -1,0 +1,9 @@
+procédure initListe(entrée sortie premier: référence)
+	// cette procédure initialise le référence du premier nom
+	
+	
+début
+						
+	premier:= null	// il n'y a pas d'élément dans la liste
+
+fin

@@ -1,0 +1,72 @@
+1-Entrée / Sortie : 
+
+chaineSaisie: chaineS	--->	
+								CompterNombreBase	--->	sommeNombre: entier
+base : entier			--->
+
+2-Constantes / Types :
+
+//CONSTANTES
+TAILLECHAINE= 10	// taille de la chaine de nombre
+ESPACE= ' '			// séparateur de nombre
+CARACFIN= '0'		// caractère de fin de chaineS
+
+//TYPES
+chaineS: tableau[TAILLECHAINE]caractère //Tableau de caractère
+
+3-Jeu d'essai :
+
+chaineSaisie	|	base	|		sommeNombre			|
+------------------------------------------------------------------------
+17 203  9 0		|	 13		|			370	
+0				|	 13		|			0
+ 0				|	 13		|			0
+
+4-Interface :
+
+fonction CompterNombreBase(entrée chaineSaisie: chaineS, entrée base: entier): sommeNombre
+	// cette fonction retourne la somme des nombres de la chaine en prenant en compte la base
+	
+	// chaineSaisie est la chaine de caractère avec les nombres
+	
+	// base est la base dans laquelle les nombres sont écrit
+	
+	
+procédure ChercherNombre(entrée chaineSaisie: chaineS, entrée sortie indice: entier, sortie lg: entier)
+	// cette procédure cherche un nombre dans une chaine
+	
+	// indice	entrée: la position de l'indice de recherche au début de chaine
+	//			sortie: la position de l'indice de recherche après le nombre dans la chaine
+	
+	//lg longueur du nombre
+	
+fonction CalculBase(entrée chaineSaisie: chaineS, entrée base: entier, entrée indice: entier, entrée lg: entier): entier
+	// cette fonction retourne un entier du  résultat d'un nombre trouvé dans la chaine avec la base donnée
+	
+	// chaineSaisie est la chaine de caractère avec les nombres
+	
+	// base la base a utiliser
+	
+	// indice la position juste après le nombre trouvé dans la chaine
+	
+	// lg longueur du nombre dans la chaine
+	
+
+
+5-Algo de principe :
+
+l'utilisateur saisie une chaine de caractère de nombre séparé par un espace
+
+l'utilisateur saisie la valeur de la base comprise 2 et 16
+
+on cherche un nombre
+
+tantqu il y a un nombre
+
+	on calcul sa base
+	
+	on ajoute le resultat
+	
+	on cherche un nombre
+	
+on retourne le resultat

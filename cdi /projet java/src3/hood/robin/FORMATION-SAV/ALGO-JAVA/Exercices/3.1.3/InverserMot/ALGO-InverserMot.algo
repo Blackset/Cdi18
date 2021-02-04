@@ -1,0 +1,69 @@
+1-Entrée / Sortie : 
+
+chaineSaisie: chaineS	--->	InverserMot		---> chaineInversé: chaineI
+
+2-Constantes / Types :
+
+//CONSTANTES
+TAILLESAISIE= 80		// Taille du tableau de chaine saisie
+TAILLEINVERS= 80		// Talle du tableau de chaine inversé
+ESPACE= ' '				// séparateur de mot
+CARACFIN= '.'			// terminateur de phrase
+
+//TYPES
+chaineS= tableau[TAILLESAISIE]caractère		//Tableau de caractère pour la chaine de saisie
+chaineI= tableau[TAILLEINVERS]caractère		//Tableau de caractère pour la chaine de mot inversé
+
+3-Jeu d essai :
+
+chaineSaisie				|			chaineInversé			
+---------------------------------------------------------------------------------
+le#####chat####est#gris##.	|		el#tahc#tse#sirg.
+
+
+4-Interfaces :
+
+fonction InverserMot(entrée chaineSaisie: chaineS):chaineI
+	// cette fonction retoune une nouvelle chaine avec le caractère des mots inversé et 
+	// les espaces superflu supprimés
+
+
+procédure ChercherMotDansPhrase(entrée chaineSaisie: chaineP, entrée sortie i: entier, sortie lMotTrouver: entier)
+	// Cette procédure cherche un mot dans une phrase et la position après le mot trouvé et la longueur du mot
+	
+	// chaineSaisie est le tableau de caractère contenant la phrase à analyser
+	
+	// i en entrée indice de départ pour chercher un mot
+	// i en sortie indice juste après le mot, ou sur le point
+	
+	// lMotTrouver est la longueur du mot à rechercher ou zero si plus de mot (i sur le point)
+
+procédure CopierMotInversé(entrée chaineSaisie: chaineS, entrée i : entier, entrée lMotTrouver : entier,
+					 entrée/sortie chaineInversé : chaineJ, entrée/sortie j : entier)
+	// cette procédure  permet de copier les mots à l'envers dans une nouvelle chaine
+	
+	// chaineSaisie est la chaine à copier
+	
+	// i est l'indice juste après le mot dans la phrase
+	
+	// lMotTrouver est la longueur du mot à copier
+		
+	// chaineInversé: est la chaine où l'on copie les mots à l'envers
+	
+	// j : -en entrée : indice où nous écrirons le mot 
+	//	  	-en sortie : indice après le mot copier	
+	
+
+5-Algo de principe :
+
+on cherche un mot
+
+tantqu on trouve un mot
+
+		on copie les lettres du mot en partant de la fin du mot
+
+		on ajoute un espace après le mot maintenant inversé
+		
+		on cherche un mot
+
+on termine en ajoutant le point dans la nouvelle chaine

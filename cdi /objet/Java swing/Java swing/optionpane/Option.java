@@ -1,0 +1,91 @@
+import javax.swing.*;
+import java.awt.*;
+public class Option extends JFrame
+{
+	
+	public Option()
+	{
+		setTitle("test JOptionPane");
+		getContentPane().setBackground(Color.orange);
+		setBounds(100,100,400,400);
+		setVisible(true);
+		
+		// boites de messages d'informations
+		// ici je n'ai pas utilisé d'internal frame car ces fenetres 
+		// internes ne sont pas modales
+		// pour créer des fenetres internes il faut rajouter Internal après show
+		// showInternalMessageDialog
+		JOptionPane.showMessageDialog(this.getContentPane(),"juste un message");
+		JOptionPane.showMessageDialog(this.getContentPane(),"un message, un titre et un type",
+				"voici le titre",
+				JOptionPane.WARNING_MESSAGE);
+		// voir les autres types de messages de la classe JOptionPane
+		JOptionPane.showMessageDialog(this.getContentPane() ,"un icone en plus",
+				"voici le titre",
+				JOptionPane.ERROR_MESSAGE,
+				new ImageIcon("rabbit.gif"));
+		
+		// messages
+		
+		int retour;
+		retour = JOptionPane.showConfirmDialog(this.getContentPane(),"juste un message");
+		retour = JOptionPane.showConfirmDialog(this,"message et toutes options",
+				"voici le titre",
+				JOptionPane.YES_NO_OPTION);
+		retour = JOptionPane.showConfirmDialog(this.getContentPane() ,"juste un message",
+				"voici le titre",
+				JOptionPane.OK_CANCEL_OPTION,
+				JOptionPane.WARNING_MESSAGE);
+		retour = JOptionPane.showConfirmDialog(this,"juste un message",
+				"voici le titre",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				new ImageIcon("rabbit.gif"));
+		// ici le code retour n'est pas exploité, mais on pourrait le tester
+		// if (retour == JOptionPane.YES_OPTION)
+		// les autres options étant no, cancel, ok, closed
+		
+		// création de boîtes de saisie
+		Object []choix = {"mickey","minnie","pluto","donald"};
+		Object []grandchoix = {"0","1","2","3","4","5","6","7","8","9","10",
+				"11","12","13","14","15","16","17","18","19","20","21"};
+		String s = JOptionPane.showInputDialog("donnez votre nom");
+		s = JOptionPane.showInputDialog(this,"donnez votre nom",
+				"saisie informations",JOptionPane.INFORMATION_MESSAGE);
+		Object o;
+		// utilisation d'un TextField pour la saisie
+		o = JOptionPane.showInputDialog(this,"donnez votre nom",
+				"saisie informations",JOptionPane.INFORMATION_MESSAGE,
+				new ImageIcon("rabbit.gif"),null,"lapin");
+		// o est l'object sélectionné, on peut en faire ce qu'on veut
+		// c'est un composant JComboBox qui est utilisé
+		o = JOptionPane.showInputDialog(this.getContentPane() ,
+				"donnez votre nom",
+				"saisie informations",JOptionPane.INFORMATION_MESSAGE,
+				new ImageIcon("rabbit.gif"),choix,choix[0]);
+		// ici c'est un composant JList qui est séléctionné
+		o = JOptionPane.showInputDialog(this,"donnez votre nom",
+				"saisie informations",JOptionPane.INFORMATION_MESSAGE,
+				new ImageIcon("rabbit.gif"),grandchoix,grandchoix[0]);
+		
+		// création d'un dialogue complexe
+		Object []option = {"un peu", "beaucoup", "passionnément", "à la folie",
+		"pas du tout"};
+		JList liste = new JList(choix);
+		
+		JComboBox combo = new JComboBox(grandchoix);
+		Object[] message = {"Nom: ",new TextField(12),"Numéro: ",
+				combo, "personnage: ", liste};
+		JOptionPane pane = new JOptionPane();
+		pane.setIcon(new ImageIcon("rabbit.gif"));
+		pane.setMessage(message) ;
+		pane.setOptions(option);
+		pane.setInitialValue(option[0]);
+		JDialog dial = pane.createDialog(null, "saisie complexe") ;
+		dial.setResizable(false);
+		dial.setVisible(true);
+		System.out.println(pane.getValue());
+		// récupération du label du bouton cliqué
+		// les valeurs sont récupérées par les composants graphiques.
+	}
+}

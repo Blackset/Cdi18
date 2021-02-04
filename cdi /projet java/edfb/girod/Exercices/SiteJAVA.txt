@@ -1,0 +1,50 @@
+http://www.jmdoudoux.fr/java/dej/chap-syntaxe.htm
+
+http://www.commentcamarche.net/contents/561-java-les-operateurs
+
+
+Switch (ope)
+{
+	case '+': System.out.println ("Le résultat est :" + (nbr1 + nbr2)) ;
+	case '-': System.out.println ("Le résultat est :" + (nbr1 - nbr2)) ;
+	case '*': System.out.println ("Le résultat est :" + (nbr1 * nbr2)) ;
+	
+	case '/': if (nbr2=0)
+				}
+					System.out.println ("Erreur : Division par 0.) ;
+				}
+				else
+				{
+					System.out.println ("Le résultat est :" + (nbr1 / nbr2)) ;
+				}
+	
+	default : System.out.println ("Opérateur attendu + - * /. Relancer le programme." ) ; 
+}
+
+
+Do
+{
+		Switch (ope)
+		{
+			case '+': System.out.println ("Le résultat est :" + (nbr1 + nbr2)) ;
+						break;
+			case '-': System.out.println ("Le résultat est :" + (nbr1 - nbr2)) ;
+						break;
+			case '*': System.out.println ("Le résultat est :" + (nbr1 * nbr2)) ;
+						break;
+			
+			case '/': if (nbr2=0)
+						}
+							System.out.println ("Erreur : Division par 0.) ;
+						}
+						else
+						{
+							System.out.println ("Le résultat est :" + (nbr1 / nbr2)) ;
+						}
+						break;
+			
+			default : 	break;
+		}
+}
+While (ope<>'+' && ope<>'-' && ope<>'*' && ope<>'/')  // OU ||
+System.out.println ("Opérateur attendu + - * /. Recommencez en faisant attention..." ) ; 

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;Operande&apos; in &apos;Operateur.saisirOperande(...)&apos; to &apos;operande&apos;&#x0D;&#x0A;- Original project: &apos;Brouillon&apos;&#x0D;&#x0A;- Original element: &apos;Operateur.saisirOperande(String).Operande&apos;&#x0D;&#x0A;- Renamed element: &apos;Operande&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;Operande&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Operateur.java[Operateur~saisirOperande~QString;@Operande!893!905!897!904!I!0!false" name="operande" references="true" stamp="1446127909228" version="1.0"/>
+</session>

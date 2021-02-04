@@ -1,0 +1,42 @@
+Entrées/Sorties :
+
+Chaine				--->
+						
+TAILLECHAINEASCII	--->	ConversionHexa		---> ChaineHexa
+
+TAILLECHAINEHEXA 	--->
+
+Jeu d'essai :
+
+Chaine					|		ChaineHexa				
+-------------------------------------------------------------------------------
+A						|		41
+AB						|		4142
+EFGHIJK					|		45464748494A4B
+LMNOPQRS				|		4C4D4E4F505152
+      
+programme : TestConversionHexa
+
+//CONSTANTES
+TAILLECHAINEASCII = 50;	//Taille du tableau de chaine ASCII 
+TAILLECHAINEHEXA = 100 //Taille du tableau de chaine HEXA
+
+//TYPES
+chaineA = tableau[TAILLECHAINEASCII]caractère; //Tableau de caractère ASCII 
+chaineH = tableau[TAILLECHAINEHEXA]caractère; //tableau de caractère HEXA
+
+//VARIABLES
+Chaine : chaineA; // Chaine de caractère ASCII
+ChaineHexa : chaineH; // Cahine de caractère HEXA
+
+//PROCEDURES
+procédure ConversionHexa(entrée Chaine: chaineA, sortie ChaineHexa: chaineH)
+
+début
+	écrire("Tapez votre commande")
+	lire(Chaine)
+	
+	ConversionHexa(Chaine, ChaineHexa)
+
+	écrire(ChaineHexa)
+fin

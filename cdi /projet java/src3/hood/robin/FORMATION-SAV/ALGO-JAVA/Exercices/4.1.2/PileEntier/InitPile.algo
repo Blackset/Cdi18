@@ -1,0 +1,10 @@
+fonction init_pile(): pile
+	// cette fonction positionne l'indice au début de la liste
+variables
+	liste: pile
+début
+	// on positionne l'indice avant le premier élément de la liste
+	liste.indice:= 0
+	
+	retourner liste
+fin

@@ -1,0 +1,45 @@
+// Alexandre / Erwan
+
+
+// Jeu de test :
+// Caractère entrée			Clef			caractère retourné
+// 'b'	(98)				4				'f' (102)
+// 'x'	(120)				6				'd' (100)
+
+
+
+fonction crypterCarac(entrée car : caractère, entrée clef : entier) : caractère
+	// crypte un caractère en ajoutant la clef au code du caractère
+	// le suivant de 'z' est 'a'
+	// car : caractère à crypter
+	// clef : clef de cryptage
+	// retourne le caractère crypté
+Fonctions
+	
+	Coder(entrée car : caractère) : entier
+		// retourne l'entier correspondant au caractère ascii donné
+		// entrée car : le caractère dont on cherche la valeur entière ascii
+		
+	Ascii(entrée val : entier) : caractère
+		// retourne le caractère ascii correspondant à l'entier donné
+		// entrée val : l'entier dont on veut le caractère correspondant selon la table ascii
+	
+Constantes
+	MIN := Coder('a') // minimum de l'intervalle ascii des lettres minuscules
+	MAX := Coder('z') // maximum de l'intervalle ascii des lettres minuscules
+	
+Variables
+	carCrypté : caractère; // le caractère crypté
+	ecart : entier // écart entre MIN et MAX, c'est la longueur de l'intervalle ascii valide
+	//difference : entier // différence entre car + clef et MAX, nombre de caractères restants après avoir atteint le MAX
+	
+Début
+	ecart = MAX - MIN + 1
+	carCrypté = Ascii(Coder(car) + clef Mod ecart)
+	Si carCrypté > MAX alors
+		//difference = (Coder(car) + clef Mod ecart) - MAX - 1
+		//carCrypté = Ascii(MIN + difference)
+		carCrypté = Ascii(Code(carCrypté) - ecart)
+	FinSi
+	retourner carCrypté
+Fin

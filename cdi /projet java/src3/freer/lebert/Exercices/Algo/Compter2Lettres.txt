@@ -1,0 +1,58 @@
+Phrase				Lettre1		Lettre2		Nb2Lettres
+azerty.				a			z			1
+					a			e			0
+					a			a			0
+abababa.			a			b			3
+					b			a			3
+aaa.				a			a			2
+.					l			e			0
+
+
+Procedure Compter2Lettres(entrée pPhrase : Chaine, entrée pLettre1 : caractere, entrée pLettre2 : caractere, entrée pStop : caractere, sortie pNb2Lettres : entier)
+// compter les occurences de deux lettres successives dans une phrase
+// pPhrase : phrase à étudier
+// pLettre1 : première lettre à étudier
+// pLettre2 : deuxième lettre à étudier
+// pStop : caractère de terminaison donné
+// pNb2Lettres : nombre de fois que l'on rencontre la suite de lettre donnée
+Variables
+	Position : entier			// position dans la phrase
+Début
+	// initialisation
+	Position := 1
+	pNb2Lettres := 0
+	TantQue pPhrase[Position] <> pStop et pPhrase[Position + 1] <> pStop faire
+		// tester une lettre et sa suivante
+		Si pPhrase[Position] = pLettre1 et pPhrase[Position + 1] = pLettre2 alors
+			pNb2Lettres := pNb2Lettres + 1
+		FinSi
+		Position := Position + 1
+	FinTantQue
+Fin
+
+Programme TestCompter2Lettres
+// programme de test
+Constante
+	N = 50									// taille du tableau
+Type
+	Chaine = tableau [N] de caractere		// tableau de caractères
+Variables
+	Phrase : Chaine							// phrase saisie par l'utilisateur
+	Lettre1 : caractere						// première lettre saisie par l'utilisateur
+	Lettre2 : caractere						// deuxième lettre saisie par l'utilisateur
+	Nb2Lettres : entier						// nombre de fois que l'on rencontre la suite de lettres donnée
+	Stop : caractere						// caractere de fin de phrase donné
+Procédure
+	Compter2Lettres(entrée pPhrase : Chaine, entrée pLettre1 : caractere, entrée pLettre2 : caractere, entrée pStop : caractere, sortie pNb2Lettres : entier)		// compte le nombre de fois que la suite de lettres apparait
+Début
+	ecrire("Saisir un caractère de terminaison : ")
+	lire(Stop)
+	ecrire("Saisir une phrase : ")
+	lire(Phrase, Stop)
+	ecrire("Saisir la première lettre recherchée : ")
+	lire(Lettre1)
+	ecrire("Saisir la deuxième lettre recherchée : ")
+	lire(Lettre2)
+	Compter2Lettres(Phrase, Lettre1, Lettre2, Stop, Nb2Lettres)
+	ecrire("La suite de lettres apparait ", Nb2Lettres, " fois.")
+Fin

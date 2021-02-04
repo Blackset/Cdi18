@@ -1,0 +1,55 @@
+/****
+Procédure 	: crypterPhrase
+Auteur		: Yoann et Anthony
+Mise à jour	: 14/10/2016
+
+****/
+
+
+
+/*
+Constantes
+STOP = '.' //terminateur de phrase
+SEPARE = ' ' //séparateur de mots
+N = 80 //taille des chaines traitées
+
+Types
+chaine = tableau de [N] caractères //types des phrases
+chaineCryptée =  tableau de [N] caractères //type des chaines cryptées
+
+*/
+
+procédure crypterPhrase( entrée phrase : chaine, sortie phraseCryptée : chaineCryptée)
+	//Cette procédure permet de crypter une phrase.
+	//Le codage consiste à réécrire chaque mot dans un alphabet décalé, le décalage étant égal au numéro du mot dans la phrase.
+	//Le caractère suivant un 'z' est un 'a'.
+	//Les mots numéro 26 et suivants ne seront pas codés.
+	//Un minimum d'espaces seront conservés dans la phrase cryptée.
+	//phrase : il s'agit de la phrase que l'on souhaite crypter.
+	//phraseCryptée : il s'agit de la phrase obtenue après le cryptage.
+
+	
+// variables
+
+i : entier		// curseur sur <phrase>  (non cryptée)
+lg : entier		// longueur de mot
+NoMot : entier	// numéro du mot 
+j : entier		// curseur sur <phraseCryptée> 
+
+Début
+	NoMot := 0
+	i := 1
+	j := 1
+	chercherMot(phrase, i , lg)
+	tantQue ( lg <> 0 ) Faire		
+		NoMot : = NoMot+1		
+		crypterMot( phrase, i, lg, NoMot, phraseCryptée, j )		
+		chercherMot(phrase, i , lg)	
+		Si ( lg <> 0 ) alors			
+			phraseCryptée[j] := SEPARE
+			j := j+1	// puisqu'on a ajouter un caractère ( SEPARE )			
+		finSi	
+	finTantQue
+	phraseCryptée[j] := STOP
+Fin
+

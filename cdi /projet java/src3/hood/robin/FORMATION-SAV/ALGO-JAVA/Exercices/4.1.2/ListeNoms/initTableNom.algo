@@ -1,0 +1,25 @@
+procédure initTableNom(entrée sortie listeNom: tablenom)
+	// cette procédure initialise la tablenom en mettant les indices
+	// libre à 1 et premier à 0
+	
+	// listeNom en entrée est la liste dont on veut initialiser les indices
+	//			en sortie la liste avec les indices initialisés
+	
+	i : entier
+début
+
+	i:= 1		// on met l'indice du premier élement libre
+							// en début de listeNom
+
+	// on initialise les indices suivant des libres
+	tantque i < tailtable faire
+	// arrêt quand l'indice est sur la fin de liste
+		listeNom[i].suivant:= i + 1
+		i:= i + 1
+	fintantque
+	listeNom[i].suivant:= final
+	listeNom.libre:= 1		// on remet l'indice libre au début 
+							
+	listeNom.premier:= final	// il n'y a pas d'élément dans listeNom
+
+fin

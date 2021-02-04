@@ -1,0 +1,21 @@
+fonction CompterMot(entrée phraseSaisie: chaineS): entier
+	// cette fonction retourne le nombre de mot contenu dans une phrase terminée par un point
+
+//VARIABLE
+i: entier		// Indice de parcours de la chaine
+nbrMot: entier	// Nombre de mot trouvé
+	
+début
+	i := 0
+	
+	répéter
+	
+		ChercherMotDansPhrase(phraseSaisie, i, lMotTrouver)	
+	
+		nbrMot := nbrMot + 1 		
+	
+	jusquà (lMotTrouver > 0)		
+	// arrêt quand la longueur = 0
+		
+	retourner nbrMot
+fin

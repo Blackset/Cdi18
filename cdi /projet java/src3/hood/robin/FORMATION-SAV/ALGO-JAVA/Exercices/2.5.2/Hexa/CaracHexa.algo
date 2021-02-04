@@ -1,0 +1,32 @@
+fonction CaracAlphaHexa(entrée CaracEntier: entier): caractère
+	//Cette procédure traduit un entier en caractère hexa
+	
+	//CaraAlphaHexa caractère hexa
+	
+//VARIABLES
+CaracAlphaHexa : caractère; // Caractère HEXA de sortie
+	
+début
+	choix sur CaracEntier faire
+		// conversion valeur entier vers valeur hexa
+		0 : CaracAlphaHexa := '0'
+		1 : CaracAlphaHexa := '1'
+		2 : CaracAlphaHexa := '2'
+		3 : CaracAlphaHexa := '3'
+		4 : CaracAlphaHexa := '4'
+		5 : CaracAlphaHexa := '5'
+		6 : CaracAlphaHexa := '6'
+		7 : CaracAlphaHexa := '7'
+		8 : CaracAlphaHexa := '8'
+		9 : CaracAlphaHexa := '9'
+		10 : CaracAlphaHexa := 'A'
+		11 : CaracAlphaHexa := 'B'
+		12 : CaracAlphaHexa := 'C'
+		13 : CaracAlphaHexa := 'D'
+		14 : CaracAlphaHexa := 'E'
+		15 : CaracAlphaHexa := 'F'
+		autrecas :
+	finchoix		
+
+	retourner CaraAlphaHexa
+fin

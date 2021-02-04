@@ -1,0 +1,48 @@
+Procédure Ajouter(entrée sortie pRef : Référence, entrée pVal : entier)
+// ajouter un élément à la liste
+Début
+	TantQue pRef->.Suivant <> null faire
+		pRef := pRef.Suivant
+	FinTantQue
+	pRef->.Valeur := pVal
+Fin
+
+Procédure Récupérer(entrée sortie pRef : Référence, sortie pVal : entier)
+// récupérer un élément de la liste
+Variable
+	Temp : Référence
+Début
+	Si pRef->.Suivant <> null alors
+		pVal := pRef->.Valeur
+		Répéter
+			Temp := pRef
+			pRef := pRef->.Suivant
+			pRef->.Suivant := Temp
+		Jusqu'à pRef->.Suivant <> null
+	Sinon
+		pVal := pRef->.Valeur
+	FinSi
+Fin
+
+Programme ListeDynamique
+// créer une liste dynamique gérée en FIFO
+Types
+	Référence = Pointeur de Element
+	Element = Enregistrement
+		Valeur : entier
+		Suivant : Référence
+	FinEnregistrement
+Procédures
+	Ajouter(entrée sortie Ref : Référence, entrée Val : entier)
+	Récupérer(entrée sortie pRef : Référence, sortie pVal : entier)
+Variables
+	Val : entier
+	Ref : Référence
+Début
+	Ecrire("Saisir valeur à ajouter : ")
+	Lire(Val)
+	Créer(Ref)
+	Ajouter(Ref, Val)
+	Récupérer(Ref, Val)
+	Ecrire(Val, " a été retiré.")
+Fin

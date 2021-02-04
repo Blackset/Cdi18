@@ -1,0 +1,61 @@
+fonction ajouterTableNom(entrée sortie listeNom: tablenom, entrée nouvNom: chainenom): booléen
+	// cette fonction permet d'ajouter un nom à listeNom elle renvoit faux si la table est pleine, vrai si le nom est ajouté
+	
+	// listeNom en entrée est la liste dans laquelle on ajoute un nom
+	//			en sortie la liste avec le nouveau nom
+	
+	// nouvNom est le nom à ajouter à la liste
+	
+fonction comparerMot(entrée nouvNom: chainenom, entrée nom: chainenom): booléen
+	// cette fonction permet de comparer 2 chaines elle renvoie vrai si nouvNom est 	
+	// supérieur à nom
+	
+	// nouvNom est le nouveau nom à comparer avec le nom déja présent dans la liste
+	
+	// nom est le nom présent dans la liste
+
+// VARIABLES
+ajout: booléen		// vrai si l'ajout à réussie, faux si la liste est pleine
+nindice: entier		// l'indice du nouvel élément
+pnom: entier		// indice précèdent des noms
+
+
+début
+	
+	ajout:= faux
+	pnom:= final	
+
+	si listeNom.libre <> final alors
+		// on ajoute le nouveau nom si il y a de la place dans la liste
+		
+		nindice:= listeNom.libre									// on récupère l'indice du nouveau nom
+		
+		listeNom.libre:= listeNom.table[listeNom.libre].suivant		// on met à jour le premier indice libre
+
+		listeNom.table[nindice].nom:= nouvNom						// on ajoute le nouveau nom à la liste
+		
+		listeNom.table[nindice].suivant := listeNom.premier			// on met l'indice suivant du nouvel élément sur le premier
+		
+		tantque ((listeNom.table[nindice].suivant > final) et comparerMot(listeNom.table[nindice].nom, listeNom.table[listeNom.table[nindice].suivant].nom)) faire
+		// arrêt quand le nom est inférieur ou quand il n'y a plus de nom
+		
+			pnom:= listeNom.table[nindice].suivant 			// on garde l'indice précédent
+			
+			listeNom.table[nindice].suivant := listeNom.table[pnom].suivant	// on récupère l'indice suivant 		
+
+		fintantque
+		
+		si pnom = final alors
+		// si il n'y a pas d'élément précédent
+			listeNom.premier:= nindice
+		sinon
+			listeNom.table[pnom].suivant:= nindice	// le nom précédent fait pointer 
+													// son indice suivant sur le nouvel indice
+		finsi
+
+		ajout:= vrai
+
+	finsi
+	
+	retourner ajout	
+fin

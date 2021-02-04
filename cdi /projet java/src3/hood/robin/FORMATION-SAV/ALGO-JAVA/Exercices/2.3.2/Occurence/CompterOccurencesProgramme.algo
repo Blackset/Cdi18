@@ -1,0 +1,55 @@
+Entrées/Sorties :
+
+Texte 			--->      
+			
+CaracFin		---> 	CompterOccurences	--->	NbrOccurence
+
+MonOccurence 	--->
+
+Jeu d'essai :
+-------------------------------------------------------------------------------------------------------
+	caracfin		|	phrase			| 		occurence		|		nbrocurence		|	OK?
+-------------------------------------------------------------------------------------------------------
+		.			|le chat est bleu.	|			el			|			0			|	
+		.			|le chat est bleu.	|			le			|			2			|	
+		.			|.					|			le			|			0			|	
+		e			|		le			|			le			|			0			|
+		.			|		lel.		|			le			|			2			|
+		.			|		lll.		|			ll			|			2			|
+
+		
+programme : CompterOccurencesProgramme
+
+//CONSTANTES
+TAILLECHAINE = 80; //Taille du tableau de caractère
+TAILLEOCCURENCE = 2; //Taille du tableau de caractère contenant l'occurence
+
+//TYPES
+chaine = tableau[TAILLECHAINE]caractère; //Déclaration du tableau de caractère pour le texte
+occurence = tableau[TAILLEOCCURENCE]caractère; // Déclaration du tableau de caractère pour l'occurence
+
+//VARIABLES
+Texte : chaine; //Chaine de caractère
+CaracFin : caractère;
+MonOccurence : occurence; //Caractère a rechercher dans la chaine
+NbrOccurence : entier; // Nombre d'occurence trouvée dans Texte
+
+//PROCEDURES
+procédure CompterOccurence(entrée Texte : chaine, entrée CaracFin : caractère, entrée Occurence : occurence, sortie NbrOccurence : entier)
+
+début
+	
+	écrire("Tapez les 2 lettres de l'occurence a rechercher")
+	lire(MonOccurence)
+	
+	écrire("Tapez un caractère de fin de phrase")
+	lire(CaracFin)
+	
+	écrire("Tapez une phrase")
+	lire(Texte)
+		
+	CompterOccurence(Texte, CaracFin, MonOccurence, NbrOccurence)
+
+	écrire("Le nombre d'occurence est :", NbrOccurence)
+
+fin

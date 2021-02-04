@@ -1,0 +1,89 @@
+package ExoObjet;
+
+public class Saisie
+{
+	final static int MAX = 20;
+
+	/**
+	 * cette fonction demande à l'utilisateur de rentrer le nuemro de l'Individu
+	 * @param table d'Individu
+	 */
+
+	public void lireIndividu(Individu[]tab) 
+	{  
+
+		for  (int i = 0; i < tab.length;  i++)
+		{		  			   
+			{  				
+				System.out.println ("entrer l'individu n°:" +( i )+" " ); 
+				tab[i] = new Individu();   // initialisation de chaque case du tableau  
+				tab[i].lire();
+			}	  			
+		}
+	}
+	/**
+	 * cette fonction demande à l'utilisateur s'il continue ou pas 
+	 * @param aucun
+	 * @return true si on veut continuer
+	 */
+
+	public static boolean veutContinuer()
+	{
+
+		char reponse;
+
+		System.out.println ("voulez-vous continuer?");
+		reponse = Character.toLowerCase(Lire.c());
+
+		while (reponse!='o' && reponse !='n')
+		{
+			System.out.println ( "voulez-vous continuer?");
+			reponse = Character.toLowerCase(Lire.c());
+		}
+		return reponse == 'o'; 
+	}
+
+	public void afficher (Individu[]tab)
+	{
+
+		for (int i = 0;  i < tab.length; i++) 
+		{
+			tab[i].afficher();  
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

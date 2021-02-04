@@ -1,0 +1,78 @@
+programme : TestChercherMot
+
+//CONSTANTES
+
+LCHAINEP= 80	// Taille de la phrase
+
+CARAFIN= '.'	// Caractère de fin de phrase
+
+ESPACE= ' '		// Caractère de séparation
+
+LCHAINEM= 26	// Taille du mot
+
+//TYPES
+
+chaineP = tableau[LCHAINEP]caractère // tableau de type chaineP pour la phrase
+
+chaineM = tableau[LCHAINEM]caractère // tableau de type chaineM pour le motExist
+
+
+//VARIABLES
+phrase: chaineP			// Phrase dans laquelle nous cherchons un mot
+
+mot: chaineM			// Mot à chercher dans la phrase
+
+lMotChercher: entier	// Longueur du mot à chercher dans la phrase
+
+motExist: booléen		//Si le mot existe dans la phrase
+
+//PROCEDURES
+fonction ChercherMot(entrée phrase: chaineP, entrée mot: chaineM, entrée lMotChercher: entier): booléen
+	// Cette procédure cherche un mot dans une phrase et renvoie vrai ou faux si le mot est présent ou non dans la phrase
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// mot est le tableau de caractère contenant le mot à rechercher dans phrase
+	
+	// lMot est la longueur du mot à rechercher
+	
+	// motExist	renvoie vrai si le mot est trouvé dans la phrase, faux si non trouvé
+	
+procédure ChercherMotDansPhrase(entrée phrase: chaineP, entrée sortie i: entier, sortie lMotTrouver: entier)
+	// Cette procédure cherche un mot dans une phrase et renvoie vrai la position après le mot trouvé et la longueur du mot
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// i en entrée indice de départ pour chercher un mot
+	// i en sortie indice juste après le mot, ou sur le point
+	
+	// lMotTrouver est la longueur du mot à rechercher ou zero si plus de mot (i sur le point)
+
+procédure ComparerMot(entrée phrase: chaineP, entrée mot: chaineM, entrée i: entier, entrée lMotTrouver: entier, entrée lMotChercher: entier, sortie motExist: booléen )
+	// Cette procédure compare 2 mots et renvoie vrai si les mots sont identiques ou faux si ils sont différent
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// mot le mot à comparer
+	
+	// i est l'indice de positionnement après le mot dans le phrase
+	
+	// lMotTrouver est la longueur du mot trouvé dans la phrase
+	
+	// lMotChercher est la longueur du mot à comparer
+	
+	// Motexist donne vrai si les mots sont identiques et faux si différents	
+
+
+début
+	écrire('Tapez un phrase terminée par un point : ')
+	lire(phrase)
+	écrire('Tapez un mot à trouver dans la phrase : ')
+	lire(mot)
+	écrire('Tapez la longueur du mot à trouver dans la phrase : ')
+	lire(lMotChercher)	
+	écrire("le mot est présent : ", ChercherMot(phrase, mot, lMotChercher))
+fin
+
+
+

@@ -1,0 +1,54 @@
+Entrée/Sortie :
+
+TAILLETABLEAU	--->					--->	tailleTabUtilisateur
+						RemplirTableau			
+tab				--->					--->	tab
+
+--------------------------------------------------
+
+tab	--->	TriTableauEntier	--->	tab
+
+--------------------------------------------------
+
+tab						--->						
+								AfficherTableau			
+tailleTabUtilisateur	--->					
+
+--------------------------------------------------
+
+Jeu d'essai :
+
+Tab			|		Tab(trié)		|		OK?
+--------------------------------------------------
+2 5 4 1		|		1 2 4 5			|
+1 1 1 1		|		1 1 1 1			| 
+1 2 2 1		|		1 2 2 1			|
+
+programme : TestTriTableauEntier
+
+//CONSTANTES
+TAILLETABLEAU = 80; //Taille du tableau d'entier
+
+//TYPES
+tabentier = tableau[TAILLETABLEAU]entier; //déclaration du tableau d'entier
+
+//VARIABLES
+tab : tabentier; // tableau d'entier
+i : entier;
+tailleTab : entier; // taille du tableau d'entier défini par l'utilisateur
+
+
+//PROCEDURES
+procédure RemplirTableau(entrée sortie tab : tabentier, sortie tailleTabUtilisateur : entier)
+procédure TriTableauEntier(entrée sortie tab : tabentier, entrée tailleTabUtilisateur : entier)
+procédure AfficherTableau(entrée tab : tabentier, entrée tailleTabUtilisateur : entier)
+
+début
+
+	RemplirTableau(tab, tailleTab)
+
+	TriTableauEntier(tab, tailleTab)
+	
+	AfficherTableau(tab, tailleTab)
+	
+fin

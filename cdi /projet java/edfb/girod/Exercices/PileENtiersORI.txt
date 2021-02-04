@@ -1,0 +1,159 @@
+manipuler une pile d’entiers gérée avec un tableau et un indice. 
+ 
+ Une pile d’entiers est une structure de données qui permet de stocker des entiers et de les restituer dans un ordre bien précis. 
+ 
+ Ces données seront restituées une à une sur demande selon la règle : dernière entrée, première sortie    ( LIFO: Last In First Out ). Ceci correspond à l'usage habituel d'une pile d'assiettes ou de torchons. 
+ 
+ Cette pile est réalisée à l’aide d’un tableau d’entier et d’un indice de parcours. 
+ 
+ 
+1) Donnez le principe de fonctionnement avec les structures de données de cette pile (ajout et retrait d’un élément) en étudiant particulièrement ce qui se passe quand le tableau est vide et quand il est plein. 
+ 
+2) Donnez les interfaces des procédures « init_pile », « empiler », « dépiler ». 
+ 
+3) Donnez les algoritmes des trois procédures. 
+
+
+Constantes taille = 50 // taille du tableau contenant les entiers  à empiler   
+ 
+ Type pile = Enregistrement  // type des piles d’entiers         
+	 table : tableau [ taille ] de entier  // table permet de ranger les informations       
+	 indice : entier  // indice indique le nombre d’élément dans table    
+	 Finenregistrement 
+	 
+
+
+La pile est vide quand le nombre d’éléments de la pile vaut 0. 
+La pile est pleine quand le nombre d’éléments de la pile est « taille ». 
+ 
+« empiler » et « dépiler » sont des fonctions qui retournent un booléen qui indique si la fonction s’est bien déroulée. 
+Si une pile vide est dépilée, la fonction retourne un compte rendu à faux, et l’entier dépilé est quelconque. 
+Si une pile pleine est empilée, la fonction retourne un compte rendu à faux, et l’entier à empiler n’est pas empilé. 
+Dans les autres cas ces deux fonctions retournent des comptes rendus à vrai. 
+
+
+
+
+
+
+	 
+Procédure init_pile ( Sortie lifo : pile ) 
+ 
+  // Cette procédure permet d’initialiser une pile, c’est à dire qu’elle n’ait aucun élément  
+ 
+  // lifo est la pile initialisée         
+ 
+ 
+ Fonction empiler ( Entrée Sortie lifo : pile, Entrée val : entier ) : booléen      
+ // Cette fonction permet d’insérer un élément dans la pile.      
+ // Si la pile est pleine, la fonction ne fait rien, mais retourne faux.   
+ 
+  // lifo est en entrée la pile dans laquelle on veut empiler      
+  //    en sortie la pile dans laquelle val est empilé si possible     
+  // val est la valeur à empiler        
+ 
+  // la fonction retourne vrai si val a été empilé, faux sinon    
+ 
+ 
+ Fonction dépiler ( Entrée Sortie lifo : pile, Sortie val : entier ) : booléen 
+ 
+  // Cette fonction permet de récupérer l’élément au sommet de la pile.     
+  // Si la pile est vide, la fonction ne fait rien, mais retourne faux    
+ 
+  // lifo est en entrée la pile dans laquelle on veut prendre une valeur     
+  // en sortie la pile sans le sommet, si possible       
+  // val est l’entier qui était au sommet de la pile      
+ 
+  // la fonction retourne vrai si val a été dépilée, faux sinon 
+  
+  
+  
+  
+  Procédure init_pile ( Sortie lifo : pile ) 
+ 
+  // Cette procédure permet d’initialiser une pile, c’est à dire qu’elle n’ait aucun élément  
+ 
+  // lifo est la pile initialisée         
+ 
+ 
+Début      // il n’y a pas d’élément dans la pile  
+ 
+ lifo.indice := 0 
+ 
+Fin 
+
+Fonction empiler ( Entrée Sortie lifo : pile, Entrée val : entier ) : booléen       
+// Cette fonction permet d’insérer un élément dans la pile.      
+// Si la pile est pleine, la fonction ne fait rien, mais retourne faux.   
+ 
+  // lifo est en entrée la pile dans laquelle on veut empiler      
+  //    en sortie la pile dans laquelle val est empilé si possible     
+  // val est la valeur à empiler        
+ 
+  // la fonction retourne vrai si val a été empilé, faux sinon    
+ 
+ 
+Variables ok : booléen // ok est vrai si l’empilage se passe bien 
+ 
+ 
+Début      // si la pile est pleine on ne peut pas empiler  
+ 
+ Si    lifo.indice = taille    Alors   ok := faux 
+ 
+ Sinon  // on range l’élément dans le tableau    
+ lifo.indice := lifo.indice + 1   
+ lifo.table [ lifo.indice ] := val   
+ ok := vrai  
+ Finsi 
+ 
+   // on retourne le compte rendu de l’empilage  
+ 
+ Retourner ( ok ) 
+ 
+Fin
+
+
+Fonction dépiler ( Entrée Sortie lifo : pile, Sortie val : entier ) : booléen 
+ 
+  // Cette fonction permet de récupérer l’élément au sommet de la pile.    
+  // Si la pile est vide, la fonction ne fait rien, mais retourne faux   
+ 
+  // lifo est en entrée la pile dans laquelle on veut prendre une valeur     
+  //   en sortie la pile sans le sommet, si possible      
+  // val est l’entier qui était au sommet de la pile     
+ 
+  // la fonction retourne vrai si val a été dépilée, faux sinon   
+ 
+Variables ok : booléen // ok est vrai si le dépilage se passe bien    
+ 
+Début      // si la pile est vide on ne peut pas dépiler  
+ 
+ Si    lifo.indice = 0    Alors 
+ 
+  ok := faux 
+ 
+ Sinon 
+ 
+   // on prend le sommet du tableau  
+ 
+  val := lifo.table [ lifo.indice ]   
+  lifo.indice := lifo.indice - 1   
+  ok := vrai 
+ 
+ Finsi 
+ 
+   // on retourne le compte rendu de l’empilage  
+ 
+ Retourner ( ok ) 
+ 
+Fin 
+ 
+ 
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,29 @@
+Programme CompterLettres
+// compter une lettre dans une phrase
+Constante
+	N = 50									// taille du tableau
+	STOP = '.'								// caractere de fin de phrase
+Type
+	Chaine = tableau [N] de caractere		// tableau de caractères
+Variables
+	Position : entier						// position dans la phrase
+	NbLettres : entier						// nombre de fois que l'on rencontre la lettre donnée
+	Phrase : Chaine							// phrase saisie par l'utilisateur
+	Lettre : caractere						// lettre saisie par l'utilisateur
+Début
+	// initialisation
+	Position := 1
+	NbLettres := 0
+	ecrire("Saisir une phrase : ")
+	lire(Phrase, STOP)
+	ecrire("Saisir la lettre recherchée : ")
+	lire(Lettre)
+	TantQue Phrase[Position] <> STOP faire
+		// tester une lettre
+		Si Phrase[Position] = Lettre alors
+			NbLettres := NbLettres + 1
+		FinSi
+		Position := Position + 1
+	FinTantQue
+	ecrire("La lettre recherchée apparait ", NbLettres, " fois.")
+Fin

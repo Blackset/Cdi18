@@ -1,0 +1,17 @@
+package ExoObjet;
+
+public class Test
+{
+	 public static void main(String [] argument)
+	 {
+		 Individu leMeilleur = new Individu();
+		 leMeilleur.Nom = "GERRARD"; 
+		 leMeilleur.Prénom = "Jean";
+		 leMeilleur.Adresse = "3 Rue Emile Bouvier 69100 Villeurbanne";
+		 
+		 System.out.println (leMeilleur.Nom+" "+leMeilleur.Prénom+" "+leMeilleur.Adresse+"");
+		 
+		 
+		 
+	 }
+}

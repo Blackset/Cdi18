@@ -1,0 +1,81 @@
+1-Entrée / Sortie : 
+
+phraseSaisie: chaineS	--->
+							
+nbrMot: entier			--->	JustifierPhrase		--->	phraseJustif: chaineJ
+								
+nbrEspace: entier		--->
+
+2-Constantes / Types :
+
+//CONSTANTES
+TAILLESAISIE = 80		// Taille du tableau de caractère saisie par l'utilisateur
+TAILLEJUSTIF = 80		// Taille du tableau de caractère
+CARACFIN = '.'			// Caractère de fin d une chaine
+ESPACE = ' '			// Caractère séparateur mot
+
+//TYPES
+chaineS = tableau[TAILLESAISIE]caractère	// chaineS tableau de caractère pour la chaine saisie
+chaineJ = tableau[TAILLEJUSTIF]caractère	// chaineJ tableau de caractère pour chaine justifiée
+
+3-Jeu d essai :
+
+phraseSaisie						|	phraseJustif				|	 ok
+---------------------------------------------------------------------------------
+le chat est gris    .				|le   chat  est  gris.			|
+    le chat est gris.				|le   chat  est  gris.			|		
+  le chat est gris  .				|le   chat  est  gris.			|
+le#chat#est#gris###.##########		|le####chat#####est#####gris.	|
+
+4-Interface :
+
+procédure CompterIntervalEtMot(entrée phraseSaisie: chaineS, sortie interval: entier, sortie tailleMot: entier )
+	// cette procédure retourne le nombre d'interval entre les mots la taille de tout les mots aditionnés
+	
+	// phraseSaisie est la phrase à vérifiée
+	
+	// interval est nombre d'interval entre chaque mots
+	
+	// tailleMot est la somme de la taille de chaque mot de la phrase
+
+procédure CopierMot(entrée phraseSaisie: chaineS, entrée i : entier, entrée lMotTrouver : entier,
+					 entrée/sortie phraseJustifié : chaineJ, entrée/sortie j : entier)
+	// cette procédure  permet de copier un mot dans une nouvelle chaine
+	
+	// phraseSaisie est la chaine à copier
+	
+	// i est l'indice juste après le mot dans la phrase
+	
+	// lMotTrouver est la longueur du mot à copier
+		
+	// phraseSaisie: phrase à copier
+	
+	// j : -en entrée : indice où nous écrirons le mot 
+	//	  	-en sortie : indice après le mot copier	
+	
+fonction JustifierPhrase(entrée phraseSaisie: chaineS, entrée nbrMot: entier, entrée nbrEspace: entier): chaineJ
+	// cette fonction répartie les espaces selon le nombre de mot, équitablement
+	
+	// nbrMot est le nombre de mot dans phraseSaisie
+	
+	// nbrEspace est le nombre d'ESPACE dans phraseSaisie
+
+5-Algo de principe :
+
+le#chat#est#gris###.##########	
+
+on compte le nombre d interval entre chaque mots
+
+on compte le nombre d espace a ajouter en plus par rapport
+à la taille des mots et la taille du tableau de caracère (sans le CARACFIN)
+
+on justifie la phrase en insérant le nombre d'espace moyen + les espace en plus
+
+a partir du premier interval jusquau dernier
+
+et on ajoute le point
+ 
+
+
+
+

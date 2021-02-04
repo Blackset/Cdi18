@@ -1,0 +1,64 @@
+//Une usine fabrique 
+// des pièces : sphériques(R), cubiques(C) et cylindriques(R x H). 
+//Pour chaque pièce produite on veut connaître 
+// ses dimensions,
+// sa couleur (jaune, vert, bleu, rouge, orange, mauve),
+// son numéro de série 
+// date de fabrication.
+
+//Donnez une structure de donnée permettant de stocker toutes les informations sur les pièces produites par l'usine.
+
+//CONSTANTE
+TAILLESERIE= 30
+TAILLEDATE= 10
+TAILLEDIME= 20
+
+//TYPES
+code= tableau[TAILLESERIE]caractère						// tableau pour le n° de série
+
+enumjours= (lundi, mardi, mercredi, jeudi, 				// énumération des jours pour la date
+			vendredi, samedi, dimanche)
+
+enummois= (janvier, février, mars, avril, mai, 				// énumération des mois pour la date
+		juin, juillet, aout, septembre, 
+		octobre, novembre, decembre)
+
+forme= (sphere, cube, cylindre)							// énumération pour la forme de pièce
+couleur= (jaune, vert, bleu, rouge, orange, mauve) 		// énumération pour la couleur de pièce
+
+date= enregistrement	// date de fabrication
+			
+			joursemaine: enumjours		
+
+			jour: entier				
+			
+			mois: enummois				
+			
+			année: entier
+			
+	  finenregistrement
+
+dimension= enregistrement				// dimension d'une pièce
+
+				formePièce: forme			// forme de la pièce
+					
+				rayon: entier			
+				
+				hauteur: entier							
+
+		   finenregistrement
+
+infopièces= enregistrement	// information sur une pièce
+					
+					numero: code				// numéro de série
+					
+					dateFabrication: date		// date de fabrication
+										
+					couleurPièce: couleur		// couleur de la pièce
+					
+					mesurePièce: dimension		// dimension d'une pièce
+					
+			finenregistrement
+			
+					
+

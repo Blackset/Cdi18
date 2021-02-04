@@ -1,0 +1,175 @@
+package ExoObjet;
+
+public class Individu
+{
+		 private String  m_strNom;
+		 private String  m_strPrénom;
+		 private String  m_strAdresse;
+		 
+		 		 		 
+	 public String getNom()
+			{
+				return m_strNom ;
+			}
+
+	/**
+	 * cette fonction fournie le nom de l'Individu 
+	 * @param nom est le nouveau nom
+	 * @return la fonction retourne vrai si le nom existe
+	 */
+	public boolean setNom (String nom)
+		{
+			if (BoiteàOutil.estAlpha(nom))
+			{
+				this.m_strNom = nom;
+				return true;
+			}
+			
+			else
+			{
+				return false;
+			}
+		}	   
+	public String getPrénom()
+		    {
+				return  m_strPrénom;
+			}
+			
+	/**
+	 * cette fonction fournie le prénom de l'Individu 
+	 * @param prénom est le nouveau prénom
+	 * @return la fonction retourne vrai si le prénom existe
+	 */
+	
+	public boolean setPrénom (String prénom)
+		{
+			if (BoiteàOutil.estAlpha(prénom))
+			{
+			    this.m_strPrénom = prénom;
+				  return true;
+			}
+			else
+			{
+				return false;
+			}
+				
+		}
+	public String getAdresse()
+			{
+				return m_strAdresse;
+			}
+	 
+
+	/**
+	 * cette fonction fournie l'adresse de l'Individu 
+	 * @param adresse est la nouvelle adresse
+	 * @return la fonction retourne vrai si l'adresse existe
+	 */
+	
+	public boolean setAdresse(String adresse)
+	{
+		if (adresse != null)
+			{
+				this.m_strAdresse = adresse;
+	          	 return true;
+			}
+		else 
+		    {
+			    return false;
+		    }
+	   }	 
+	 
+	public void lire ()
+  {
+	boolean phraseJuste;
+	do
+	{ 	
+		System.out.println("Entrez le nom de l'employer");
+		phraseJuste = setNom(Lire.S());
+		if(!phraseJuste)
+		{
+			System.out.println("vous n'avez pas saisi le bon nom de l'employer");
+		}		
+	}
+	
+    while (!phraseJuste);
+		
+		
+	do 
+		{
+			System.out.println("Entrez le prénom de l'employer");
+			phraseJuste = setPrénom(Lire.S());
+			if(!phraseJuste)
+			{
+				System.out.println("vous n'avez pas saisi le bon prénom de l'employer");
+			}			
+		}
+	while (!phraseJuste);
+		
+		
+	do
+	  {
+		 System.out.println("Entrez votre adresse");
+		  phraseJuste = setAdresse(Lire.S());
+		  if(!phraseJuste)
+		  {
+		  System.out.println("vous n'avez pas saisi la bonne adresse");
+		  }			
+	  }
+	while (!phraseJuste);
+	    
+   }
+
+	public void afficher() 
+	 {
+	    System.out.println (getNom()+" "+ getPrénom()+" "+   getAdresse()+" ");
+	 }
+	
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	
+		
+}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+			
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

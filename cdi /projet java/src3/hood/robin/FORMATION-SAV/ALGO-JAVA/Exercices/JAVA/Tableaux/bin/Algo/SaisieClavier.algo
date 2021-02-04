@@ -1,0 +1,25 @@
+procédure SaisieClavier(entrée sortie texte: chaine)
+
+	// Permet de mettre une chaine de caractère saisi par utilisateur 
+	// dans en tableau de taille fixe avec ajout du caractère de fin
+	
+	// texte chaine de caractère saisie par l'utilisateur
+	
+
+//CONSTANTES
+
+//TYPES
+
+//VARIABLES
+i : entier;
+
+début
+	//Initialisation
+	i := 1;
+	
+	tantque i < TAILLETABLEAU faire
+		//
+	
+	fintantque
+
+fin

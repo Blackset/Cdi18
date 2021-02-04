@@ -1,0 +1,67 @@
+Entrées/Sorties :
+
+TableauChaine	--->					--->	TailleMatUtilisateur		
+						RemplirTableau				
+TAILLEMATRICE	--->					--->	TableauChaine
+																			
+-------------------------------------------------------------------------------
+
+TableauChaine		--->	
+							TriMot	--->	TableauChaine
+TailleMatUtilisateur--->
+
+-------------------------------------------------------------------------------
+
+TableauChaine		--->
+
+TailleMatUtilisateur--->	Chercheindice	--->	indice
+
+Texte				--->
+
+-------------------------------------------------------------------------------
+						
+Jeu d'essai :
+
+Chaine		|		TableauChaine				|		indice		|		Ok?
+-------------------------------------------------------------------------------
+			|	agathe-berhe-olga-olive			|			0		|
+	olga	|	agathe-berhe-olga-olive			|			3		|
+  patrick	|	agathe-berhe-olga-olive			|           0       |
+	olga	|			olga	  	         	|           1       |
+	olga	|	agathe-berhe-olga	            |           3       |
+	olga	|					            	|           0       |
+
+			    
+programme : TestChercheindice
+
+//CONSTANTES
+TAILLETABCARAC = 50; // Taille du tableau de caractère
+TAILLEMATRICE = 50; // Taille du tableau d'entier et de la matrice
+
+//TYPES
+chaine = tableau[TAILLETABCARAC]caractère; // tableau de caractère
+matrice = tableau[TAILLEMATRICE]chaine; // matrice de chaine
+
+//VARIABLES
+Texte : chaine;
+TableauChaine : matrice;
+TailleMatUtilisateur : entier;
+indice : entier;
+
+//PROCEDURES
+procédure RemplirTableau(entrée sortie TableauChaine: matrice, sortie tailleMatUtilisateur : entier)
+procédure TriMot(entrée sortie TableauChaine: matrice, entrée tailleMatUtilisateur : entier)
+procédure Chercheindice(entrée TableauChaine: matrice, entrée tailleMatUtilisateur : entier, entrée Texte: chaine, sortie indice: entier)
+
+début
+	RemplirTableau(TableauChaine, TailleMatUtilisateur)
+	
+	écrire("Tapez le mot a rechercher : ")
+	lire(Texte)
+	
+	TriMot(TableauChaine, TailleMatUtilisateur, Texte, indice)
+	
+	Chercheindice(TableauChaine, TAILLEMATRICE, indice)
+	
+	écrire("L'indice du mot est : ", indice)	
+fin

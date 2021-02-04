@@ -1,0 +1,49 @@
+package ExoObjet;
+
+public class Group
+{	 
+    public class Group 
+    {
+    	public static final int MAX  = 20;
+    	
+    	private int m_nCpt;         // compte le nombre d'individu d'un groupe
+    	private boolean  setCpt;
+    	private Individu[] m_tTab;
+    	
+    	
+    	   
+    	   
+    	   
+    	   
+    public Group (int nombre individu)	//constructeur
+    {
+    	
+    	
+    	
+    	
+    	
+    }
+    }
+    
+    	   
+    public Group // par defaut
+    {
+    	
+    }
+    
+    	
+    
+    boolean setCpt
+    
+    {
+    	
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+}

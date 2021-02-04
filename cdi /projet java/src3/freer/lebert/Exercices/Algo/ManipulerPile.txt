@@ -1,0 +1,70 @@
+Procédure init_pile(sortie pTab : Pile)
+// initialiser la pile
+// pTab : pile
+Début
+	pTab.Indice := 0
+Fin
+
+Fonction empiler(entrée sortie pTab : Pile, entrée pVal : TabEnt) : booléen
+// empiler par le haut de la pile
+// pTab : pile
+// pVal : valeur à empiler
+Variable
+	Succes : booléen
+Début
+	Si pTab.Indice < TAILLE alors
+		pTab.TabEnt[pTab.Indice + 1] := pVal
+		pTab.Indice := pTab.Indice + 1
+		Succes := Vrai
+	Sinon
+		Succes := Faux
+	FinSi
+	Retourner Succes
+Fin
+
+Fonction dépiler(entrée sortie pTab : Pile, sortie pVal : TabEnt) : booléen
+// dépiler par le haut de la pile
+// pTab : pile
+// pVal : valeur à dépiler
+Variable
+	Succes : booléen
+Début
+	Si pTab.Indice > 0 alors
+		pVal := pTab.TabEnt[pTab.Indice]
+		pTab.Indice := pTab.Indice - 1
+		Succes := Vrai
+	Sinon
+		Succes := Faux
+	FinSi
+	Retourner Succes
+Fin
+
+Programme ManipulerPile
+// manipuler une pile d'entiers gérée avec un tableau et un indice
+Constante
+	TAILLE := 100		// taille du tableau
+Type
+	TabEnt : Tableau [TAILLE] de entier		// tableau d'entiers
+	Pile = Enregistrement
+		Tab : TabEnt		// tableau d'entiers
+		Indice : entier		// indice de parcours
+	FinEnregistrement
+Variables
+	Tab : Pile
+	Val1 : entier
+	Val2 : entier
+Début
+	init_pile();
+	Ecrire("Saisir valeur à empiler : ")
+	Lire(Val1)
+	Si empiler(Tab, Val1) alors
+		Ecrire(Val1, " a été empilé.")
+	Sinon
+		Ecrire("Tableau plein.")
+	FinSi
+	Si dépiler(Tab, Val2) alors
+		Ecrire(Val2, " a été dépilé.")
+	Sinon
+		Ecrire("Tableau vide.")
+	FinSi
+Fin

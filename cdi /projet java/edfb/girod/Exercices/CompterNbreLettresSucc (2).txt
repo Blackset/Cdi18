@@ -1,0 +1,93 @@
+PROGRAMME  compter les occurrences de deux lettres successives dans une phrase.
+	// Donnez l'algorithme d'une procédure qui, pour une chaîne donnée terminée par un caractère terminateur donné et 
+	// pour deux lettres données ( 'l', 'e' par exemple), compte le nombre occurrences de ces deux lettres successives 
+	// dans la chaîne. 
+ 
+	// Fournissez un programme de test de votre procédure. 
+	
+
+Constantes
+
+	N=80			// Nbre maximum de caratères dans la chaîne
+	
+Types
+	chaine=tableau [N] caractères // type de chaîne de caractères
+
+Variables
+	TexteSaisie : chaîne	// chaine de caratères dans laquelle on compte le nombre de caractères
+	NbreOcc 	: entier	// Nombre d'occurences dans TexteSaisie
+	FinDeChaine : caractère // Caractère terminateur
+	Occ1 : caractère // première lettre de la chaine de lettres successives
+	Occ2 : caractère // deuxième lettre de la chaine de lettres successives
+
+PROGRAMME DE TEST
+
+chaine	lettres succesives   caractère terminateur   		 résultat     OK
+elle.			le							.					1
+le rebelle.  	le							.					2
+lelele.			le							.					3
+l'eleve.		le							.					1
+.				le							.					0
+e.				e.							.					0
+....			..							.					0
+lll.			ll							.					1
+
+PROCEDURE Compter-nombre-occurences (Entrée TexteSaisie : chaîne , Entrée FinDeChaine : caractère , Entrée Occ1 : caractère, Entrée Occ2 : caractère,
+								Sortie NbreOcc : entier) // Compte le nombre d'occurences pour deux lettres succesives données terminateur non compris.
+								// TexteSaisie : phrase à étudier
+								//  FinDeChaine : terminateur de TexteSaisie
+								// Occ1 : première lettre de la chaine de lettres successives
+								// Occ2 : deuxième lettre de la chaine de lettres success	ives
+								// NbreOcc : nombre d'occurence dans TexteSaisie
+
+
+
+
+
+DEBUT
+	
+	
+	FinDeChaine:='.'  // terminateur de la chaine TexteSaisie
+	
+	Ecrire ("Saisir un texte et un caractère de fin :") 
+	Lire (TexteSaisie, FinDeChaine )
+	Ecrire ("Saisir première lettre à trouver :") 
+	Lire (Occ1)
+	Ecrire ("Saisir deuxième lettre à trouver :") 
+	Lire (Occ2)
+	Compter-nombre-occurences ( TexteSaisie ,  FinDeChaine  ,  Occ1 ,  Occ2,
+								 NbreOcc ) // appel de la procédure
+	Ecrire ("Le nombre d'occurences est de :", NbreCarac)  // on affiche le résultat
+FIN
+
+	
+	
+	
+	Procédure Compter-nombre-occurences (Entrée TexteSaisie : chaîne , Entrée FinDeChaine : caractère , Entrée Occ1 : caractère, Entrée Occ2 : caractère,
+								Sortie NbreOcc : entier) 
+	
+		i : entier	// Indice de parcours de la chaîne de caractères
+		NbreOcc :=0	// init du compteur d'occuence
+		
+		DEBUT
+			// lecture de la phrase et compteur de caractères successifs
+	
+			i:=1 
+
+			TANTQUE TexteSaisie[i] <> FinDeChaine FAIRE          
+			
+				SI TexteSaisie[i]= Occ1   
+				
+							SI (TexteSaisie[i+1]= Occ2 ET TexteSaisie[i+1]<> FinDeChaine) // TEST SUR TERMINATEUR FinDeChaine
+								NbreOcc := NbreOcc + 1
+								i:=1+1 // on peut pointer après les deux lettres successives
+							FinSI
+				FinSI
+					
+				i:=i+1			// On passe au caractère suivant dans TexteSaisie
+				 
+			Fintantque
+
+
+		FIN
+					

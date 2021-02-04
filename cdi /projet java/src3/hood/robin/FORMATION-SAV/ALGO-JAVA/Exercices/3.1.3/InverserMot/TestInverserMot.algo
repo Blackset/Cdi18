@@ -1,0 +1,20 @@
+programme : TestInverserMot
+
+//CONSTANTES
+TAILLESAISIE= 80		// Taille du tableau de chaine saisie
+TAILLEINVERS= 80		// Talle du tableau de chaine inversé
+
+//TYPES
+chaineS= tableau[TAILLESAISIE]caractère		//Tableau de caractère pour la chaine de saisie
+chaineI= tableau[TAILLEINVERS]caractère		//Tableau de caractère pour la chaine de mot inversé
+
+
+//VARIABLES
+chaineSaisie: chaineS  // la chaine saisie par l'utiliateur
+
+début
+	écrire("Saisissez une phrase")
+	lire(chaineSaisie)
+	
+	écrire("la chaine inversé", InverserMot(chaineSaisie))
+fin

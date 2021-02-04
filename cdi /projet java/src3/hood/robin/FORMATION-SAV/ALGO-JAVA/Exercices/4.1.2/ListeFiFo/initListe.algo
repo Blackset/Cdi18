@@ -1,0 +1,9 @@
+procédure initListe(entrée sortie tete: référence)
+	// cette procédure initialise la référence de tete de la liste
+
+
+début
+
+	tete:= null	// la référence de tete ne pointe sur aucun élément
+	
+fin

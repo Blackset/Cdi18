@@ -1,0 +1,88 @@
+Phrase			PhraseInverse
+"toto."			"otot."
+
+
+Procédure InverserPhrase(entrée : pPhrase : Chaine, sortie : pPhraseInverse : Chaine)
+// recopier une phrase en inversant chaque mot
+// pPhrase : phrase donnée
+// pPhraseInverse : phrase inverse
+Variables
+	Position : entier			// position dans la phrase
+	Taille : entier				// taille de la phrase
+	PositionInverse : entier	// position dans la phrase inverse
+	MotCourant : entier			// numéro du mot courant
+Fonction
+	CompterMots(entrée pPhrase : Chaine) : entier		// compte les mots dans une phrase
+Début
+	// initialisation
+	Position := 1
+	PositionInverse := 1
+	LongueurPhrase(pPhrase, Taille)
+	MotCourant := 0
+	TantQue Position < Taille faire
+		// je m'arrête à la fin de la phrase
+		InverserMot(pPhrase, Position, pPhraseInverse, PositionInverse)
+		MotCourant := MotCourant + 1
+		Si MotCourant = CompterMots(pPhrase) alors
+			pPhraseInverse[pPositionInverse] := FIN
+		Sinon
+			pPhraseInverse[pPositionInverse] := ESPACE
+		FinSi
+	FinTantQue
+Fin
+
+Procédure InverserMot(entrée pPhrase : Chaine, entrée, pPosition : entier, entrée sortie pPhraseInverse : Chaine, sortie pPositionInverse : entier)
+// recopier un mot dans le sens inverse
+// pPhrase : phrase donnée
+// pPosition : position dans la phrase
+// pPhraseInverse : phrase inversée
+// pPositionInverse : position dans la phrase inversée
+Variable
+	i : entier			// indice de parcours du mot
+	Taille : entier		// taille du mot
+Début
+	// initialisation
+	i := 0
+	Taille := TailleMot(pPhrase, pPosition)
+	TantQue i < Taille faire
+		// je m'arrête à la fin du mot
+		pPhraseInverse[pPositionInverse] : := pPhrase[pPosition + Taille - i]
+		pPositionInverse := pPositionInverse + 1
+		i := i + 1
+	FinTantQue
+Fin
+
+Fonction TailleMot(entrée pPhrase : Chaine, entrée pPosition : entier) : entier
+// calcule la taille du mot courant
+// pPhrase : phrase donnée
+// pPosition : position courante
+// retourne la taille du mot
+Variable
+	Longueur : entier		// taille du mot
+Début
+	// initialisation
+	Longueur := 0
+	TantQue pPhrase[pPosition] <> ESPACE et pPhrase[pPosition] <> FIN faire
+		// je m'arrête quand je rencontre un espace ou un point
+		pLongueur := pLongueur + 1
+	FinTantQue
+	Retourner Longueur
+Fin
+
+Programme TestInverserPhrase
+// programme de test
+Constante
+	N := 80				// taille du tableau
+	FIN := '.'			// caractère de fin
+	ESPACE := '#'		// caractère d'espace
+Type
+	Chaine = Tableau [N] de caractère	// tableau de caractères
+Variable
+	Phrase : Chaine				// phrase saisie
+	PhraseInverse : Chaine		// phrase inverse
+Début
+	Ecrire("Saisir phrase : ")
+	Lire(Phrase, FIN)
+	InverserPhrase(Phrase, PhraseInverse)
+	Ecrire(PhraseInverse)
+Fin

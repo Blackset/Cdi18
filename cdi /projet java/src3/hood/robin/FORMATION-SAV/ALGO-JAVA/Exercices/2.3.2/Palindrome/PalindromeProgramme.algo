@@ -1,0 +1,42 @@
+Entrée/Sortie :
+
+Chaine 		--->
+						TestPalindrome		---> 	Palindrome
+NbrCarac	--->
+
+Jeu d'essai :
+
+Chaine					|		Palindrome		|		Ok?
+----------------------------------------------------------------
+AA.						|			vrai		|
+AAA.					|			vrai		|
+A.              		|			vrai		|
+.              			|			vrai        |
+AC.             		|			faux        |
+LAVAL A ETE A LAVAL. 	|			vrai		|
+
+programme : PalindromeProgramme
+
+//CONSTANTES
+TAILLECHAINE = 80; //Taille du tableau de caractère contenant la chaine
+CARACFIN = '.'; //Caractère de fin la chaine
+
+//TYPES
+chaine = tableau[TAILLECHAINE]caractère; //Déclaration du tableau de caractère
+
+//VARIABLES
+Texte : chaine; //Chaine de caractère
+NbrCarac : entier; //NbrCaract contenu dans la chaine
+
+//PROCEDURES
+procédure TestPalindrome(entrée Texte : chaine, entrée NbrCarac : entier, sortie Palindrome : booléen)
+
+début
+	//Initialisation
+	écrire("Tapez votre phrase")
+	lire(Texte)	
+	
+	TestPalindrome(Texte, Palindrome)
+	
+	écrire("La phrase est un palindrome : ", Palindrome)
+fin

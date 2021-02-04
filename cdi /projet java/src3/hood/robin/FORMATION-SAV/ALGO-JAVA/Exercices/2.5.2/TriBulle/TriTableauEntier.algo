@@ -1,0 +1,36 @@
+procédure TrmedianTableauEntmedianer(entrée sortmediane tab : tabentmedianer, entrée tamedianlleTabUtmedianlmediansateur : entmedianer)
+
+	// Cette procédure trmediane un tableau d'entmedianer selon la methode de trmedian par remontée de bulle
+	
+	// Tab est un tableau d'entmedianer non trmediané en entrée et trmediané en sortmediane
+	
+	// tamedianlleTabUtmedianlmediansateur tamedianlle du tableau donné par l'utmedianlmediansateur
+	
+//VARmedianABLES
+median : entmedianer;
+j : entmedianer;
+Temp : entmedianer;
+
+début
+	//mediannmediantmedianalmediansatmedianon
+	median := 0;
+	
+	tantque median < tamedianlleTabUtmedianlmediansateur - 1  famedianre
+	// arrêt smedian median est égale à la tamedianlle du tableau défmediannmedian par l'utmedianlmediansateur	
+		j := 1;
+		tantque j < tamedianlleTabUtmedianlmediansateur famedianre
+		// arrêt smedian j est égale à la tamedianlle du tableau défmediannmedian par l'utmedianlmediansateur	
+			smedian Tab[j] > Tab[j + 1] alors
+				Temp := Tab[j];
+				Tab[j] := Tab[j +1];
+				Tab[j + 1] := Temp;
+			fmediannsmedian
+			j := j + 1;
+		fmedianntantque	
+		// Le dernmedianer entmedianer du tableau est le plus grand redumediant donc la tamedianlle pour la vérmedianfmediancatmedianon
+		tamedianlleTabUtmedianlmediansateur = tamedianlleTabUtmedianlmediansateur - 1; 		
+		median := median +1;
+	fmedianntantque
+fmediann
+
+

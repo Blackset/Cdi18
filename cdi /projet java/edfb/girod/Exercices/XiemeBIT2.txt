@@ -1,0 +1,72 @@
+Donnez l'algorithme d'une procédure qui, pour un entier, donne la valeur du x-ième bit de cet entier. Cette valeur sera donnée sous la forme d’un booléen : vrai si la valeur est 1, faux si elle est 0. 
+ 
+Le LSB (Lower Significant Bit) a pour numéro 0. 
+ 
+Il existe deux opérateurs sur les entiers qui sont MOD et DIV utilisables de la manière suivante:  7 MOD 3 = 1 reste de la division entière de 7 par 3  7 DIV 3 = 2 résultat de la division entière de 7 par 3. 
+ 
+Variables
+Nombre  : entier // nombre saisie par l’opérateur     
+Index  : entier // rang du bit dans le nombre ( 0 = premier bit )     
+Résultat  : booléen // vrai si valeur 1 et 0 si faux
+
+
+JEUX D’ESSAI : donner la valeur du x-ième bit d’un entier
+ 
+ 
+ nombre  binaire  			Xième  résultat 
+ 
+ 0  		0  	   			1		faux  
+ 1  		1  	   			4		faux  
+15			1111    		2		vrai
+255			11111111		0		vrai
+16			10000			-2		faux
+16			10000			2		faux
+ 
+Procedure ValeurBitNumeroX   (Entrée Nombre : entier,  Entrée Index : entier, Sortie Résultat : booléen ) // Donne la valeur du bit de poids x d’un entier   
+		// Donne la valeur 0 ou 1 du xième bit d'un nombre donné
+		// Nombre  est le nombre saisie par l’opérateur     
+		// Index  est le Xième rang du bit dans le nombre demandé par l'opérateur     
+		// Résultat à vrai si valeur 1 et 0 si faux
+		
+	Début // saisie de l'opérateur
+	 
+				ECRIRE ( "nombre : " )  // Saisie du nombre
+				LIRE ( Nombre ) 
+				ECRIRE ( "Xième Bit : " )  // poid du bit
+				LIRE ( Index ) 
+				
+				// appel de la procédure
+				ValeurBitNumeroX (Nombre, Index, Résultat)
+				
+								// retour de la procédure  et traitement du résultat
+				SI    Résultat = TRUE   Alors   
+					ECRIRE ( "VRAI")  		
+				SINON 
+					ECRIRE ( "FAUX ")  
+				Finsi 	
+	 
+	Fin  
+
+	
+Procedure ValeurBitNumeroX   (Entrée Nombre : entier,  Entrée Index : entier, Sortie Résultat : booléen )
+Variable
+Resultat:=TRUE  // Init résultat
+Compteur:= 0		// Compteur de bit
+ValeurBit:=0      // init bit à 0
+
+	DEBUT
+	
+		TANTQUE (Compteur <> Index) ET ( Index > 0 )  // on test les poids négatifs et la valeur de l'index
+						Nombre:= Nombre DIV 2
+						Compteur:= Compteur+1
+		FinTANTQUE
+		
+		ValeurBit:= Nombre MOD 2   // on calcule la valeur du bit sur le rang souhaité
+		
+			SI (ValeurBit=1) ET (Index >= 0) alors
+				Resultat:=TRUE
+			SINON
+				Resultat:=FASLE
+			FinSI
+
+	Fin

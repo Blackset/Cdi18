@@ -1,0 +1,108 @@
+Une liste dynamique est une liste à laquelle on peut rajouter un nombre quelconque d'éléments sans restriction de taille ( sauf celle de la mémoire ). Les éléments de la liste sont chaînés entre eux. 
+ 
+ Structure d'une telle liste : 
+ 
+ 
+tête  info lien  info lien  info lien  null 
+ 
+ Structure d'un élément de la liste: 
+ 
+ type  référence = pointeur de élément  élément = enregistrement   valeur : info  // contient l'information que l'on désire conserver    suivant : référence  // pointeur vers l'élément suivant de la liste   finenregistrement 
+ 
+ La liste sera repérée par un pointeur sur son premier élément ( la tête de la liste ). Elle se termine par le premier élément trouvé dont le lien est à null ou avec le pointeur de tête à null ( en cas de liste vide ). 
+ 
+ Soit une liste dynamique d'entiers fonctionnant en FIFO (First In First Out). Le dernier élément de la liste est le dernier élément rentré dans la liste. Le premier élément de la liste est le premier élément rentré dans la liste et le premier élément qui sortira de la liste.  Ecrire une procédure qui rajoute un entier à la liste.  Ecrire une procédure qui récupère un élément de la liste. 
+ 
+ 
+ 
+ Type pt_elem = pointeur de élément // type des pointeur sur des chaînons de la liste      élément = Enregistrement // chaînon de la liste      valeur : entier  // valeur conservée dans ce chaînon      suivant : pt_elem  // pointeur vers le chaînon suivant de la liste     Finenregistrement 
+ 
+Principe de fonctionnement de la liste dynamique 
+ 
+Il n’y a pas de contraintes pour ajouter un élément à la liste. Par contre, il n’est pas possible d’enlever un élément d’une liste qui serait vide. Il est judicieux, par souci de cohérence, que ajouter et enlever soient deux fonctions.  La première rendra un indicateur vrai, la seconde rendra un indicateur vrai chaque fois que la liste en entrée ne sera pas vide, faux sinon. 
+ 
+ 
+21.2 SOLUTION : créer une liste dynamique gérée en FIFO.(interfaces) 
+ 
+ Procédure initliste ( Sortie tête : pt_elem ) 
+ 
+  // Cette procédure permet d’initialiser une liste, c’est à dire sans aucun élément    // tête est la tête de la liste créée   
+ 
+ Fonction ajouter ( Entrée Sortie tête : pt_elem, Entrée val : entier ) : booléen       // Cette fonction permet d’insérer un élément à la fin de la liste    // tête est en entrée la tête de la liste     // en sortie la tête de la liste, modifiée si tête était égal à null    // val est la valeur à ajouter en fin de liste  
+ 
+  // la fonction retourne toujours vrai   
+ 
+ Fonction enlever ( Entrée Sortie tête : pt_elem, Sortie val : entier ) : booléen 
+ 
+  // Cette fonction permet de récupérer l’élément en tête de la liste.    // Si la liste est vide, la fonction ne fait rien, mais retourne faux  
+ 
+  // tête est en entrée la tête de la liste en sortie la tête de la nouvelle liste    // val sera l’entier qui était en tête de la liste  
+ 
+  // la fonction retourne vrai si val a été enlevé, faux si la liste était vide 
+  
+  Algorithmes des procédures et fonctions 
+ 
+ Procédure initliste ( Sortie tête : pt_elem ) 
+ 
+  // Cette procédure permet d’initialiser une liste, c’est à dire sans aucun élément    // tête est la tête de la liste créée   
+ 
+ 
+Début      // il n’y a pas d’élément dans la liste  
+ 
+ tête := null 
+ 
+Fin 
+  Fonction ajouter ( Entrée Sortie tête : pt_elem, Entrée val : entier ) : booléen       // Cette fonction permet d’insérer un élément à la fin de la liste    // tête est en entrée la tête de la liste     // en sortie la tête de la liste, modifiée si tête était égal à null    // val est la valeur à ajouter en fin de liste  
+ 
+  // la fonction retourne toujours vrai   
+ 
+ 
+Variables pt_parcours : pt_elem //  pt_parcours permet de parcourir la liste         
+ 
+Début    Si    tête = null    Alors 
+ 
+   // la liste est vide on ajoute en tête  
+ 
+  créer ( tête )   tête->.valeur := val   tête->.suivant := null 
+ 
+ Sinon // la liste n’est pas vide, ajout en queue  
+ 
+  pt_parcours := tête   Tantque    pt_parcours->.suivant <> null    Faire     // arrêt sur le dernier chaînon de la liste  
+ 
+   pt_parcours := pt_parcours->.suivant      Fintantque  // on raccroche en queue le nouveau chaînon  
+ 
+  créer ( pt_parcours->.suivant )   
+  pt_parcours->.suivant->.valeur := val   
+  pt_parcours->.suivant->.suivant := null 
+ 
+ Finsi    // on retourne le compte rendu de l’ajout   Retourner ( vrai ) 
+ 
+Fin 
+Fonction enlever ( Entrée Sortie tête : pt_elem, Sortie val : entier ) : booléen 
+ 
+  // Cette fonction permet de récupérer l’élément en tête de la liste.    // Si la liste est vide, la fonction ne fait rien, mais retourne faux  
+ 
+  // tête est en entrée la tête de la liste en sortie la tête de la nouvelle liste    // val sera l’entier qui était en tête de la liste  
+ 
+  // la fonction retourne vrai si val a été enlevé, faux si la liste était vide  
+ 
+Variables ok : booléen  // ok est vrai si l’enlèvement se passe bien    pt_dét : pt_elem  // pt_det sert à mémoriser l’élément à détruire  
+ 
+Début    Si    tête = null    Alors 
+ 
+   // la liste est vide on ne peut pas enlever un élément  
+ 
+  ok := faux 
+ 
+ Sinon // on prend le premier élément de la liste  
+ 
+  val := tête ->.valeur   pt_det := tête   tête := tête ->.suivant  // l’élément est ôté de la liste     détruire ( pt_det )   // l’élément est détruit car inutile     ok := vrai 
+ 
+ Finsi    // retour du le compte-rendu de l’enlèvement d’un élément    
+ Retourner ( ok ) 
+ 
+Fin 
+ 
+ 
+ 
+ 

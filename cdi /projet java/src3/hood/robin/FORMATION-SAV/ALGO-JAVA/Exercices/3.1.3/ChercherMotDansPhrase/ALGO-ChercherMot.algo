@@ -1,0 +1,191 @@
+1-Entrée / Sortie : 
+
+phrase: chaineP			--->
+
+LCHAINEP: entier		--->
+
+CARAFIN: caractère		--->
+							
+ESPACE: caractère		--->	ChercherMot		--->	motExist: booléen	
+							
+LCHAINEM: entier		--->	
+
+mot: chaineM			--->
+
+lMotChercher: entier	--->
+
+2-Constantes / Types :
+
+//CONSTANTES
+
+LCHAINEP = 80	// Taille de la phrase
+
+CARAFIN = '.'	// Caractère de fin de phrase
+
+ESPACE = ' '	// Caractère de séparation
+
+LCHAINEM = 26	// Taille du mot
+
+//TYPES
+
+chaineP = tableau[LCHAINEP]caractère // tableau de type chaineP pour la phrase
+
+chaineM = tableau[LCHAINEM]caractère // tableau de type chaineM pour le motExist
+
+3-Jeu d'essai :
+
+phrase					|		Mot			|	lMotChercher	|	  motExist	|	OK
+---------------------------------------------------------------------------------------
+le chat est gris.		|		chat		|	 4				|		vrai    |
+le chat est gris.		|		chien		|	 5				|		faux    |
+.						|		chat		|	 4				|		faux    |
+le chat est gris.		|		gri 		|	 3				|		faux	|
+le chat est gris.		|		c			|	 1				|		faux    |
+le chat est gris.		|		le			|	 2				|		vrai    |
+le chat est gris.		|					|	 0				|		vrai    |
+  le  chat est gris  .	|		chat		|	 4 				|		vrai	|
+le chat à mangé.		|		à			|	 1				|		vrai	|
+le chat à mangé.		|		 chat		|	 5				|		faux	|
+ 
+4-Interface :
+
+fonction ChercherMot(entrée phrase: chaineP, entrée mot: chaineM, entrée lMot: entier): booléen
+	// Cette fonction cherche un mot dans une phrase et renvoie vrai ou faux si le mot est présent ou non dans la phrase
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// mot est le tableau de caractère contenant le mot à rechercher dans phrase
+	
+	// lMot est la longueur du mot à rechercher
+		
+
+
+5-Algo de principe :
+
+ le chat  est gris  .
+ 
+mot := chat
+lMotChercher := 4
+
+phrase := "  le  chat est gris  ."
+
+ChercherMot
+
+tantque il y a des mots et que le mot n'est pas trouvé faire
+		
+	
+	
+	ComparerMot
+	ChercherMotDansPhrase
+		
+fintantque
+
+----------------------------------------------------------------------------------------
+1-Entrées/Sorties :
+
+phrase : chaineP	--->							--->	lMotTrouver: entier
+										
+i : entier			--->	ChercherMotDansPhrase				
+
+LCHAINEP: entier	--->							--->	i: entier
+
+	
+2-Constantes / Types :
+
+3-Jeu d'essai :
+
+phrase					|		i		|	lMotTrouver		|	OK
+--------------------------------------------------------------------------
+  le chat est gris.		|		5		|	 	2			|	
+le chat est gris.		|		8		|	 	4			|	
+
+
+4-Interface :
+
+procédure ChercherMotDansPhrase(entrée phrase: chaineP, entrée sortie i: entier, sortie lMotTrouver: entier)
+	// Cette procédure cherche un mot dans une phrase et renvoie vrai la position après le mot trouvé et la longueur du mot
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// i en entrée indice de départ pour chercher un mot
+	// i en sortie indice juste après le mot, ou sur le point
+	
+	// lMotTrouver est la longueur du mot à rechercher ou zero si plus de mot (i sur le point)
+	
+5-Algo de principe :
+
+le chat est gris.
+
+
+tantque il y un a ESPACE faire
+	
+	i := i + 1
+	
+fintantque
+	
+tantque il n y a pas ESPACE ou de CARAFIN faire
+
+	lMotTrouver := lMotTrouver + 1
+	i:= i + 1
+	
+fintantque
+	
+----------------------------------------------------------------------------------------
+1-Entrées/Sorties :
+
+phrase : chaineP		--->
+
+LCHAINEM: entier		--->	
+
+mot: chaineM			--->						
+											
+i: entier				--->		ComparerMot		--->	motExist: booléen				
+								
+lMotTrouver: entier		--->							
+
+lMotChercher: entier	--->
+
+ESPACE: caractère		--->
+
+
+2-Constantes / Types :
+
+3-Jeu d'essai :
+
+phrase					|		i		|	lMotTrouver		|	lMotChercher	|	mot			|	motExist
+--------------------------------------------------------------------------------------------------------------------
+  le chat est gris.		|		5		|	 	2			|	       4        |	chat		|	faux
+le chat est gris.		|		8		|	 	4			|	       4        |	chat    	|	vrai
+le chat est gris.		|		8		|	 	4			|	       5        |	 chat    	|	faux
+
+4-Interface :
+
+fonction ComparerMot(entrée phrase: chaineP, entrée mot: chaineM, entrée i: entier, entrée lMotTrouver: entier, entrée lMotChercher: entier): booléen
+	// Cette fonction compare 2 mots et renvoie vrai si les mots sont identiques ou faux si ils sont différent
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// mot le mot à comparer
+	
+	// i est l'indice de positionnement après le mot dans le phrase
+	
+	// lMotTrouver est la longueur du mot trouvé dans la phrase
+	
+	// lMotChercher est la longueur du mot à comparer
+	
+	
+
+	
+tantque il y a des caractères dans le mot et que les caractère sont identiques faire
+
+	j'avance
+
+fintantque
+
+idem = plus de caracteres
+
+
+
+
+
+

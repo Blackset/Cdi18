@@ -1,0 +1,79 @@
+Procedure SaisirValeurs(entrée pNbSaisies : entier, sortie pTable : Tab)
+// saisir les valeurs du tableau
+// pNbSaisies : nombre de saisies
+// pTable : tableau
+Variables
+	Position : entier				// position dans le tableau
+Début
+	// intialisation
+	Position := 1
+	TantQue Position <= pNbSaisies faire
+		// saisie du tableau
+		ecrire("Saisir un entier : ")
+		lire(Table[Position])
+		Position := Position + 1
+	FinTantQue
+Fin
+
+Procedure AfficherTableau(entrée pNbSaisies : entier, entrée pTable : Tab)
+// afficher les valeurs du tableau
+// pNbSaisies : nombre de saisies
+// pTable : tableau
+Variables
+	Position : entier				// position dans le tableau
+Début
+	// initialisation
+	Position := 1
+	TantQue Position <= pNbSaisies faire
+		ecrire(Table[Position], " ")
+		Position := Position + 1
+	FinTantQue
+Fin
+
+Procedure TriBulle(entrée sortie pTable : Tab, entrée pNbSaisies : entier)
+// trier un tableau d'entiers par la méthode de tri par remontée des bulles
+// pTable : tableau à trier
+// pNbSaisies : nombre de saisies
+Variables
+	i : entier				// indice de position
+	Sauv : entier			// variable de sauvegarde
+	Modif : booléen			// teste s'il y a eu inversion entre deux entiers
+Début
+	Répéter
+		// initialisation
+		i := 1
+		Modif := Faux
+		TantQue i < pNbSaisies faire
+			// parcours du tableau
+			Si pTable[i] > pTable[i + 1] alors
+				Sauv := pTable[i]
+				pTable[i] := pTable[i + 1]
+				pTable[i + 1] := Sauv
+				Modif := Vrai
+			FinSi
+			i := i + 1
+		FinTantQue
+		pNbSaisies := pNbSaisies - 1
+	Jusqu'à Non Modif
+Fin
+
+Programme TestTriBulle
+// programme de test
+Constante
+	N = 100								// taille du tableau
+Types
+	Tab = tableau [N] de entier			// tableau d'entiers
+Variable
+	NbSaisies : entier					// nombre de saisies voulues
+	Table : Tab							// tableau donné
+Procédure
+	SaisirValeurs(entrée pNbSaisies : entier, sortie pTable : Tab)			// saisir valeurs du tableau
+	AfficherTableau(entrée pNbSaisies : entier, entrée pTable : Tab)		// afficher tableau
+	TriBulle(entrée pTable : Tab)		// tri à bulles
+Début
+	ecrire("Nombre de saisies voulues : ")
+	lire(NbSaisies)
+	SaisirValeurs(NbSaisies, Table)
+	TriBulle(Table, NbSaisies)
+	AfficherTable(NbSaisies, Table)
+Fin

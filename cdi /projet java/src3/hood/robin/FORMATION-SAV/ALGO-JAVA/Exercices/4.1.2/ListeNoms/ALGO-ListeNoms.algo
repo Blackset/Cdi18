@@ -1,0 +1,55 @@
+//CONSTANTES
+
+tailtable = 100		// taille du tableau contenant les noms
+tailnom = 10		// les noms ont dix caractères maximum
+final = 0			// indicateur de fin de liste
+
+//TYPES
+
+chaînenom = tableau [ tailnom ] de caractère	// type des noms rangés dans le tableau
+
+élément = enregistrement		// type des éléments de la table des noms
+
+			nom : chaînenom		// nom est le nom contenu dans la table
+							
+			suivant : entier	// indice du nom suivant dans la table
+
+		  finenregistrement
+
+tablenom = enregistrement		// type des tables de noms
+
+			table : tableau [ tailtable ] de élément	// table permet de ranger les informations
+			
+			libre : entier		// libre est le premier élément de la liste libre
+			
+			premier : entier	// premier est le premier élément de la liste des noms 
+
+		  finenregistrement
+
+// Interfaces
+
+procédure initTableNom(sortie listeNom: tablenom)
+	// cette procédure initialise la tablenom en mettant les indices
+	// libre à 1 et premier à 0
+	
+	// listeNom en entrée est la liste dont on veut initialiser les indices
+	//			en sortie la liste avec les indices initialisés
+	
+fonction ajouterTableNom(entrée sortie listeNom: tablenom, entrée nouvNom: chainenom): booléen
+	// cette fonction permet d'ajouter un nom à listeNom elle renvoit faux si la table est pleine, vrai si le nom est ajouté
+	
+	// listeNom en entrée est la liste dans laquelle on ajoute un nom
+	//			en sortie la liste avec le nouveau nom
+	
+	// nouvNom est le nom à ajouter à la liste
+
+fonction enleverTableNom(entrée sortie listeNom: tablenom, entrée nom: chainenom): booléen
+	// cette fonction permet d'enlever un nom à listeNom elle renvoit faux si le nom n'est pas présent, vrai si le nom est enlevé
+	
+	// listeNom en entrée est la liste dans laquelle on enlève un nom
+	//			en sortie la liste sans le nom
+	
+	// nom est le nom à retirer à la liste
+	
+	
+

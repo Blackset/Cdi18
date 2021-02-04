@@ -1,0 +1,58 @@
+fonction enleverTableNom(entrée sortie listeNom: tablenom, entrée nom: chainenom): booléen
+	// cette fonction permet d'enlever un nom à listeNom elle renvoit faux si le nom n'est pas présent, vrai si le nom est enlevé
+	
+	// listeNom en entrée est la liste dans laquelle on enlève un nom
+	//			en sortie la liste sans le nom
+	
+	// nom est le nom à retirer à la liste
+	
+fonction trouverMot(entrée nomCherché: chainenom, entrée nom: chainenom): booléen
+	// cette fonction permet de comparer 2 chaines elle renvoie vrai si nouvNom est 	
+	// identique à nom
+	
+	// nouvCherché est le nouveau nom à comparer avec le nom déja présent dans la liste
+	
+	// nom est le nom présent dans la liste
+
+	
+// VARIABLES
+retrait: booléen	// vrai si le retrait à réussie, faux si le nom n'existe pas
+rindice: entier		// l'indice de l'élément retiré
+pnom: entier		// indice précèdent des noms
+
+
+début
+	retrait:= faux
+	rindice:= listeNom.premier		// on place l'indice à supprimer sur le premier indice
+	pnom:= 0
+	
+	tantque ((rindice > final) et (trouverMot(nom, listeNom.table[rindice].nom) = faux)) faire
+		// arrêt si plus de nom ou si le nom est trouvé
+		
+		pnom:= rindice			// on récupère l'indice du nom précédent
+		
+		rindice:= listeNom.table[rindice].suivant	// on récupère l'indice suivant
+		
+	fintantque
+	
+	si rindice > final alors
+	// si on a trouver le nom
+	
+		retrait:= vrai
+		
+		si pnom > final alors
+			// si il y a un nom précédent
+			listeNom.table[pnom].suivant:= listeNom.table[rindice].suivant	// on change l'indice suivant du nom précédent
+		sinon
+			// sinon le suivant passe le premier
+			listeNom.premier:= listeNom.table[rindice].suivant	// on change l'indice du premier élément
+		finsi
+		
+		listeNom.table[rindice].suivant:= listeNom.libre	// on fait pointer le nouveau libre sur le premier libre
+	
+		listeNom.libre:= rindice		// on fait pointer le premier libre sur le nouveau libre
+		
+	finsi
+	
+	retourner retrait
+fin

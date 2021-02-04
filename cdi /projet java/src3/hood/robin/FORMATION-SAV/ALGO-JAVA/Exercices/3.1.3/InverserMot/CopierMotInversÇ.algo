@@ -1,0 +1,29 @@
+procédure CopierMotInversé(entrée chaineSaisie: chaineS, entrée i : entier, entrée lMotTrouver : entier,
+					 entrée/sortie chaineInversé : chaineJ, entrée/sortie j : entier)
+	// cette procédure  permet de copier les mots à l'envers dans une nouvelle chaine
+	
+	// chaineSaisie est la chaine à copier
+	
+	// i est l'indice juste après le mot dans la phrase
+	
+	// lMotTrouver est la longueur du mot à copier
+		
+	// chaineInversé: est la chaine où l'on copie les mots à l'envers
+	
+	// j : -en entrée : indice où nous écrirons le mot 
+	//	  	-en sortie : indice après le mot copier	
+	
+début
+	i:= i - 1	// on met l'indice sur la dernière lettre du mot trouvé
+		
+	tantque (lMotTrouver > 0) faire
+	// arrêt quand plus de lettre dans le mot
+		phraseJustifié[j] := phraseSaisie[i]		// copie du caractère
+				
+		i := i - 1		// on recule dans le mot trouvé
+		
+		j := j + 1		// on avance dans la chaine inversée
+
+		lMotTrouver := lMotTrouver - 1	// on enlève un tour de boucle
+	fintantque
+fin

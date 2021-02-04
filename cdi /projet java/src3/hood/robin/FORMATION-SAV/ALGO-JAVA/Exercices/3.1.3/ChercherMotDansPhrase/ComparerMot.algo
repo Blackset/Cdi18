@@ -1,0 +1,34 @@
+fonction ComparerMot(entrée phrase: chaineP, entrée mot: chaineM, entrée i: entier, entrée lMotTrouver: entier, entrée lMotChercher: entier): booléen
+	// Cette fonction compare 2 mots et renvoie vrai si les mots sont identiques ou faux si ils sont différent
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// mot le mot à comparer
+	
+	// i est l'indice de positionnement après le mot dans le phrase
+	
+	// lMotTrouver est la longueur du mot trouvé dans la phrase
+	
+	// lMotChercher est la longueur du mot à comparer
+	
+	
+//VARIABLES
+j: entier				// indice de parcours dans le mot a comparer
+motExist: booléen		// Si le mot existe dans la phrase
+
+début
+	j := 1
+	
+	
+	i := i - lMotTrouver // on positionne l'indice sur le début du mot à comparer dans la phrase
+	
+	
+	tantque lMotTrouver > 0 et mot[j] = phrase[i] faire
+		// arrêt quand on a vérifié toute les lettres du mot ou quand le mot existe		
+		
+		i := i + 1
+		j := j + 1
+		lMotTrouver := lMotTrouver - 1
+	fintantque
+	motExist := (lMotTrouver = 0)
+fin

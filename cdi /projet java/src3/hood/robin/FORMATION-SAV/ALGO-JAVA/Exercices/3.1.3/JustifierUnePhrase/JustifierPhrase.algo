@@ -1,0 +1,93 @@
+fonction JustifierPhrase(entrée phraseSaisie: chaineS): chaineJ
+	// cette fonction répartie les espaces selon le nombre de mot, équitablement
+	
+
+//CONSTANTES
+
+//TYPES
+
+//VARIABLES
+texteJustifié: chaineJ 		// chaine justifié
+interval: entier			// nombre d'interval entre les mots
+tailleMot: entier			// la somme de la taille des mots
+nbrEspace: entier			// nombre d'espace dans 
+i: entier					// indice du mot trouvé
+j: entier					// indice de parcours du mot
+espace: entier				// nombre d'espace moyen a ajouter
+espaceReste: entier			// nombre d'espace en plus
+lMotTrouver: entier			// longueur du mot trouvé
+espaceNormal : entier		// nb espaces a copier entre deux mots
+
+//PROCEDURES
+
+procédure CompterIntervalEtMot(entrée phraseSaisie: chaineS, sortie interval: entier, sortie tailleMot: entier )
+	// cette procédure retourne le nombre d'interval entre les mots la taille de tout les mots aditionnés
+	
+	// phraseSaisie est la phrase à vérifiée
+	
+	// interval est nombre d'interval entre chaque mots
+	
+	// tailleMot est la somme de la taille de chaque mot de la phrase
+	
+procédure ChercherMotDansPhrase(entrée phrase: chaineP, entrée sortie i: entier, sortie lMotTrouver: entier)
+	// Cette procédure cherche un mot dans une phrase et la position après le mot trouvé et la longueur du mot
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// i en entrée indice de départ pour chercher un mot
+	// i en sortie indice juste après le mot, ou sur le point
+	
+	// lMotTrouver est la longueur du mot à rechercher ou zero si plus de mot (i sur le point)
+
+procédure CopierMot(entrée phraseSaisie: chaineS, entrée i : entier, entrée lMotTrouver : entier,
+					 entrée/sortie phraseJustifié : chaineJ, entrée/sortie j : entier)
+	// cette procédure  permet de copier un mot dans une nouvelle chaine
+	
+	// i est l'indice juste après le mot dans la phrase
+	
+	// lMotTrouver est la longueur du mot à copier
+		
+	// phraseSaisie: phrase à copier
+	
+	// j : -en entrée : indice où nous écrirons le mot 
+	//	  	-en sortie : indice après le mot copier	
+	
+procédure AjouterEspace(entrée sortie phraseJustifié: chaineJ, entrée j: entier, entrée espace: entier)
+	//Cette procédure ajoute des espace apres un mot dans une chaine
+	
+	// entrée phraseJustifié est la chaine pour laquelle on veut ajouter des espaces
+	// sortie phraseJustifié est la chaine avec les espaces ajoutés
+	
+	// i est l'indice juste après le mot dans la phrase
+	
+	// espace est le nombre d'espace a ajouter
+	
+début
+	CompterIntervalEtMot(phraseSaisie, interval, tailleMot)
+	
+	nbrEspace := (TAILLESAISIE - tailleMot)			// on calcule le nombre d'espace total
+	espaceNormal := nbrEspace div (interval - 1)  	// on calcule le nombre d'espace moyen
+	espaceReste := nbrEspace mod (interval - 1) 	// on calcule le nombre d'espace restant
+	
+	tantque (interval > 0) faire
+	// arrêt quand il y a plus de mot
+		
+		ChercherMotDansPhrase(phraseSaisie, i, lMotTrouver)
+		
+		CopierMot(phraseSaisie, i, lMotTrouver,  texteJustifié, j)
+		interval := interval - 1
+		si interval > 0 alors
+			espace := espaceNormal
+			
+			si (espaceReste > 0) alors
+			// si il y des espaces en plus
+				espace := espace + 1 			// j'ajoute un espace en plus
+				espaceReste := espaceReste - 1 	// je retire un espace restant
+			finsi				
+			AjouterEspace(phraseJustifié, j, espace)
+		finsi
+	fintantque
+
+	phraseJustifié[j] := CARACFIN	
+	retourner texteJustifié
+fin

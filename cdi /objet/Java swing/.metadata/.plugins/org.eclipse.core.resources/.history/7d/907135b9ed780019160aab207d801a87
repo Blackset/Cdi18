@@ -1,0 +1,50 @@
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import java.awt.*;
+import java.awt.event.*;
+/*
+ * Created on 7 févr. 2005
+ */
+
+/**
+ * @author corre
+ * 
+ * cet essai de liste traite d'une liste fixe, avec les sélections
+ * par défaut, et un rendu de la liste par défaut
+ */
+public class Fenetre extends JFrame 
+{
+	private String [] table = {"Mickey","Minnie","Pluto","Dingo","Annabelle"};
+	private JList jl = new JList(table);
+	private JScrollPane js = new JScrollPane(jl);
+	JLabel jlab = new JLabel("                                           ");
+
+	public Fenetre()
+	{
+		Ecouteur ec = new Ecouteur();
+		jl.addListSelectionListener(ec);
+		setTitle("liste simple");
+		Container aff = getContentPane();
+		aff.setLayout(new BorderLayout());
+		aff.add(js,BorderLayout.NORTH);
+		aff.add(jlab,BorderLayout.SOUTH);
+		setBounds(100,10,500,500);
+		setVisible(true);
+	}
+	class Ecouteur implements ListSelectionListener
+	{
+		public void valueChanged(ListSelectionEvent arg0) 
+		{
+			Object [] val = (Object[])jl.getSelectedValues();
+			jlab.setText(val[0].getClass().getName());
+			/*String affiche = new String();
+			for (int i = 0;i < val.length;i++)
+			{
+				affiche += " "+val[i];
+			}
+			jlab.setText(affiche);*/
+		}
+	}
+}

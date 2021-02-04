@@ -1,0 +1,99 @@
+Programme test_dichotomie 
+ 
+ // Ce programme met en oeuvre la recherche dichotomique d’un prénom dans un tableau de   
+ // prénoms classés par ordre alphabétique     
+ 
+Constantes n = 80 // nombre maximum de prénoms dans le tableau    
+np = 20 // nombre maximum de caractères d’un prénom  
+ 
+Types  petitnom = tableau [ np ] de caractères // type des prénoms de la table    
+table  = tableau [ n ] de petitnom // type des tables de prénoms que l’on peut traiter  
+ 
+Variables 
+tableprénom : table  // table de prénoms dans laquelle on va chercher    
+taille   : entier  // longueur utile de la table de prénoms        
+résultat  : entier  // position du prénom dans la table ou 0 si absent    
+prénom  : petitnom // prénom que l’on va chercher dans la table       
+cpt   : entier  // compteur des prénoms rentrés dans la table     
+ 
+Procédure dichotomie  ( Entrée tabprénom : table, Entrée lgutile : entier,      
+			Entrée prénomcherché : petitnom, Sortie indice : entier ) 
+ 
+   // cette procédure cherche, par dichotomie, un prénom dans un tableau     
+   // de “lgutile” prénoms, classés par ordre alphabétique, et      
+   // retourne l’indice du prénom dans la table ou 0 si il en est absent.  
+ 
+   // tabprénom est le tableau des prénoms.        
+   // lgutile est la longueur utile du tableau de prénoms.       
+   // prénomcherché est le prénom que l’on cherche dans la table.      
+   // indice est la position du prénom dans la table ou 0 si il est absent.  
+ 
+	Début // saisie de la table de prénoms à traiter et de sa longueur utile  
+	 
+			 Ecrire ( ‘donnez le nombre de prénoms à entrer dans le tableau : ‘ )  
+			 Lire ( taille ) 
+	 
+			cpt := 0  
+			Tantque    cpt < taille    Faire   
+					cpt := cpt + 1 // saisie d’un nouveau prénom de la table     
+					Ecrire ( ‘donnez le prénom numéro ’,cpt,’ de la table’ )   
+					Lire ( tableprénom [ cpt ] )  
+			Fintantque 
+	 
+			   // saisie du prénom à chercher dans le tableau   
+			   Ecrire ( ‘donnez le prénom à chercher dans le tableau : ‘ )  
+			   Lire ( prénom ) 
+			 
+				// appel de la procédure qui fait tout le travail    
+				dichotomie ( tableprénom, taille, prénom, résultat) 
+	 
+			// résultat de la recherche   
+			   Si    résultat = 0    Alors   
+			   Ecrire ( ‘Le prénom ‘, prénom, ‘ n’est pas dans la table’ )  
+					Sinon   Ecrire ( ‘Le prénom ‘, prénom, ‘ est dans la table à l’indice ‘, résultat )  
+			   Finsi 
+	 
+	Fin  
+
+Procédure dichotomie  ( Entrée tabprénom : table, Entrée lgutile : entier, Entrée prénomcherché : petitnom, Sortie indice : entier ) 
+ 
+  // cette procédure cherche, par dichotomie, un prénom dans un tableau de     
+  // “lgutile” prénoms, classés par ordre alphabétique, et retourne l’indice    
+  // du prénom dans la table ou 0 si il en est absent.  
+ 
+  // tabprénom est le tableau des prénoms.    
+  // lgutile est la longueur utile du tableau de prénoms.    
+  // prénomcherché est le prénom que l’on cherche dans la table.    
+  // indice est la position du prénom dans la table ou 0 si il est absent.  
+ 
+Variables idébut : entier  // indice de début de la zone de recherche     
+ifin : entier   // indice de fin de la zone de recherche  
+ 
+Début 
+// initialisation des indices de zone et médian  
+ 
+ idébut := 1  
+ ifin := lgutile  
+ indice := ( idébut + ifin ) div 2 
+ 
+   // recherche du prénom jusqu’à avoir trouvé, ou que la zone soit vide  
+ 
+		 Tantque    ( idébut < ifin ) et ( tabprénom [ indice ] <> prénomcherché )    Faire   
+		 // arrêt quand la zone de recherche contient au plus un prénom, ou quand il est trouvé  
+		 
+				  Si    tabprénom [ indice ] > prénomcherché    Alors    
+				  ifin := indice - 1 // zone du haut        
+				  Sinon    idébut := indice + 1 // zone du bas        
+				  Finsi 
+		 
+		  indice := ( idébut + ifin ) div 2 
+		 
+		 Fintantque 
+ 
+		Si    ( idébut > ifin ) ou ( tabprénom [ indice ] <> prénom )    Alors      
+				// zone de recherche est vide ou prénom absent    i
+				ndice := 0  
+		Finsi 
+ 
+Fin 
+ 

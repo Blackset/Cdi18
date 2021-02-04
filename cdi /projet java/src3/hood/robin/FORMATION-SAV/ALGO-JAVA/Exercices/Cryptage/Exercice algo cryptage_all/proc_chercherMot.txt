@@ -1,0 +1,131 @@
+Procédure chercherMot
+
+1/Moulinette
+
+entrée phrase : chaine		===> chercherMot ===> 	sortie lg : entier
+
+entrée i : entier									sortie i : entier
+
+
+
+
+2/ Constantes et Types 
+
+Constantes
+STOP = '.' //terminateur de phrase
+SEPARE = ' ' //séparateur de mots
+N = 80 //taille des chaines traitées
+
+Types
+chaine = tableau de [N] caractères //types des phrases
+chaineCryptée =  tableau de [N] caractères //type des chaines cryptées
+
+
+
+
+
+3/Jeux d'essais
+
+Phrase					|  i 	| lg/i
+						|		|
+"."						| 1		|0/1
+"   ."					| 1		|0/4
+"le chat est gris."		| 1		|2/3
+"   le chat."			| 1		|2/6
+"le  chat est gris."	| 3		|4/9
+"le  chat est gris."	| 13	|4/18
+"le  chat est gris  ."	| 13	|4/18
+"le  chat est gris."	| 18	|0/18
+"le  chat est gris  ."	| 18	|0/20
+
+
+
+
+
+4/interface 
+
+procédure chercherMot(entrée phrase : chaine, entrée/sortie i : entier, sortie lg : entier)
+	//Cette procédure permet de repérer un mot à partir de la position i dans la phrase.
+	//phrase : phrase où nous cherchons le mot
+	//i -en entréé : point de départ pour chercher le mot
+	//	-en sortie : indice juste après le mot, ou sur le point
+	//lg est la longueur du mot trouvé, ou 0 si plus de mot	
+	
+	
+	
+	
+5/Programme test
+
+Programme testChercherMot
+
+Constantes
+STOP = '.' //terminateur de phrase
+SEPARE = ' ' //séparateur de mots
+N = 80 //taille des chaines traitées
+
+Types
+chaine = tableau de [N] caractères //types des phrases
+
+Variables
+i : entier //indice de parcours de la phrase
+lg : entier //longueur du mot trouvé
+
+
+Début
+	
+	
+	écrire("Donnez la phrase :")
+	lire(phrase)
+	
+	écrire("Position du début de la recherche : ")
+	lire(i)
+
+	chercherMot(phrase, i, lg)
+
+	écrire("Le caractère après le mot est à la position : ",i, " et le mot est de longueur : ", lg)
+	
+	
+Fin
+	
+
+	
+	
+	
+6/
+
+procédure chercherMot(entrée phrase : chaine, entrée/sortie i : entier, sortie lg : entier)
+	//Cette procédure permet de repérer un mot à partir de la position i dans la phrase.
+	//phrase : phrase où nous cherchons le mot
+	//i -en entréé : point de départ pour chercher le mot
+	//	-en sortie : indice juste après le mot, ou sur le point
+	//lg est la longueur du mot trouvé, ou 0 si plus de mot	
+
+Début
+	
+	tantque (phrase[i] = SEPARE) faire
+		//on s'arrête quand on trouve autre chose qu'un SEPARE
+		i:=i+1
+	fintantque
+	
+	//initialisation
+	lg := 0
+		
+	tantque (phrase[i]<>STOP) et (phrase[i]<>SEPARE) faire
+		//on s'arrête quand le caractère est un STOP ou un SEPARE
+		lg := lg+1
+		i:=i+1
+	fintantque
+	
+Fin	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

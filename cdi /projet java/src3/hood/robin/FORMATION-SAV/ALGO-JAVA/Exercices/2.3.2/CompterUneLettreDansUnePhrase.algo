@@ -1,0 +1,36 @@
+programme : CompterUneLettreDansUnePhrase
+
+//CONSTANTES
+CARACFIN = '.'; //Caractère de fin d'une chaine
+TAILLECHAINE = 80; //Taille du tableau de caractère
+
+//TYPES
+chaine = tableau[TAILLECHAINE]caractère; //Déclaration du tableau de caractère
+
+//VARIABLES
+Texte : chaine; //Chaine de caractère
+Carac : caractère; //Caractère a rechercher dans la chaine
+NbrCarac : entier; //Nombre Carac trouvé dans Texte
+i : entier; //Indice de parcours de la chaine
+
+début :
+	//Initialisation
+	NbrCarac := 0;
+	i := 1;
+	
+	écrire("Tapez une phrase")
+	lire(Texte)
+	écrire("Tapez une lettre a rechercher")
+	lire(Carac)
+
+	tantque i < TAILLECHAINE et Texte[i] <> CARACFIN faire 
+		//Compte le nombre de caractère Carac contenu dans une chaine
+		si Texte[i] = Carac alors
+			NbrCarac = NbrCarac + 1
+		finsi
+		i = i + 1
+	fintantque 
+
+fin
+
+

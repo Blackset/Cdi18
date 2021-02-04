@@ -1,0 +1,32 @@
+fonction ConversionEntier(entrée caracNombre: caractère): entier
+	// Cette fonction convertie un chiffre ASII en entier
+	
+	// caracNombre le caractère ASII à convertir
+
+//VARIABLES
+nbr: entier		// valeur du chiffre ASCII en entier
+	
+début
+	choix sur CaracNombre faire
+		// conversion valeur entier vers valeur hexa
+		'0' : CaracNombre := 0
+		'1' : CaracNombre := 1
+		'2' : CaracNombre := 2
+		'3' : CaracNombre := 3
+		'4' : CaracNombre := 4
+		'5' : CaracNombre := 5
+		'6' : CaracNombre := 6
+		'7' : CaracNombre := 7
+		'8' : CaracNombre := 8
+		'9' : CaracNombre := 9
+		'A' : CaracAlphaHexa := 10
+		'B' : CaracAlphaHexa := 11
+		'C' : CaracAlphaHexa := 12
+		'D' : CaracAlphaHexa := 13
+		'E' : CaracAlphaHexa := 14
+		autrecas : CaracAlphaHexa := 15
+			
+	finchoix		
+
+	retourner CaracNombre
+fin

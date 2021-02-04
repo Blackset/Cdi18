@@ -1,0 +1,40 @@
+//CONSTANTES
+
+tailnom = 10		// les noms ont dix caractères maximum
+
+//TYPES
+
+chaînenom = tableau [ tailnom ] de caractère	// type des noms rangés dans le tableau
+
+référence = pointeur de élément		
+
+élément = enregistrement		// type des éléments de la table des noms
+
+			nom : chaînenom		// nom est le nom contenu dans la table
+							
+			suivant : référence	// indice du nom suivant dans la table
+
+		  finenregistrement
+
+
+// Interfaces
+
+procédure initListe(entrée sortie premier: référence)
+	// cette procédure initialise le référence du premier nom
+	
+fonction ajouterListe(entrée premier: référence, entrée nom: chainenom): référence
+	// cette fonction retourne la référence du premier éléments
+	
+	// premier la première référence de la liste vaut null si la liste est vide
+	
+	// nom est le nom à ajouter à la liste
+
+fonction enleverListe(entrée premier: référence, entrée nom: chainenom): référence
+	// cette fonction permet d'enlever un nom à liste elle renvoit faux si le nom n'est pas présent, vrai si le nom est enlevé
+	
+	// premier la première référence de la liste vaut null si la liste est vide
+	
+	// nom est le nom à retirer à la liste
+	
+	
+

@@ -1,0 +1,132 @@
+Phrase				PhraseJustifiee
+"toto titi."		"toto         titi."
+"toto tata titi."	"toto   tata  titi."
+"toto."				"toto."
+"."					"."
+"    ."				"."
+
+
+Fonction JustifierPhrase(entrée pPhrase : Chaine) : Chaine
+// justifier une phrase
+// pPhrase : phrase donnée
+// retourne la phrase justifiée
+Type
+	Chaine = tableau [N] de caractere	// tableau de caracteres
+Variables
+	Taille : entier		// taille de la phrase
+	NbEspace : entier	// nombre d'espaces à insérer
+	NbMots : entier		// nombre de mots dans la phrase
+	Position : entier	// position dans la phrase
+	PhraseJustifiée : Chaine	// phrase justifiée
+	PositionJustifiée : entier	// position dans la phrase justifiée
+	Longueur : entier			// longueur du mot courant
+	i : entier			// indice de parcours
+	Reste : entier		// reste d'espaces
+Début
+	// initialisation
+	Position := 1
+	PositionJustifiée := 1
+	LongueurPhrase(Phrase, Taille)
+	NbEspace := (N - Taille) + CompterEspaces(Phrase) + CompterMots(Phrase) - 1
+	NbMots := CompterMots(Phrase)
+	Reste := NbEspace Mod (NbMots - 1)
+	TantQue NbMots > 0 et Position < Taille faire
+		// je m'arrête à la fin de la phrase ou quand il n'y a plus de mots
+		AjouterMot(pPhrase, Position, PhraseJustifiée, PositionJustifiée, Longueur)
+		i := 0
+		TantQue i < NbEspace Div (NbMots - 1) faire
+			// nombre d'espace entre chaque mot
+			pPhraseJustifiée[pPositionJustifiée] := ESPACE
+			pPositionJustifiée := pPositionJustifiée + 1
+			i := i + 1
+		FinTantQue
+		Si Reste > 0 alors
+			pPhraseJustifiée[pPositionJustifiée] := ESPACE
+			pPositionJustifiée := pPositionJustifiée + 1
+			Reste := Reste - 1
+		FinSi
+		Position := Position + 1
+	FinTanTQue
+Fin
+
+Procédure AjouterMot(entrée pPhrase : Chaine, entrée pPosition : entier, entrée sortie pPhraseJustifiée : Chaine, entrée sortie : pPositionJustifiée : entier, sortie pLongueur : entier)
+// ajouter un mot dans la phrase justifiée
+// pPhrase : phrase donnée
+// pPosition : position dans la phrase donnée
+// pPhraseJustifiée : phrase justifiée
+// pPositionJustifiée : position dans la phrase justifiée
+// pLongueur : longueur du mot
+Début
+	pLongueur := 0			// longueur du mots
+	TantQue pPhrase[pPosition] <> ESPACE faire
+		// je m'arrête quand je trouve un espace
+		pPhraseJustifiée[pPositionJustifiée] := pPhrase[pPosition + pLongueur]
+		pPositionJustifiée := pPositionJustifiée + 1
+		pLongueur := pLongueur + 1
+	FinTantQue
+Fin
+
+Fonction CompterEspaces(entrée pPhrase : Chaine) : entier
+// compte le nombre d'espaces en trop
+Variables
+	i : entier			// indice de position
+	nb : entier			// nombre d'espaces
+Début
+	// initialisation
+	i := 1
+	nb := 0
+	TantQue pPhrase[i] <> FIN faire
+		// je m'arrête à la fin de la phrase
+		Si pPhrase[i] = ESPACE et pPhrase[i + 1] = ESPACE alors
+			nb := nb + 1
+		FinSi
+		i := i + 1
+	FinTantQue
+	Retourner nb
+Fin
+
+Fonction CompterMots(entrée pPhrase : Chaine) : entier
+// compter les mots dans une phrase donnée
+// pPhrase : phrase donnée
+// retourne le nombre de mots
+Variables
+	i : entier			// indice de position
+	nb : entier			// nombre de mots
+Début
+	// initialisation
+	i := 1
+	nb := 0
+	TantQue pPhrase[i] <> FIN faire
+		// je m'arrête à la fin de la phrase
+		Si pPhrase[i] = ESPACE et pPhrase[i + 1] <> ESPACE alors
+			nb := nb + 1
+		FinSi
+		i := i + 1
+	FinTantQue
+	Si nb > 0 alors
+		nb := nb + 1
+	FinSi
+	Retourner nb
+Fin
+
+Programme TestJustifierPhrase
+// programme de test
+Constantes
+	N := 80			// taille de la phrase
+	FIN := '.'		// caractère de fin
+	ESPACE := ' '	// caractère d'espace
+Type
+	Chaine = tableau [N] de caractere	// tableau de caracteres
+Variable
+	Phrase : Chaine		// phrase saisie
+Procédure
+	AjouterMot(entrée pPhrase : Chaine, entrée pPosition : entier, entrée sortie pPhraseJustifiée : Chaine, entrée sortie : pPositionJustifiée : entier, sortie pLongueur : entier)
+Fonctions
+	JustifierPhrase(entrée pPhrase : Chaine) : Chaine
+	CompterMots(entrée pPhrase : Chaine) : entier
+	CompterEspaces(entrée pPhrase : Chaine) : entier
+Début
+	ecrire("Saisir phrase : ")
+	Lire(Phrase, FIN)
+	ecrire(JustifierPhrase(Phrase)
+Fin

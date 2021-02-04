@@ -1,0 +1,51 @@
+procédure ConversionHexa(entrée Chaine: chaineA, sortie ChaineHexa: chaineH)
+
+	// Cette procédure convertit une chaine de caractère ASCII en chaine de caractère HEXA
+	
+	// ChaineA est la chaine de caractère a convertir
+	
+	// ChaineHexa est la chaine de caractère convertie en HEXA
+	
+//CONSTANTES
+
+
+//TYPES
+
+//VARIABLES
+CaracEntier : entier // Valeur décimal du caractère à convertir
+iC : entier 	// Indice de parcours de la chaine de caracère
+iH : entier 	// Indice de parcours de la chaine HEXA
+
+//FONCTIONS
+Fonction Coder (entrée car : caractère): entier
+	// cette procédure donne la valeur d'un caractère donné en entrée
+	// car : caractère dont on veut connaître sa valeur
+	// retourne la valeur du caractère
+
+fonction CaracAlphaHexa(entrée CaracEntier: entier): caractère
+	//Cette procédure traduit un entier en caractère hexa
+	
+	//CaracEntier le code d'un caractère ASCII
+	
+	//retourne le code hexa 
+	
+début
+	// Initialisation des indices
+	iC := 1
+	iH := 1
+		
+	tantque iC < TAILLECHAINEASCII faire
+		// Arrêt quand l'indice à parcouru la chaine		
+		CaracEntier := Coder(Chaine[iC]);		
+	
+		
+		// Si la valeur du caractère se trouve dans l'interval des caractères supportés
+		ChaineHexa[iH] = CaracAlphaHexa(CaracEntier div 16)		
+		
+		ChaineHexa[iH + 1] = CaracAlphaHexa(CaracEntier mod 16)
+		
+		iH := iH + 2
+			
+		iC := iC + 1
+	fintantque
+fin

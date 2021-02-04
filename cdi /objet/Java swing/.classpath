@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="applette/src"/>
+	<classpathentry kind="src" path="bundle/src"/>
+	<classpathentry kind="src" path="cercle2d/src"/>
+	<classpathentry kind="src" path="couleur/src"/>
+	<classpathentry kind="src" path="edith/src"/>
+	<classpathentry kind="src" path="essai2D/src"/>
+	<classpathentry kind="src" path="gridbag/src"/>
+	<classpathentry kind="src" path="internewin/src"/>
+	<classpathentry kind="src" path="menu/bundle/src"/>
+	<classpathentry kind="src" path="menu/cercle2d/src"/>
+	<classpathentry kind="src" path="menu/src"/>
+	<classpathentry kind="src" path="menu/treeeditable/src"/>
+	<classpathentry kind="src" path="optionpane/src"/>
+	<classpathentry kind="src" path="popup/src"/>
+	<classpathentry kind="src" path="split/src"/>
+	<classpathentry kind="src" path="treebin5/src"/>
+	<classpathentry kind="src" path="treebin6/src"/>
+	<classpathentry kind="src" path="treebin7/src"/>
+	<classpathentry kind="src" path="treebin8/src"/>
+	<classpathentry kind="src" path="treeeditable/src"/>
+	<classpathentry kind="src" path="treeselection/src"/>
+	<classpathentry kind="src" path="treesimple/src"/>
+	<classpathentry kind="src" path="treetooltip/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

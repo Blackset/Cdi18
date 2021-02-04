@@ -1,0 +1,76 @@
+1-Entrée / Sortie : 
+				
+texteSaisie: chaineS		--->	
+
+CARACFIN: caractère 		--->
+
+LINEFEED: entier 			--->	
+									CopieTexte	--->	texteCopie: chaineC
+CARIAGERETURN: entier		--->
+
+TAILLETEXTESAISIE: entier	--->
+
+TAILLETEXTECOPIE: entier	--->
+
+
+2-Constantes / Types :
+
+//CONSTANTES
+TAILLETEXTESAISIE = 80; 	// Taille du tableau de caractère de la saisie de l'utilisateur
+TAILLETEXTECOPIE = 50;		// Taille du tableau de caractère de la copie du tableau mis en forme
+CARACFIN = '.'; 			// Caractère de fin d'une chaine
+CARIAGERETURN = 13			// Code ASCII de saut de ligne \r --> CR
+LINEFEED = 10				// Code ASCII  ligne pleine \n	--> LF
+
+//TYPES
+chaineS = tableau[TAILLETEXTESAISIE]caractère; // tableau de caractère pour la chaine saisie par l'utilisateur
+chaineC = tableau[TAILLETEXTESAISIE]caractère; // tableau de caractère pour la chaine copié
+
+3-Jeu d'essai :
+
+texteSaisie			|		texteCopie		|		
+-------------------------------------------------------------
+<ENTREE>			|		.				|
+.<ENTREE>			|		.               |
+a.<ENTREE>			|		a.              |
+a.b<ENTREE>			|		a.              |
+abcde.<ENTREE>		|		abcde.          |
+abcdef.<ENTREE>		|		abcde.          |
+abc<ENTREE>			|		abc.            |
+   abc.<ENTREE>		|		    abc.		|
+
+4-Interfaces :
+
+procédure SaisieTexte(entrée sortie texteSaisie: chaineS)
+	// entrée un tableau de caractère vide
+	// sortie un tableau caractère rempli par l'ulisateur
+	
+fonction CopieTexte(entrée texteSaisie: chaineS): chaineC
+	// entrée un tableau de caractère remplie par l'utilisateur
+	// retourne une copie de texteSaisie  formaté avec le point en bout de chaine
+
+
+5-Algo de principe :
+
+CopieTexte	
+    
+tantque (le caractère est différent de CARIAGERETURN ou LINEFEED) et que l'indice n'est pas supérieur à TAILLETEXTECOPIE - 1 faire
+
+		je copie le caractère
+
+		j'avance
+
+fintantque
+
+je copie CARACFIN
+
+
+
+
+
+
+
+
+
+
+	

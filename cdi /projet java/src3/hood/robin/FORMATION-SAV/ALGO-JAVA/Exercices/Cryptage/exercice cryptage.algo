@@ -1,0 +1,164 @@
+Exercice : codage d'une phrase
+
+On cherche un algorithme qui pour une phrase donnée (composée de minuscules, espaces et un point) nous donne
+une phrase cryptée (1er mot = alphabet+1, 2e mot = alphabet+2...)
+
+
+1/Moulinette
+
+entrée phrase : chaine 		===> crypterPhrase ===> 	sortie phraseCryptée : chaineCryptée
+(entrée STOP : entier)
+(entrée SEPARATEUR : entier)
+
+
+2/Constantes et Types
+
+Constantes
+
+STOP = '.' //terminateur de phrase
+SEPARE = ' ' //séparateur de mots
+N = 80 //taille des chaines traitées
+
+Types
+chaine = tableau de [N] caractères //types des phrases
+chaineCryptée =  tableau de [N] caractères //type des chaines cryptées
+
+
+3/Jeux d'essais
+
+Phrase						|		Phrase Cryptée			|	OK ?
+							|								|
+" le chat est  gris."		|		"mf ejcv hvw kvmw."		|	
+"."							|		"."						|	
+"   ."						|		"."						|	
+"le zebre  ."				|		"mf bgdtg."				|	
+26e, 52e mots...			|		non codés				|
+
+
+
+
+4/Interface
+
+procédure crypterPhrase(entrée phrase : chaine, sortie phraseCryptée : chaineCryptée)
+	//Cette procédure permet de crypter une phrase.
+	//Le codage consiste à réécrire chaque mot dans un alphabet décalé, le décalage étant égal au numéro du mot dans la phrase.
+	//Le caractère suivant un 'z' est un 'a'.
+	//Les mots numéro 26 et suivants ne seront pas codés.
+	//Un minimum d'espaces seront conservés dans la phrase cryptée.
+	//phrase : il s'agit de la phrase que l'on souhaite crypter.
+	//phraseCryptée : il s'agit de la phrase obtenue après le cryptage.
+	
+	
+	
+5/Programme test
+
+
+
+
+
+
+
+
+
+
+6/
+	6-1/Algorithme de principe
+
+chercherMot
+
+Tantque il y a des mots faire
+	NoMot := NoMot + 1
+	
+	crypterMot (NoMot)
+	
+	chercherMot
+
+	Si il y a des mots alors
+		mettre 1 SEPARE
+	
+	finsi
+	
+fintantque
+
+mettre le STOP
+
+
+	6-2/Procédures
+	
+
+chercherMot :
+
+
+entrée phrase : chaine		===> chercherMot ===> 	sortie lg : entier
+
+entrée i : entier									sortie i : entier
+
+
+Jeux d'essais (voir corrections)
+
+
+interface :
+
+procédure chercherMot(entrée phrase : chaine, entrée/sortie i : entier, sortie lg : entier)
+	//Cette procédure permet de repérer un mot à partir de la position i dans la phrase.
+	//phrase : phrase où nous cherchons le mot
+	//i -en entréé : point de départ pour chercher le mot
+	//	-en sortie : indice juste après le mot, ou sur le point
+	//lg est la longueur du mot trouvé, ou 0 si plus de mot	
+	
+	
+OK pour coder	
+	
+
+	
+crypterMot :
+
+procédure crypterMot(entrée phrase : chaine, entrée i : entier, entrée lg : entier, entrée NoMot :entier,
+					 entrée/sortie phraseCryptée : chaineCryptée, entrée/sortie j : entier)
+	//crypte un mot de la phrase dans la phraseCryptée en fonction du numéro du mot
+	//phrase est la phrase initiale
+	//i est l'indice juste après le mot et dans la phrase
+	//lg est la longueur du mot à crypter
+	//NoMot est le numéro d'ordre du mot
+	//phraseCryptée -en entrée : portion de phrase déjà cryptée
+	//				-en sortie : portion de phrase déjà cryptée plus le mot crypté
+	//j : -en entrée : indice où nous écrirons le mot crypté
+	//	  -en sortie : indice après le mot crypté	
+	
+
+	
+=> besoin d'une fonction pour crypter un caractère
+
+
+
+
+crypterCarac :
+
+entrée car : caractère			===> crypterCarac ===> sortie carCrypté
+	
+entrée clef	
+	
+	
+fonction crypterCarac(entrée car : entier, entrée clef : entier): caractère
+	//crypte un caractère en ajoutant la clef au code du caractère
+	//le suivant de 'z' est 'a'
+	//car : caractère à crypter
+	//clef : clef de cryptage
+	//retourne le caractère crypté
+	
+	
+Deux outils en plus à définir pour ceux qui feront crypterCarac :	
+	
+coder :
+	
+entrée car : caractère ===> coder ===> sortie val : entier
+
+
+
+Ascii : 
+
+entrée val : entier ===> Ascii ===> sortie car : caractère	
+	
+	
+	
+	

@@ -1,0 +1,56 @@
+PROGRAMME  compter le nombre de caractères dans une phrase
+	// Soit une chaîne de caractères terminée par le caractère '.'
+	// Donnez l'algorithme d'une procédure qui compte la longueur de cette chaîne ( '.' non compris ). 
+	
+PROCEDURE 	
+	Compter-nombre-caractères (Entrée phrase : chaîne, Sortie longueur : entier)
+	// calcule la longueur de la phrase
+	// Phrase : phrase à étudier
+	// longueur : longueur de la phrase, terminateur compris
+	
+
+Constantes
+	FINCHAINE='.' 	// Caractère de fin de chaîne
+	N=80			// Nbre maximum de caratères dans la chaîne
+
+	
+Types
+	chaine=tableau [N] caractères // type de chaîne de caractères
+
+Variables
+	TexteSaisie : chaîne	// chaine de caratères dans laquelle on compte le nombre de caractères
+	NbreCarac	: entier	// Nombre de caractères dans TexteSaisie
+
+
+DEBUT
+
+	Ecrire ("Saisir un texte avec ", FINCHAINE, " comme caractère de fin :") 
+	Lire (TexteSaisie)
+	Compter-nombre-caractères (Entrée TexteSaisie : chaîne, Sortie NbreCarac : entier) // appel de la procédure
+	Ecrire ("Le nombre de caractères est de :", NbreCarac)  // on affiche le résultat
+	
+FIN
+
+	
+	
+	
+	Procédure Compter-nombre-caractères (Entrée TexteSaisie : chaîne ,Entrée FINCHAINE : caractère ,Sortie NbreCarac : entier) 
+	
+	Variables
+	i : entier	// Indice de parcours de la chaîne de caractères
+	
+		DEBUT
+			// lecture de la phrase et compteur de caractères
+	
+			i:=1  // début de pharse
+			NbreCarac :=0 // Initialisation du nombre de caractères à 0
+			
+			TANTQUE TexteSaisie[i] <> FINCHAINE FAIRE
+					
+					   i:=i+1			// On passe au caractère suivant dans TexteSaisie
+			Fintantque
+			
+			NbreCarac:=i-1 // On décompte pour ne pas comptabiliser le terminateur
+
+
+		FIN

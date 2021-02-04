@@ -1,0 +1,82 @@
+ fonction pour crypter un caractère
+
+
+crypterCarac :
+
+1. Définition
+entrée car : caractère		|				|
+						===>|  crypterCarac |===> sortie carCrypté
+	entrée clef				|				|
+
+3. jeu d'essai
+
+	car		|    clef	|	carCrypté	|  ok?	|
+	'a'		|	  1		|		'b'		|		|
+			|	  2		|		'c'		|		|
+			|	 25		|		'z'		|		|
+			|	 26		|		'a'		|		|
+			|	 52		|		'a'		|		|
+	'z'		|	  1		|		'a'		|		|
+
+4. interface	
+fonction crypterCarac(entrée car : entier, entrée clef : entier): caractère
+	//crypte un caractère en ajoutant la clef au code du caractère
+	//le suivant de 'z' est 'a'
+	//car : caractère à crypter
+	//clef : clef de cryptage
+	//retourne le caractère crypté
+	
+	
+Deux outils en plus à définir pour ceux qui feront crypterCarac :	
+		
+coder :
+	
+entrée car : caractère ===> coder ===> sortie val : entier
+
+
+
+Ascii : 
+
+entrée val : entier ===> Ascii ===> sortie car : caractère	
+
+6. algo
+fonction crypterCarac(entrée car : entier, entrée clef : entier): caractère
+	//crypte un caractère en ajoutant la clef au code du caractère
+	//le suivant de 'z' est 'a'
+	//car : caractère à crypter
+	//clef : clef de cryptage
+	//retourne le caractère crypté
+	
+	
+// Constante
+	MAXALPHABET = 26 // nombre de lettre dans l'alphabet
+
+// variables
+	valCar : entier			// valeur du caractère à crypter
+	valCarCrypté : entier	// valeur du caractère crypté
+	carCrypté : caractère	// caractère crypté
+	
+// Outils
+	Fonction Coder (entrée car : caractère): entier
+	// cette procédure donne la valeur d'un caractère donné en entrée
+	// car : caractère dont on veut connaître sa valeur
+	// retourne la valeur du caractère
+	
+	Fonction Ascii ( entrée val: entier) ; caractere
+	// cette procédure donne le caractère en fonction de sa valeur
+	// val: valeur du caractère
+	// retourne le caractère correspondanbt à la valeur
+	
+Début
+	valcar := Coder (car)
+	
+	clef := clef MOD MAXALPHABET	// on a une clef enre 1 et MAXALPHABET
+	
+	valCar :=  valCar + clef
+	
+	Si valCar > coder('z') alors
+		valcar := valCar - MAXALPHABET
+	finsi
+	 
+	 retourne Ascii(valCar)
+fin

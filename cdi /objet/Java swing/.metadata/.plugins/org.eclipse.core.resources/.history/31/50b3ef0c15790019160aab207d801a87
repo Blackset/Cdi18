@@ -1,0 +1,29 @@
+import java.awt.Component;
+
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
+/*
+ * Created on 7 févr. 2005
+ *
+ * TODO To change the template for this generated file go to
+ * Window - Preferences - Java - Code Style - Code Templates
+ */
+
+/**
+ * @author corre
+ *
+ * TODO To change the template for this generated type comment go to
+ * Window - Preferences - Java - Code Style - Code Templates
+ */
+public class MonRendu implements ListCellRenderer {
+
+	/* (non-Javadoc)
+	 * @see javax.swing.ListCellRenderer#getListCellRendererComponent(javax.swing.JList, java.lang.Object, int, boolean, boolean)
+	 */
+	public Component getListCellRendererComponent(JList arg0, Object arg1,
+			int arg2, boolean arg3, boolean arg4) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

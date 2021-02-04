@@ -1,0 +1,115 @@
+package ExoObjet;
+
+
+public class Group
+{	 
+	public static final int MAX  = 20;  	
+	private int m_nCpt;                    // compte le nombre d'individu d'un groupe
+	private Individu[] m_tTab;
+
+
+	public Group (int nombreIndividu)	       //constructeur
+	{
+		if ( nombreIndividu > 0 && nombreIndividu < MAX )
+		{
+			m_nCpt = 0;
+			m_tTab = new Individu [nombreIndividu];
+		}
+		else		
+		{
+			m_nCpt = 0;
+			m_tTab = new Individu [MAX];
+		}   	   	
+	}    	   
+	public Group()   // par defaut  
+	{ 	
+		m_nCpt = 0;
+		m_tTab = new Individu [MAX];
+	}
+
+	/**
+	 * cette fonction demande à l'utilisateur le nombre maximun d'Iindividus composant
+	 * le groupe puis chaque individu
+	 * @param 
+	 * @return 
+	 */		
+	public void lire() 
+	{  
+     int i = getNb();
+     
+	 if (isNotFull())
+	 {
+		do 		 			   
+		{  				
+			m_tTab[i] = new Individu();                             // initialisation de chaque case du tableau  
+			m_tTab[i].lire();
+			setCpt(); i++;
+			
+		} while (isNotFull() && Saisie.veutContinuer());	
+	 }
+	}
+	public void afficher (Individu[]tab)
+	{
+
+		for (int i = 0;  i < getNb(); i++) 
+		{
+			m_tTab[i].afficher();  
+		}
+	}
+	/**
+	 * cette fonction compte le nombre d'individu effectivement dans le groupe
+	 * @param nom 
+	 * @return m_nCpt il compte les individus
+	 */
+
+	private boolean setCpt()
+	{
+		if ( isNotFull())
+		{
+			m_nCpt ++; 
+			return true;
+		}
+		else
+		{
+			return false;
+		}    	 
+	}
+	/**
+	 * cette fonction compte le nombre d'individu effectivement dans le groupe
+	 * @param nom 
+	 * @return m_nCpt il compte les individus
+	 */
+
+	private int  getNb()
+	{
+		return  m_nCpt;    	 
+	}
+	/**
+	 * cette fonction retourne le nombre maximun d'Individus
+	 * @param  
+	 * @return m_nMax nombre d'Individus
+	 */
+	private int getMax()    
+	{
+		return m_tTab.length;    	 
+	}
+
+
+	private boolean isNotFull()
+	{
+		return getNb() < getMax();
+	}
+
+	public Individu individuAt(int i)
+	{
+		if ( i > 0 &&  i < getNb())
+		{
+			return m_tTab [i];
+		}
+		else
+		{
+			return null;
+		}		  
+	}
+
+}

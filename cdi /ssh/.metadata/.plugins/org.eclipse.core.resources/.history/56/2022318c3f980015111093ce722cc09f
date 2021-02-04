@@ -1,0 +1,24 @@
+package objetExo2;
+
+
+
+public class Test
+{
+	 public static void main(String [] argument)
+	 {
+		 Individu leMeilleur = new Individu();
+		 //leMeilleur.setNom("GERRARD"); 
+		 //leMeilleur.setPrénom("Jean");
+		 //leMeilleur.setAdresse("3 Rue Emile Bouvier 69100 Villeurbanne");
+		 leMeilleur.lire();
+		 leMeilleur.afficher();
+		 
+		 //System.out.println (leMeilleur.getNom()+" "+leMeilleur.getPrénom()+" "+leMeilleur.getAdresse()+" ");
+		
+		 
+		 
+		
+		 
+		 
+	 }
+}

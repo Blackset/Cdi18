@@ -1,0 +1,101 @@
+Programme test_dichotomie 
+ 
+ // Ce programme met en oeuvre la recherche dichotomique d’un prénom dans un tableau de   
+ // prénoms classés par ordre alphabétique     
+ 
+Constantes 
+	N = 80 // nombre maximum de prénoms dans le tableau    
+	CP = 20 // nombre maximum de caractères d’un prénom  
+ 
+Types  
+	tabprenom = tableau [ CP ] de caractères // type des prénoms de la table    
+	table  = tableau [ N ] de tabprenom// type des tab prénoms que l’on peut traiter  
+ 
+Variables 
+	tableprenom : table  // table de prénoms dans laquelle on va chercher    
+	taille   : entier  // longueur de la table de prénoms        
+	résultat  : entier  // position du prénom dans la table    
+	prenom  : tabprenom// prénom à chercher dans la table       
+	compteur   : entier  // compteur des prénoms saisies dans la table     
+ 
+Procédure dichotomie  ( Entrée tabprénom : table, Entrée longueurtabprenom : entier,      
+			Entrée PrénomRecherché : tabprenom, Sortie indice : entier ) 
+ 
+   // procédure de recherche par dichotomie d'un prénom dans un tableau     
+   // de  prénoms classés par ordre alphabétique et      
+   // retourne l’indice du prénom dans la table - 0 si absent.  
+ 
+   // tabprenom est le tableau des prénoms.        
+   // longueurtabprenom est la longueur utile du tableau de prénoms.       
+   // PrénomRecherché est le prénom que l’on cherche dans la table.      
+   // indice est la position du prénom dans la table - 0 absent.  
+ 
+	Début // saisie de la table de prénoms à traiter et de sa longueur utile  
+	 
+			 Ecrire ( "nombre de prénoms à entrer dans le tableau : " )  
+			 Lire ( taille ) 
+	 
+			compteur := 0  
+			Tantque    compteur < taille    Faire   
+					compteur := compteur + 1 // saisie d’un nouveau prénom de la table     
+					Ecrire ( "prénom numéro ",compteur," de la table des prénoms." )   
+					Lire ( tableprenom [ compteur ] )  
+			Fintantque 
+	 
+			   // saisie du prénom à chercher   
+			   Ecrire ( "donnez le prénom à chercher dans le tableau : " )  
+			   Lire ( prenom ) 
+			 
+				// appel de la procédure qui fait tout le travail    
+				dichotomie ( tableprenom, taille, prenom, résultat) 
+	 
+			// résultat de la recherche   
+			   Si    résultat = 0    Alors   
+			   Ecrire ( "Le prénom ", prenom, " n’est pas dans la table" )  
+					Sinon   Ecrire ( "Le prénom ", prenom, " est dans la table à l’indice ", résultat )  
+			   Finsi 
+	 
+	Fin  
+
+Procédure dichotomie  ( Entrée tabprenom : table, Entrée longueurtabprenom : entier, Entrée PrénomRecherché : tabprenom, Sortie indice : entier ) 
+ 
+  // cette procédure cherche, par dichotomie, un prénom dans un tableau de     
+  // “longueurtabprenom” prénoms, classés par ordre alphabétique, et retourne l’indice    
+  // du prénom dans la table ou 0 si il en est absent.  
+ 
+  // tabprenom est le tableau des prénoms.    
+  // longueurtabprenom est la longueur utile du tableau de prénoms.    
+  // PrénomRecherché est le prénom que l’on cherche dans la table.    
+  // indice est la position du prénom dans la table ou 0 si il est absent.  
+ 
+Variables idébut : entier  // indice de début de la zone de recherche     
+ifin : entier   // indice de fin de la zone de recherche  
+ 
+Début 
+// initialisation des indices de zone et médian  
+ 
+ idébut := 1  
+ ifin := longueurtabprenom  
+ indice := ( idébut + ifin ) div 2 
+ 
+   // recherche du prénom jusqu’à avoir trouvé, ou que la zone soit vide  
+ 
+		 Tantque    ( idébut < ifin ) et ( tabprénom [ indice ] <> PrénomRecherché )    Faire   
+		 // arrêt quand la zone de recherche contient au plus un prénom, ou quand il est trouvé  
+		 
+				  Si    tabprénom [ indice ] > PrénomRecherché    Alors    
+				  ifin := indice - 1 // zone du haut        
+				  Sinon    idébut := indice + 1 // zone du bas        
+				  Finsi 
+		 
+		  indice := ( idébut + ifin ) div 2 
+		 
+		 Fintantque 
+ 
+		Si    ( idébut > ifin ) ou ( tabprénom [ indice ] <> prénom )    Alors      
+				// zone de recherche est vide ou prénom absent    
+				indice := 0  
+		Finsi 
+ 
+Fin 
+ 

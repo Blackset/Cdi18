@@ -1,0 +1,47 @@
+Entrée/Sortie :
+
+NbrEntier 	--->
+					CalculBit	---> 	ValBit
+RangBit		--->
+
+
+--------------------------------------------------
+
+Jeu d'essai :
+
+NbrEntier	|		Binaire		|	 RangBit	|	ValBit
+------------------------------------------------------------
+	5		|		 101		|		1		|	vrai
+	10		|		1011		|		0		|	faux
+	8		|		1001		|   	10		|	faux
+	0		| 		   0		|		4		|	faux
+
+	
+programme : TestCalculBit
+
+//CONSTANTES
+
+//TYPES
+
+
+//VARIABLES
+NbrEntier : entier; // valeur à convertir en bit saisie par l'utilisateur
+RangBit : entier; // valeur du rang du bit a évaluer
+
+//PROCEDURES
+procédure CalculBit(entrée NbrEntier: entier, entrée RangBit: entier, sortie ValBit: entier)
+procédure Afficher(entrée ValBit: entier)
+
+début
+
+	écrire("Tapez la valeur à convertir : ")
+	lire(NbrEntier)
+	
+	écrire("Tapez le numéro du bit : ")
+	lire(RangBit)
+	
+	CalculBit(NbrEntier, RangBit, ValBit)
+	
+	écrire("La valeur du bit est : ", ValBit)
+	
+fin

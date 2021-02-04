@@ -1,0 +1,32 @@
+
+
+
+5 Pg test
+	
+	
+	constantes
+	STOP= '.' // terminateur de phrase
+	SEPARE= ' ' // séparateur de mots
+	N= 80 // taille des chaines traitées
+	
+	
+	type
+	chaine = tableau [N] caractères // type des phrases
+	chaineCryptee = tableau [N] caractères // type phrases cryptées
+	
+
+	
+	variables
+	phrase: chaine // phrase à coder
+	phraseCryptee: chaineCryptee // phrase codée
+		
+	debut
+			
+		Ecrire ("Saisir la phrase à crypter (en terminant par un point):")
+		Lire (phrase)
+		crypterPhrase (phrase , phraseCryptee)
+		Ecrire (phraseCryptee)
+			
+	Fin
+	
+	

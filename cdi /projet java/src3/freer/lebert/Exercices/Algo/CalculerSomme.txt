@@ -1,0 +1,96 @@
+Procédure CalculerSomme(entrée pNombres : Chaine, entrée pBase : entier, sortie pResultat : entier)
+// calculer la somme de nombres en base quelconque
+// pNombres : nombres saisis
+// pBase : base de calcul
+// pResultat : résultat du calcul
+Variables
+	Nb : entier			// nombre de calculs
+	Position : entier	// position dans la chaine
+	Calcul : Chaine		// calcul découpé
+	i : entier			// indice de parcours
+Début
+	Nb := NombreCalculs(pNombres)
+	pResultat := 0
+	TantQue Nb > 0 faire
+		// je m'arrête quand il n'y a plus de mots
+		DécouperCalcul(pNombres, Position, Calcul,lg)
+		pResultat := pResultat+ calcul(Calcul, lg, pBase)
+	FinTantQue
+Fin
+
+fonction calcul(entrée pCalcul : Chaine, entrée lg : entier, entrée pBase : entier ): entier
+valeur : entier
+debut
+	i := 1
+	valeur := 0
+	TantQue i <= lg faire
+		// je m'arrête à la fin du calcul
+		
+		valeur := valeur*pBase + convertir( pCalcul[i] )
+		i := i + 1
+	FinTantQue
+	retourner valeur
+fin
+Fonction NombreCalculs(entrée pNombres : Chaine) : entier
+// compter le nombre de calculs dans la chaine
+// pNombres : nombres saisis
+// retourne le nombre de calculs
+Variable
+	i : entier		// indice de parcours
+	Nb : entier		// nombre de calculs
+Début
+	// initialisation
+	i := 0
+	Nb := 0
+	TantQue pNombres[i] <> FIN faire
+		// je m'arrête à la fin de la chaine
+		Si pNombres[i] = ESPACE et pNombres[i + 1] <> ESPACE alors
+			Nb := Nb + 1
+		FinSi
+		i := i + 1
+	FinTantQue
+	Si Nb > 0 alors
+		Nb := Nb + 1
+	FinSi
+	Retourner Nb
+Fin
+
+Procédure DécouperCalcul(entrée pNombres : Chaine, entrée sortie pPosition : entier, sortie pCalcul : Chaine)
+// découper un calcul de la somme
+// pNombres : nombres saisis
+// pPosition : position dans la chaine
+// pCalcul : calcul découpé
+Variable
+	i : entier		// indice de position
+Début
+	// initialisation
+	i := 1
+	TantQue pNombres[pPosition] <> ESPACE faire
+		// je m'arrête à la fin du nombre
+		Si pNombres[pPosition] <> FIN alors
+			pCalcul[i] := pNombres[pPosition]
+		FinSi
+		pPosition := pPosition + 1
+		i := i + 1
+	FinTantQue
+Fin
+
+Programme TestCalculerSomme
+Constante
+	N := '80'		// taille du tableau
+	FIN := '0'		// caractère de fin
+	ESPACE := ' '	// caractère d'espace
+Type
+	Chaine = Tableau [N] de caractères		// tableau de caractères
+Variable
+	Nombres : Chaine		// nombres saisis
+	Base : entier			// base de calcul
+	Resultat : entier		// résultat du calcul
+Début
+	Ecrire("Saisir une chaine de nombres : ")
+	Lire(Nombres, ESPACE, FIN)
+	Ecrire("Saisir la base de calcul voulue : ")
+	Lire(Base)
+	CalculerSomme(Nombres, Base, Resultat)
+	Ecrire("Résultat : ", Resultat)
+Fin

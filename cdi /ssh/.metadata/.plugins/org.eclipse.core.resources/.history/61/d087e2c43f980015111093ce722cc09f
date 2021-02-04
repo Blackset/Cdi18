@@ -1,0 +1,300 @@
+package objetExo2;
+
+
+public class Individu
+{
+		 private String  m_strNom;
+		 private String  m_strPrénom;
+		 private String  m_strNomrue; 
+		 private String  m_strVille;
+		 private int     m_nNumRue;
+		 private int     m_nCodePostal;
+		 
+		 
+		 public String getNomRue()
+			{
+				return m_strNomrue ;
+			}
+	 	 	 
+		 public boolean setNomRue(String nomRue)
+		 {
+			if ( nomRue != null)
+				{
+					this.m_strNomrue = nomRue;
+		          	 return true;
+				}
+			else 
+			    {
+				    return false;
+		        }
+		  }	 	 
+		 
+		 public String getVille()
+			{
+				return m_strVille;
+			}
+	 	 	 
+		 public boolean setVille(String ville)
+		 {
+			if (  m_strVille != null)
+				{
+					this.m_strVille = ville;
+		          	 return true;
+				}
+			else 
+			    {
+				    return false;
+			    }
+		  }	 		 
+		 public int getNumRue()
+			{
+				return m_nNumRue ;
+			}
+		  		 		 
+		 private boolean setNumRue (String numrue)
+		 {
+		 numrue = numrue.trim();
+		 if (BoiteàOutil.estEntier(numrue)) 
+		 {	
+          	 return setNumRue(BoiteàOutil.convertir(numrue));
+		 }
+		 else 
+		    {
+			    return false;
+		    }	  
+		 } 	 	 
+		 	 	 
+		 public boolean setNumRue(int numrue)
+		 {
+			if (numrue>0)
+				{
+					this.m_nNumRue = numrue;
+		          	 return true;
+				}
+			else 
+			    {
+				    return false;
+			    }
+		  }	 
+		 	 	 	
+		 public int getCodePostal()
+			{
+				return m_nCodePostal ;
+			}
+		 		 		 
+		 private boolean setCodePostal (String codepostal)
+		 {
+		 codepostal = codepostal.trim();
+		 if ( BoiteàOutil.estEntier (codepostal) && codepostal.length() == 5)
+		 {	
+          	 return setCodePostal(BoiteàOutil.convertir(codepostal));
+		 }
+		 else 
+		    {
+			    return false;
+		    }
+		  
+		 } 	 	 
+	 	 	 
+		 public boolean setCodePostal(int codepostal)
+		 {
+			if ( codepostal >0)
+				{
+					this.m_nCodePostal = codepostal;
+		          	 return true;
+				}
+			else 
+			    {
+				    return false;
+			    }
+		  }	 
+		 
+		 
+		 public String getAdresse()
+			{
+				return getNumRue()+" "+  getNomRue() +" "+  getVille()+" "+ getCodePostal()+" ";
+			}
+		 
+		@Deprecated 
+		 public boolean setAdresse(String adresse)
+			{
+				 String tab[] = adresse.split(",");
+				  if ( adresse!= null && tab.length == 4 )
+						 {
+							if (setNumRue(tab[0])&& setNomRue(tab[1])&& setVille(tab[2])&& setCodePostal(tab[3]))
+							{
+								return true;
+							}								
+						    else 				 
+				           {
+					          return false;
+				           }
+							
+						 }
+				  else 
+				   {
+					 return false;
+				   }				 
+			 }	 
+		  		 
+		 
+	 public String getNom()
+			{
+				return m_strNom ;
+			}
+
+	/**
+	 * cette fonction donne  donne le nom de l'obget Individu si le parametre nom nest pas null  
+	 * @param nom
+	 * @return boolean
+	 */
+	public boolean setNom (String nom)
+		{
+			if ( BoiteàOutil.estAlpha(nom))
+			{
+				this.m_strNom = nom;
+				return true;
+			}
+			
+			else
+			{
+				return false;
+			}
+		}	   
+	public String getPrénom()
+		    {
+				return  m_strPrénom;
+			}
+			
+	/*** cette fonction donne le prénom de l'objet Individu si le parametre prénom n'est pas null
+	 * 
+	 * @param prénom
+	 * @return boolean
+	 */
+	
+	public boolean setPrénom (String prénom)
+		{
+			if ( BoiteàOutil.estAlpha(prénom))
+			{
+			    this.m_strPrénom = prénom;
+				  return true;
+			}
+			else
+			{
+				return false;
+			}
+				
+		}
+	
+	
+	public void lire ()
+  {
+	boolean phraseJuste;
+	do
+	{ 	
+		System.out.println("Entrez le nom de l'employer");
+		phraseJuste = setNom(Lire.S());
+		if(!phraseJuste)
+		{
+			System.out.println("vous n'avez pas saisi le bon nom de l'employer");
+		}		
+	}
+	
+    while (!phraseJuste);
+		
+		
+	do 
+		{
+			System.out.println("Entrez le prénom de l'employer");
+			phraseJuste = setPrénom(Lire.S());
+			if(!phraseJuste)
+			{
+				System.out.println("vous n'avez pas saisi le bon prénom de l'employer");
+			}			
+		}
+	while (!phraseJuste);
+		
+	do
+	  {
+		 System.out.println("Entrez votre numero de rue");
+		  phraseJuste = setNumRue(Lire.S());
+		  if(!phraseJuste)
+		  {
+		  System.out.println("vous n'avez pas saisi le bon numéro de rue");
+		  }			
+	  }
+	while (!phraseJuste);
+	   
+	do
+	  {
+		 System.out.println("Entrez votre nom de la Rue");
+		  phraseJuste = setNomRue(Lire.S());
+		  if(!phraseJuste)
+		  {
+		  System.out.println("vous n'avez pas saisi le bon nom de la Rue");
+		  }			
+	  }
+	while (!phraseJuste);
+	    
+
+   do
+    {
+	 System.out.println("Entrez votre Ville");
+	  phraseJuste = setVille(Lire.S());
+	  if(!phraseJuste)
+	  {
+	  System.out.println("vous n'avez pas saisi le bon nom de la Ville");
+	  }			
+    }
+   while (!phraseJuste);
+    
+   do
+    {
+	 System.out.println("Entrez votre code postal");
+	  phraseJuste = setCodePostal (Lire.S());
+	  if(!phraseJuste)
+	  {
+	  System.out.println("vous n'avez pas saisi le bon code postal");
+	  }			
+     }
+   while (!phraseJuste);
+    
+}
+
+
+
+	public void afficher() 
+	 {
+	    System.out.println (getNom()+" "+ getPrénom()+" "+   getAdresse());
+	 }
+	
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
+	
+		
+}
+		
+		
+		
+		
+		
+		
+	
+
+
+
+
+
+
+
+
+

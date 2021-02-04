@@ -1,0 +1,54 @@
+Phrase				Palindrome
+toto.				faux
+kayak.				vrai
+a.					vrai
+.					vrai
+
+
+Procedure Palindrome(entrée pPhrase : Chaine, sortie pPalindrome : booléen)
+// rechercher une symetrie dans une chaine de caracteres
+// pPhrase : phrase donnée
+// pPalindrome : la phrase est-elle un palindrome ?
+Variables
+	Position : entier						// position en partant du début
+	PositionInverse : entier				// position en partant de la fin
+	Taille : entier							// taille de la phrase donnée
+Procédure
+	LongueurPhrase(entrée Phrase : Chaine, sortie Taille : entier)					// calcule la taille d'une phrase donnée
+Début
+	LongueurPhrase(pPhrase, Taille)
+	// initialisation
+	Position := 1
+	PositionInverse := Taille
+	TantQue Position < PositionInverse et Phrase[Position] = Phrase[PositionInverse] faire
+		// tant que la phrase est un palindrome
+		Position := Position + 1
+		PositionInverse := PositionInverse - 1
+	FinTantQue
+	pPalindrome := Position >= PositionInverse
+Fin
+
+
+
+Programme TestPalindrome
+// programme de test
+Constantes
+	N = 50									// taille du tableau
+	STOP = '.'								// caractère de fin de phrase
+Type
+	Chaine = tableau [N] de caractere		// tableau de caractères
+Variables
+	Phrase : Chaine							// phrase saisie par l'utilisateur
+	Palindrome : booléen					// la phrase est-elle un palindrome ?
+Procédure
+	Palindrome(entrée pPhrase : Chaine, sortie pPalindrome : booléen)			// teste si la phrase donnée est un palindrome
+Début
+	ecrire("Saisir une phrase : ")
+	lire(Phrase, STOP)
+	Palindrome(Phrase, Palindrome)
+	Si Palindrome alors
+		ecrire("Cette phrase est un palindrome.")
+	Sinon
+		ecrire("Cette phrase n'est pas un palindrome.")
+	FinSi
+Fin

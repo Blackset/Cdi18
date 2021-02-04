@@ -1,0 +1,83 @@
+Coder une phrase en une autre en ASCII (<80 hexa)
+// pour transmettre 'A' code ascii 41 hexa
+// Envoyer les caractères 4 et 1  (code ascii 34 et 31 hexa)
+// le programmeur d'étiquette reçoit 4 et 1 associe les 2 caractères et imprime A
+// Donner l'algorithme de la procédure qui, pour une chaîne de caractères de longueur donnée, constitue la chaîne de caractères à envoyer au programmeur d'étiquette
+
+
+													Constantes
+
+														N=80	// Nbre maximum de caractères dans la chaîne
+														M=160   // Nbre maximum de caractères dans la chaîne en ASCII
+														
+													Types
+														PhraseEntree =tableau [N] caractères // type de chaîne de caractères
+														PhraseSortie =tableau [M] caractères // type de chaîne de caractères
+
+Variables
+	Longeur : entier // Longeur de la chaîne de caractères  
+	PhraseEntree : Chaîne //  chaîne de caractères saisies
+	PhraseSortie : Chaîne //  chaîne de caractères en ASCII
+	Tampon : Chaîne // Chaîne tampon pour les traitements
+
+JEUX D’ESSAI : donner la valeur du x-ième bit d’un entier
+ 
+phrase	  longueur 		résultat 
+ 
+	AA  		2  	   			4141 
+	ABC  		3  	   			414241
+	ACC			1  				41
+	255			3				323535
+	DC			0				
+	D C			3				442042
+	)*)0		2				292A
+				4				
+				0				
+	
+Procedure CodePhraseEnASCII   (Entrée PhraseEntree : chaine,  Entrée Longueur : entier, Sortie PhraseSortie : Chaîne ) 
+		// convertition d'une phrase en code ASCII  
+		// PhraseEntree est la chaîne de caractères saisie
+		// Nombre  est le nombre de caractères à prendre en compte (saisie par l’opérateur)     
+		// PhraseSortie est le résultat de la chaîne convertie en ASCII
+
+		
+		
+Programme	
+	DEBUT // saisie de l'opérateur
+		 
+					ECRIRE ( "Liste de caractères : " )  // Saisie du texte
+					LIRE ( PhraseEntree ) 
+					ECRIRE ( "Nbre de caractères à prendre en compte : " )  // longueur du texte
+					LIRE ( Longueur) 
+					
+					// appel de la procédure
+					CodePhraseEnASCII   (PhraseEntree, Longueur, PhraseSortie  )
+					
+					// retour de la procédure  et traitement du résultat
+					ECRIRE ("Phrase en ASCII :" + PhraseSortie)
+	FIN 
+
+
+PROCEDURE
+Procedure CodePhraseEnASCII(Entrée PhraseEntree : chaine,  Entrée Longueur : entier, Sortie PhraseSortie : Chaîne ) 
+
+	Variable
+	Compteur:=1
+	CompteurASCII:=1
+	Tampon:=""
+
+		DEBUT
+		
+			TANTQUE (Compteur < Longueur)  // on lit tous les caractères jusqu'à la longueur donnée
+					
+					Tampon:==CODEASCII(TableauEntree[Compteur])  // Fonction qui retourne le code ASCII d'un caractère
+					
+					TableauSortie[compteurASCII]:=   Tampon[1]
+					TableauSortie[compteurASCII+1]:=   Tampon[2]
+					
+					CompteurASCII:=CompteurASCII+2
+					Compteur:=Compteur+1
+					
+			FinTANTQUE
+
+		FIN

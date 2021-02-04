@@ -1,0 +1,26 @@
+fonction crypterCarac(entrée car : caractère, entrée clef : entier) : caractère
+// crypte un caractère en ajoutant la clef au code du caractère
+// le suivant de 'z' est 'a'
+// car : caractère à crypter
+// clef : clef de cryptage
+// retourne le caractère crypté
+Fonctions
+	Coder(entrée car : caractère) : entier // retourne l'entier correspondant au caractère ascii donné
+	Ascii(entrée val : entier) : caractère // retourne le caractère ascii correspondant à l'entier donné
+Constantes
+	MIN := Coder('a') // minimum de l'intervalle ascii des lettres minuscules
+	MAX := Coder('z') // maximum de l'intervalle ascii des lettres minuscules
+Variables
+	carCrypté : entier // le caractère crypté
+	ecart : entier // écart entre MIN et MAX, c'est la longueur de l'intervalle ascii valide
+	//difference : entier // différence entre car + clef et MAX, nombre de caractères restants après avoir atteint le MAX
+Début
+	ecart := MAX - MIN + 1
+	carCrypté := Coder(car) + clef Mod ecart
+	Si carCrypté > MAX alors
+		//difference := (Coder(car) + clef Mod ecart) - MAX - 1
+		//carCrypté := Ascii(MIN + difference)
+		carCrypté := Coder(carCrypté) - ecart
+	FinSi
+	retourner Ascii(carCrypté)
+Fin

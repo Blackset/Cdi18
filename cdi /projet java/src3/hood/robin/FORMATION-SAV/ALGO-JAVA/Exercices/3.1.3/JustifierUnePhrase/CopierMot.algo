@@ -1,0 +1,32 @@
+procédure CopierMot(entrée phraseSaisie: chaineS, entrée i : entier, entrée lMotTrouver : entier,
+					 entrée/sortie phraseJustifié : chaineJ, entrée/sortie j : entier)
+	// cette procédure  permet de copier un mot dans une nouvelle chaine
+	
+	// i est l'indice juste après le mot dans la phrase
+	
+	// lMotTrouver est la longueur du mot à copier
+		
+	// phraseSaisie: phrase à copier
+	
+	// phraseJustifié:  phrase copie
+	
+	// j : -en entrée : indice où nous écrirons le mot 
+	//	  	-en sortie : indice après le mot copier	
+
+
+début
+
+	i:= i - lMotTrouver	// on positionne l'indice de parcours au début du mot
+		
+	tantque (lMotTrouver > 0) faire
+	// arrêt quand plus de lettre dans le mot
+		phraseJustifié[j] := phraseSaisie[i]		// copie du caractère
+				
+		i := i + 1		// on avance dans le mot trouvé
+		
+		j := j + 1		// on avance dans la chaine justifié	
+
+		lMotTrouver := lMotTrouver - 1	// on enlève un tour de boucle
+	fintantque
+
+fin

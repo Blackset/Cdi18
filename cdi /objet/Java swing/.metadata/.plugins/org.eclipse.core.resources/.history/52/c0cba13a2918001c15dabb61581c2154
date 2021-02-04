@@ -1,0 +1,26 @@
+import javax.swing.*;
+import java.awt.*;
+public class Option extends JFrame
+{
+	
+	public Option()
+	{
+		JFrame f = this;
+		setTitle("test JOptionPane");
+		getContentPane().setBackground(Color.orange);
+		setBounds(100,100,400,400);
+		setVisible(true);
+		
+		// boites de messages d'informations
+		
+		JOptionPane.showInternalMessageDialog(this.getContentPane() ,"un icone en plus",
+				"voici le titre",
+				JOptionPane.ERROR_MESSAGE,
+				new ImageIcon("rabbit.gif"));
+		
+		// messages
+		
+		int retour = JOptionPane.showConfirmDialog(this.getContentPane(),"juste un message");
+
+	}
+}

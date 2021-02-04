@@ -1,0 +1,54 @@
+fonction ajouterListe(entrée premier: référence, entrée nom: chainenom): référence
+	// cette fonction retourne la référence du premier éléments
+	
+	// premier la première référence de la liste vaut null si la liste est vide
+	
+	// nom est le nom à ajouter à la liste
+	
+fonction comparerMot(entrée nouvNom: chainenom, entrée nom: chainenom): booléen
+	// cette fonction permet de comparer 2 chaines elle renvoie vrai si nouvNom est 	
+	// supérieur à nom
+	
+	// nouvNom est le nouveau nom à comparer avec le nom déja présent dans la liste
+	
+	// nom est le nom présent dans la liste
+
+// VARIABLES
+pointeurS: référence	// permet d'avancer dans la liste
+pointeurP: référence	// référence précédente
+
+début
+
+	
+		pointeurS:= premier
+		pointeurP:= null
+		
+		tantque (pointeurS <> null) et (comparerMot(nom, pointeurS.nom) = faux) faire
+		// arrêt quand le pointeur suivant vaut null ou quand le nom est supérieur	
+			
+			pointeurP:= pointeurS			//on conserve le précédent
+			
+			pointeurS:= pointeurS->.suivant	//on avance en récupérant la prochaine référence	
+			
+		fintantque
+		
+		si (pointeurS <> null) et (comparerMot(nom, pointeurS.nom) = faux) alors
+		// si le mot est trouvé
+			créer(nouveau)			 					// on créé une nouvelle référence
+			nouveau->.nom:= nom		 					// on ajoute le nom
+			nouveau->.suivant:= pointeurS->.suivant 	// on fait pointer suivant sur la référence suivante
+			
+			si (pointeurP = null) alors
+			// si c'est le premier
+				 					// on ajoute le nom
+				premier:= nouveau 				// on fait pointer suivant sur la référence suivante
+			sinon	
+				
+				pointeurP->.suivant:= nouveau				// on fait pointer suivant sur la nouvelle référence 
+			finsi
+
+		finsi	
+	
+	
+	retourner premier
+fin

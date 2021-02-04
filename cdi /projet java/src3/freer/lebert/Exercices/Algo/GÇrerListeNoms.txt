@@ -1,0 +1,122 @@
+Procédure InitialiserPile(sortie pTab : TableNom)
+// initialiser la pile
+// pTab : tableau d'éléments
+Variable
+	i : entier
+Début
+	i := 0
+	pTab.Libre := 1
+	pTab.Premier := FINAL
+	TantQue i < TABLE faire
+		pTab.Table[i].Suivant := i + 1
+		i := pTab.Table[i].Suivant
+	FinTantQue
+	pTab.Table[TAILLE].Suivant := FINAL
+Fin
+
+Fonction AjouterNom(entrée sortie pTab : TableNom, entrée pNom : ChaineNom) : booléen
+// empiler par le haut de la pile
+// pTab : tableau d'éléments
+// pNom : nom à ajouter
+Variable
+	i : entier
+	Temp : entier
+	Precedent : entier
+	Succes : booléen
+Début
+	Si pTab.Libre <> 0 alors
+		pTab.Table[pTab.Libre].Nom := pNom
+		Temp := pTab.Libre
+		
+		pTab.Libre := pTab.Table[pTab.Libre].Suivant
+		
+		i := pTab.Premier
+		Precedent := 0
+		Si pNom > pTab.Table[pTab.Premier].Nom alors
+			TantQue i <> FINAL et pTab.Table[i].Nom < pNom faire
+				// je m'arrête quand j'arrive au nom ajouté
+				Precedent := i
+				i := pTab.Table[i].Suivant
+			FinTantQue
+			pTab.Table[Precedent].Suivant := Temp
+		Sinon
+			pTab.Premier := Temp
+		FinSi
+		pTab.Table[Temp].Suivant := i
+		Succes := Vrai
+	Sinon
+		Succes := Faux
+	FinSi
+	Retourner Succes
+Fin
+
+Fonction RetirerNom(entrée sortie pTab : TableNom, entrée pNom : ChaineNom) : booléen
+// dépiler par le haut de la pile
+// pTab : tableau d'éléments
+// pNom : nom retiré
+Variable
+	Succes : booléen
+Début
+	Si pTab.Premier <> FINAL alors
+		i := pTab.Premier
+		Precedent := FINAL
+		TantQue i <> FINAL et pTab.Table[i].Nom < pNom faire
+			// je m'arrête quand j'arrive au nom à retirer
+			Precedent := i
+			i := pTab.Table[i].Suivant
+		FinTantQue
+		Si pTab.Table[i].Nom = pNom alors
+			pTab.Table[i].Suivant := i
+		FinSi
+		Si Precedent <> FINAL alors
+			pTab.Table[Precedent].Suivant := pTab.Table[i].Suivant
+		Sinon
+			PTab.Premier := pTab.Table[i].Suivant
+		FinSi
+		pTab.Table[i].Suivant := pTab.Libre
+		pTab.Libre := i
+		Succes := Vrai
+	Sinon
+		Succes := Faux
+	FinSi
+	Retourner Succes
+Fin
+
+Programme GérerListeNoms
+// gérer une liste de noms classés alphabétiquement
+Constantes
+	TABLE := 100
+	NOM := 10
+	FIN := 0
+Types
+	ChaineNom = Tableau [NOM] de caractère
+	Element = Enregistrement
+		Nom : ChaineNom
+		Suivant : entier
+	FinEnregistrement
+	TableNom = Enregistrement
+		Table : Tableau [TABLE] de Element
+		Libre : entier
+		Premier : entier
+	FinEnregistrement
+Variables
+	Tab : TableNom		// tableau
+	Nom1 : ChaineNom	// nom à ajouter
+	Nom2 : ChaineNom	// nom à retirer
+Début
+	InitialiserPile()
+	Ecrire("Saisir nom à ajouter : ")
+	Lire(Nom1)
+	Si empiler(Tab, Nom1) alors
+		Ecrire(Nom1, " a été ajouté.")
+	Sinon
+		Ecrire("Tableau plein.")
+	FinSi
+	Ecrire("Saisir nom à retirer : ")
+	Lire(Nom2)
+	Si dépiler(Tab, Nom2) alors
+		Ecrire(Nom2, " a été retiré.")
+	Sinon
+		Ecrire("Ce nom n'existe pas dans le tableau.")
+	FinSi
+Fin

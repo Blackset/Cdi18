@@ -1,0 +1,31 @@
+programme : TestSaisieClavier
+
+//CONSTANTES
+TAILLETEXTESAISIE = 80; 	// Taille du tableau de caractère de la saisie de l'utilisateur
+TAILLETEXTECOPIE = 50;		// Taille du tableau de caractère de la copie du tableau mis en forme
+CARACFIN = '.'; 			// Caractère de fin d'une chaine
+CARIAGERETURN = 13			// Code ASCII de saut de ligne \r --> CR
+LINEFEED = 10				// Code ASCII  ligne pleine \n	--> LF
+ESPACE = ' '
+
+//TYPES
+chaineS = tableau[TAILLETEXTESAISIE]caractère; // tableau de caractère pour la chaine saisie par l'utilisateur
+chaineC = tableau[TAILLETEXTECOPIE]caractère; // tableau de caractère pour la chaine copié
+
+//VARIABLES
+texteSaisie : chaine; // Texte saisie par l'utilisateur
+
+//PROCEDURES
+procédure SaisieTexte(entrée sortie texteSaisie: chaineS)
+	// entrée un tableau de caractère vide
+	// sortie un tableau caractère rempli par l'ulisateur
+	
+fonction CopieTexte(entrée texteSaisie: chaineS): chaineC
+	// entrée un tableau de caractère remplie par l'utilisateur
+	// retourne une copie de texteSaisie  formaté avec le point en bout de chaine
+
+début
+	
+	écrire(CopieTexte(SaisieClavier(texteSaisie)))
+
+fin

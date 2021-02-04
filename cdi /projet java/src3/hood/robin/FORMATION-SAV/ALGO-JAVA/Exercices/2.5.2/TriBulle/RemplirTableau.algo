@@ -1,0 +1,26 @@
+procédure RemplirTableau(entrée sortie tab : tabentier, sortie tailleTabUtilisateur : entier)
+
+	// Cette procédure demande à l'utlisateur la taille d'un tableau dans la limite tailleTableau, puis de le remplir avec des entiers
+	
+	// tab est le tableau d'entier à remplir par l'utilisateur
+	
+	// tailleTabUtilisateur du tableau donnée par l'utilisateur
+ 
+
+début
+	//Initialisation
+	i := 1;
+
+	répéter 
+		écrire("Donnez le nombre d'entier a trier : ")
+		lire(tailleTabUtilisateur)	
+	// arrêt quand l'indice est compris entre 0 et la taille du tableau
+	jusquà (tailleTabUtilisateur > 0) et (tailleTab <= TAILLETABLEAU)
+	
+	tantque i < tailleTabUtilisateur faire
+		// arrêt quand i est egal la taille du tableau donné par l'utilisateur
+		écrire("Tapez l'entier numéro ", i)
+		lire(tab[i])
+		i := i + 1
+	fintantque
+fin

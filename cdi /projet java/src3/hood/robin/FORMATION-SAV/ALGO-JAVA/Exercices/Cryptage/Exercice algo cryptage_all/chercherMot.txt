@@ -1,0 +1,28 @@
+procédure chercherMot(entrée phrase : chaine, entrée/sortie i : entier, sortie lg : entier)
+	//Cette procédure permet de repérer un mot à partir de la position i dans la phrase.
+	//phrase : phrase où nous cherchons le mot
+	//i -en entréé : point de départ pour chercher le mot
+	//	-en sortie : indice juste après le mot, ou sur le point
+	//lg est la longueur du mot trouvé, ou 0 si plus de mot	
+
+Debut
+	
+	Tantque phrase[i] = SEPARE faire
+		i := i + 1
+	Fintantque
+	
+	lg := 0
+	Tantque phrase[i] <> STOP et phrase[i] <> SEPARE faire
+		lg := lg + 1 
+		i := i + 1 
+		
+	Fintantque
+
+Fin
+
+
+
+
+
+
+

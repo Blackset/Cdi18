@@ -1,0 +1,41 @@
+fonction CalculBase(entrée chaineSaisie: chaineS, entrée base: entier, entrée indice: entier, entrée lg: entier): entier
+	// cette fonction retourne un entier du  résultat d'un nombre trouvé dans la chaine avec la base donnée
+	
+	// chaineSaisie est la chaine de caractère avec les nombres
+	
+	// base la base a utiliser
+	
+	// indice la position juste après le nombre trouvé dans la chaine
+	
+	// lg longueur du nombre dans la chaine
+
+
+//TYPES
+
+//VARIABLES
+nbr: entier				// valeur entière du caractère ASCII
+rang: entier			// rang du nombre
+resultat: entier		// résultat de calcul de la base
+
+//FONCTION
+fonction conversionEntier(entrée caracNombre: caractère): entier
+	// Cette fonction convertie un chiffre ASII en entier
+	
+	// caracNombre le caractère ASCII à convertir
+
+début	
+	indice := indice - lg	// on positionne l'indice au début du nombre
+	resultat := 0			
+	
+	tantque lg > 0 faire
+		//arrêt quand plus de chiffre		
+			
+		resultat := resultat * base + conversionEntier(chaineSaisie[indice])	
+		
+		indice := indice + 1
+		
+		lg := lg - 1
+	fintantque
+	
+	retourner resultat
+fin

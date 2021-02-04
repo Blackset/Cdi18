@@ -1,0 +1,112 @@
+package ExoObjet;
+
+
+public class Individu
+{
+		 private String nom;
+		 private String prénom;
+		 private String adresse;
+		 
+		 
+		 
+		    public String getNom()
+			{
+				return nom;
+			}
+		    /**
+		     * jhkgbjghkghkjhkjhk
+		     * @param nom
+		     * @return
+		     */
+			public boolean setNom (String m_nom)
+			{
+			if ( nom == null) 
+			{
+				return false;
+			}
+			else
+			{
+				 nom = m_nom;
+				return true;
+			}
+			    
+			
+			
+			}
+			public String getPrénom()
+			{
+				return prénom;
+			}
+			
+			public boolean setPrénom (String m_prénom)
+			{
+			if ( prénom == null) 
+			{
+				return false;
+			}
+			else
+			{
+				  prénom = m_prénom;
+				  return true;
+			}
+				
+			}
+			public String getAdresse()
+			{
+				return adresse;
+			}
+			public void setAdresse(String m_adresse)
+			{
+				adresse = m_adresse;
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+	
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+			
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+procédure AfficherTableau(entrée tab : tabentier, entrée tailleTabUtilisateur : entier)
+
+	// Cette procédure affiche le contenu d'un tableau à l'utilisateur
+	
+	// tab est un tableau d'entier
+	
+	// tailleTabUtilisateur taille du tableau défini par l'utilisateur
+	
+	
+// VARIABLES
+i : entier
+
+début
+	i := 1;
+	tantque i < tailleTabUtilisateur faire
+		// arrêt quand i est égal tailleTab
+		écrire(tab[i])
+		i := i + 1
+	fintantque
+fin

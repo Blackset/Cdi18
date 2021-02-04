@@ -1,0 +1,34 @@
+procédure CompterOccurence(entrée Texte : chaine, entrée CaracFin : caractère, entrée Occurence : occurence, sortie NbrOccurence : entier)
+
+	// Cette procédure calcul le nombre d'occurence de 2 caractères contenus dans une chaine.
+	
+	// Texte tableau de caractère contenant la chaine.
+		
+	// CaracFin caractère de fin de la chaine.
+	
+	// Occurence tableau de 2 caractères contenant l'occurence a trouver dans la chaine.
+	
+	// NbrOccurence nombre d'occurence trouvée dans la chaine.
+	
+//VARIABLES
+i : entier;
+
+début
+	//Initialisation
+	i := 1;
+	
+	NbrOccurence := 0;
+	
+	si CaracFin <> Occurence[1] et CaracFin <> Occurence[2] alors
+		tantque i < TAILLECHAINE et Texte[i] <> CaracFin faire
+			//Compte du nombre d'occurence contenu dans la chaine dans les 2 sens
+			si Texte[i] = Occurence[1] alors
+				si Texte[i + 1] = Occurence[2] alors
+					NbrOccurence = NbrOccurence + 1;
+					i := i + 1;
+				finsi
+			finsi			
+			i := i + 1;
+		fintantque
+	finsi
+fin

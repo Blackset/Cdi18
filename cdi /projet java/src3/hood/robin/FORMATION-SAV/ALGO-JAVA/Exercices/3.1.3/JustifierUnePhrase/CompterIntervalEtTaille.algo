@@ -1,0 +1,28 @@
+procédure CompterIntervalEtMot(entrée phraseSaisie: chaineS, sortie interval: entier, sortie tailleMot: entier )
+	// cette procédure retourne le nombre d'interval entre les mots la taille de tout les mots aditionnés
+	
+	// phraseSaisie est la phrase à vérifiée
+	
+	// interval est nombre d'interval entre chaque mots
+	
+	// tailleMot est la somme de la taille de chaque mot de la phrase
+	
+//VARIABLE
+i: entier	// Indice de parcours de la chaine
+tailleMot: entier // somme de la longueur des mots
+	
+début
+	i := 0
+	tailleMot := 0
+	interval := 0
+	répéter
+	
+		ChercherMotDansPhrase(phraseSaisie, i, lMotTrouver)	
+		tailleMot := tailleMot + lMotTrouver
+		interval := interval + 1		
+	
+	jusquà (lMotTrouver = 0)		
+	// arrêt quand la longueur = 0
+	interval := interval -1 // le point n'est pas compté
+		
+fin

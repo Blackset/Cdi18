@@ -1,0 +1,74 @@
+Procedure SaisirValeurs(entrée pNbSaisies : entier)
+// saisir les valeurs du tableau
+// pNbSaisies : nombre de saisies
+Début
+Fin
+
+Procedure AfficherResultat(entrée pTable : Tab, entrée pRecherche : Prenom, entrée pTrouve : entier)
+// afficher le résultat de la recherche
+// pTable : tableau donné
+// pRecherche : prénom recherché
+// pTrouve : position du prénom dans le tableau
+Début
+	Si Recherche = Table[Trouve] alors
+		ecrire("Le prénom ", Recherche, " est à la position ", Trouve)
+	Sinon
+		ecrire("Le prénom ", Recherche, " n'est pas dans le tableau")
+	FinSi
+Fin
+
+Procedure Dichotomie(entrée pTable : Tab, entrée pRecherche : Prenom, sortie pTrouve : entier)
+// rechercher par dichotomie un élément d'une table classée
+// pTable : tableau à chercher
+// pRecherche : prénom recherché
+// pTrouve : position du prénom dans le tableau
+Variables
+	PositionD : entier						// position de début dans le tableau
+	PositionF : entier						// position de fin dans le tableau
+	Milieu : entier							// milieu de la sous-table
+Début
+	// initialisation
+	PositionD := 1
+	PositionF := N
+	Milieu := (PositionD + PositionF) Div 2
+	TantQue pRecherche <> pTable[Milieu] et PositionD <= PositionF faire
+		// je m'arrête quand les indices se sont croisés ou quand le prénom est au milieu
+		Si	pRecherche > pTable[Milieu] alors
+			PositionD := Milieu + 1
+		Sinon
+			PositionF := Milieu - 1
+		FinSi
+		Milieu := (PositionD + PositionF) Div 2
+	FinTantQue
+	Si PositionD > PositionF alors
+		pTrouve := 0
+	Sinon
+		pTrouve := Milieu
+	FinSi
+Fin
+
+Programme TestDichotomie
+// programme de test
+Constante
+	N = 7									// taille du tableau
+	M = 15									// taille du prénom
+Types
+	Prenom = tableau [M] de caractere		// tableau de caracteres
+	Tab = tableau [N] de Prenom				// tableau de prenoms
+Variables
+	Table : Tab								// tableau donné
+	Recherche : Prenom						// prénom recherché
+	Trouve : entier							// position du prénom dans le tableau
+Procédure
+	SaisirValeurs(entrée pNbSaisies : entier)		// saisir valeurs du tableau
+	AfficherResultat(entrée pTable : Tab, entrée pRecherche : Prenom, entrée pTrouve : entier)		// afficher résultat
+	Dichotomie(entrée pTableau : Tab, entrée pRecherche : Prenom, sortie pTrouve : entier)			// recherche dichotomique
+Début
+	ecrire("Nombre de saisies voulues")
+	lire(NbSaisies)
+	SaisirValeurs(NbSaisies)
+	ecrire("Saisir le prénom recherché : ")
+	lire(Recherche)
+	Dichotomie(Table, Recherche, Trouve)
+	AfficherResultats(Table, Recherche, Trouve)
+Fin

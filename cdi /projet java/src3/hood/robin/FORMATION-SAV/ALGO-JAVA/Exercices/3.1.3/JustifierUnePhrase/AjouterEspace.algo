@@ -1,0 +1,19 @@
+procédure AjouterEspace(entrée sortie phraseJustifié: chaineJ, entrée sortie j: entier, entrée espace: entier)
+	//Cette procédure ajoute des espace apres un mot dans une chaine
+	
+	// entrée phraseJustifié est la chaine pour laquelle on veut ajouter des espaces
+	// sortie phraseJustifié est la chaine avec les espaces ajoutés
+	
+	// j : -en entrée : indice où nous écrirons les espaces 
+	//	  	-en sortie : indice après les espaces copier
+	
+	// espace est le nombre d'espace a ajouter
+
+début
+	tantque (espace > 0) faire
+	// arrêt quand plus d'espace à ajouter
+		phraseJustifié[j] := ESPACE		
+		j = j + 1		
+		espace := espace - 1			
+	fintantque
+fin

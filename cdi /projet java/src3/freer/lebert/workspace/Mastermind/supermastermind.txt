@@ -1,0 +1,10 @@
+speedy		1		1.216
+tete		1		11.406
+toto		6		35.715
+titi		6		40.115
+tata		7		29.43
+alex		7		43.638
+alex		7		44.638
+alex		7		46.638
+alex		7		55.638
+alex		8		12.927

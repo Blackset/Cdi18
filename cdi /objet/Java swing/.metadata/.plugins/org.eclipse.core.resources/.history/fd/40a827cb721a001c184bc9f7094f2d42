@@ -1,0 +1,99 @@
+import javax.swing.*;
+import java.util.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class EditeurCombo extends JComboBox implements CellEditor
+{
+	String value; // resultat de l'éditeur
+	Vector ecouteurs= new Vector();
+	private static final int minWidth = 36;
+	public EditeurCombo(Object [] list)
+	{
+		super(list);
+		setEditable(false); // par defaut pas editable
+		value = list[0].toString();
+		// on s'écoute soi même
+		addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent ae)
+			{
+				if (stopCellEditing()) fireEditingStopped();
+			}
+				});
+	}
+	public Object getCellEditorValue()
+	{
+		return value;
+	}
+	public boolean isCellEditable(EventObject eo)
+	{
+		System.out.println("evenement");
+		if (eo == null || (eo instanceof MouseEvent &&((MouseEvent)eo).getButton()== MouseEvent.BUTTON2) && ((MouseEvent)eo).getClickCount()==3)
+		{
+			if (eo != null)
+				System.out.println(((MouseEvent)eo).getButton());
+			else
+				System.out.println("null");
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+	public boolean shouldSelectCell(EventObject anEvent)
+	{
+		return true;
+	}
+	public boolean stopCellEditing()
+	{
+		try
+		{
+			value = (String)getSelectedItem();
+			if (value == null) value = (String)getItemAt(0);
+			return true;
+		}
+		catch (Exception ex)
+		{
+			return false;
+		}
+		
+	}
+	public void cancelCellEditing()
+	{
+		// rien
+	}
+	public void addCellEditorListener(CellEditorListener l)
+	{
+		ecouteurs.addElement(l);
+	}
+	public void removeCellEditorListener(CellEditorListener l)
+	{
+		ecouteurs.removeElement(l);
+	}
+	public void fireEditingStopped()
+	{
+		if ( ecouteurs.size()>0)
+		{
+			ChangeEvent ce = new ChangeEvent(this);
+			for (int i = 0;i<ecouteurs.size();i++)
+			{
+				((CellEditorListener)ecouteurs.elementAt(i)).editingStopped(ce);
+			}
+		}
+	}
+	// refaire les setBounds pour avoir assez de place
+	public void setBounds(Rectangle r)
+	{
+		r.width = Math.max(minWidth, r.width );
+		super.setBounds(r);
+	}
+	public void setBounds(int x, int y, int w, int h)
+	{
+		w = Math.max(minWidth, w );
+		super.setBounds(x,y,w,h);
+	}
+}

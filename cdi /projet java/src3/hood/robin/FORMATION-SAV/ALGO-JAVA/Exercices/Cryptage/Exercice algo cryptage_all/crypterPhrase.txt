@@ -1,0 +1,38 @@
+CONCEPTION DETAILLEE - crypterPhrase
+
+	I	- Moulinette
+			phrase:chaine, STOP, SEPARER ----> crypterPhrase -----> phraseCryptée: chaineCryptée
+			
+	II	- idem
+	III	- idem
+	IV 	- idem
+	V 	- Procédure crypterPhrase(entrée phrase:chaine, sortie phraseCryptée:chaineCryptée)
+				
+			variable
+				i:entier							// indice de parcours de la phrase saisie (phrase:chaine)
+				j:entier							// indice de parcours de la phrase cryptée (phraseCryptée:chaineCryptée)
+				noMot: entier						// le numéro du mot de la phrase saisie correspondant au numéro du mot de la phrase crypté.
+				lg : entier							// blabla
+				
+			DEBUT
+				// initialisation
+				i:= 1
+				j:= 1
+				noMot:= 0
+				chercheMot(phrase, i, lg)
+				
+				TANTQUE (lg<>0)	faire				
+					noMot := noMot +1
+					crypterMot(phrase, i, lg, noMot, phraseCryptée, j)
+					chercheMot(phrase, i, lg)
+					
+					SI (lg<>0) alors
+						phraseCryptée[j] := SEPARE
+						j:= j+1
+					FINSI
+						
+				FINTANTQUE
+					
+				phraseCryptée[j]:= STOP
+				
+			FIN

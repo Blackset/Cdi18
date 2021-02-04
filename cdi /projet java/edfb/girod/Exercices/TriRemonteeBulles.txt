@@ -1,0 +1,125 @@
+PROGRAMME  Trier un tableau d'entiers par la méthode de tri par remontée des bulles
+	//  
+	// Algorithme de ma procédure paramétrée correspondant à la méthode de tri par remontée des bulles 
+ 
+	// Optimiser en triant que ce qui est nécessaire, mais toujours selon la même méthode.
+	// Optimisez progressivement, il y a 3 optimisations possibles
+	
+
+Constantes
+
+	N=40			// Nbre maximum de lignes
+
+	
+Types
+	Tab=tableau [N] entiers // type de tableau
+
+Variables
+	Tab : tableau d'entiers	// 
+
+
+PROGRAMME DE TEST
+
+Tableau					Valeur départ   tri 1	tri 2	tri 3	tri 4
+Ligne 1					9				1		1		1		1
+ligne 2					1				9		4		4		2
+ligne 3					4				4		9		2		4
+ligne 4					2				2		2		9		9
+
+
+Tableau					Valeur départ   Tri 1 	tri 2 	Tri 3 	tri 4        OK
+Ligne 1					9				4		2		1		
+ligne 2					4				2		1		2		
+ligne 3					2				1		4		4		
+ligne 4					1				9		9		9		
+
+PROCEDURE 	
+	procédure Trier-tableau ( Entrée Tab : tableau d'entiers, Entrée NbreValeurs ; entier, Sortie TableauTrier : tableau d'entiers)
+	// Tri un tableau d'entiers
+	// Tab : tableau à trier
+	// NbreValeurs : taille du tableau
+	// TableauTrier : résultat du tri par remontée des bulles
+
+Programme de test
+
+		Constantes
+
+			N=40	// Nbre maximum de lignes
+			
+		Types
+			Tab=tableau [N] entiers // type de tableau
+
+		Variables
+			Tab : tableau d'entiers	// 
+			NbreValeurs : entier // taille du tableau
+		DEBUT
+			Ecrire (Nombre de valeurs :)
+			lire (NbreValeurs)
+			Remplir-tableau( (Tab, NbreValeurs) // pas d'entrée
+			Afficher-Tableau ( Tab, NbreValeurs)     // pas de sortie
+			Trier-tableau (Tab, NbreValeurs, TableauTrier)
+			Afficher-Tableau ( Tab, NbreValeurs)
+		FIN
+			
+			
+PROGRAMME procédure Remplir-tableau ( Sortie Tab : tableau d'entiers, Sortie NbreValeurs ; entier)
+		
+		i : entier	// Indice de parcours du tableau
+		
+		DEBUT
+			
+			i:=1			// on pointe sur le premier élément du tableau
+	
+			REPETER 
+				Lire (Tab[i])
+				Ecrire (Tab[i])
+				i:=i+1
+			JUSQUA Tab[i]=ENTREE
+			i=i-1     // on supprime la saisie ENTREE
+
+		FIN		
+	
+PROGRAMME procédure Afficher-tableau ( Entrée Tab : tableau d'entiers, ENTREE NbreValeurs ; entier)
+		
+		i : entier	// Indice de parcours du tableau
+		
+		DEBUT
+			
+			i:=1			// on pointe sur le premier élément du tableau
+	
+			TANTQUE i<>NbreValeurs
+				Lire (Tab[i])
+				Ecrire (Tab[i])
+				i:=i+1
+			fintantque
+
+		FIN		
+	
+
+PROGRAMME procédure Trier-tableau
+	
+		procédure Trier-tableau ( Entrée Tab : tableau d'entiers, Entrée NbreValeurs ; entier, Sortie TableauTrier : tableau d'entiers)
+		
+		i : entier	// Indice de parcours du tableau
+		
+		DEBUT
+			
+			i:=1			// on pointe sur le premier élément du tableau
+			j:=1			// init du nombre de tris
+	
+			TANTQUE (j<NbreValeurs) FAIRE 
+			
+				TANTQUE (i<NbreValeurs) FAIRE          		// comparer jusqu'à la fin du tableau
+					
+								SI Tab[i]>Tab[i+1]
+									Val:=Tab[i]   //  on conserve la valeur Tab[i]
+									Tab[i]:=Tab[i+1] // on décale la valeur plus grande
+									Tab[i+1]:=Val //  on conserve la valeur Tab[i]
+								FinSI	
+								i:=i+1
+					
+				Fintantque
+				
+				J:=j+1   // on passe au tri suivant
+
+		FIN

@@ -1,0 +1,39 @@
+procédure ChercheIndice(entrée TableauChaine: matrice, entrée tailleMatUtilisateur : entier, entrée Texte: chaine, sortie Indice: entier)
+
+	// Cette procédure donne l'indice d'un terme recherché si il existe
+		
+	// TableauChaine est une matrice de chaine de caractère
+	
+	// tailleMatUtilisateur taille de TableauChaine défini par l'utilisateur
+	
+	// Texte tableau contenant le mot à rechercher dans TableauChaine
+		
+	// Indice est l'indice de la chaine trouvé ou 0 si non trouvé
+	
+
+//VARIABLES
+pIndice : entier; //Indice inferieur de la sous table
+dIndice : entier; //Indice supérieur de la sous table
+Indice : entier; //Indice median de la sous table
+
+
+début
+	//Initialisation
+	pIndice := 1;
+	dIndice := tailleMatUtilisateur;
+	Indice := (pIndice + dIndice) div 2;
+	
+	tantque (pIndice <= dIndice) et (Texte <> TableauChaine[Indice]) faire
+		// arrêt quand les indices se croisent ou quand le nom est trouvé
+		si TableauChaine[Indice] > Texte alors
+			pIndice = Indice + 1
+		sinon
+			dIndice = Indice - 1
+		fin 
+		Indice = (pIndice + dIndice) div 2
+	fintantque
+	
+	si (pIndice > dIndice) alors
+		Indice = 0;
+	finsi
+fin

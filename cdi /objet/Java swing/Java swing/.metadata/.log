@@ -1,0 +1,610 @@
+!SESSION févr. 03, 2005 09:46:02.38 --------------------------------------------
+eclipse.buildId=I200406251208
+java.version=1.4.2_05
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+
+!ENTRY org.eclipse.core.runtime 4 2 févr. 03, 2005 09:46:02.38
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.runtime".
+!STACK 0
+java.lang.NullPointerException
+	at win32api.views.SampleView$ViewContentProvider.initialize(SampleView.java:176)
+	at win32api.views.SampleView$ViewContentProvider.getElements(SampleView.java:123)
+	at org.eclipse.jface.viewers.StructuredViewer.getRawChildren(StructuredViewer.java:532)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getRawChildren(AbstractTreeViewer.java:704)
+	at org.eclipse.jface.viewers.StructuredViewer.getFilteredChildren(StructuredViewer.java:477)
+	at org.eclipse.jface.viewers.StructuredViewer.getSortedChildren(StructuredViewer.java:585)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$1.run(AbstractTreeViewer.java:359)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:69)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:342)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$5.run(AbstractTreeViewer.java:787)
+	at org.eclipse.jface.viewers.StructuredViewer.preservingSelection(StructuredViewer.java:862)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.inputChanged(AbstractTreeViewer.java:777)
+	at org.eclipse.jface.viewers.ContentViewer.setInput(ContentViewer.java:238)
+	at org.eclipse.jface.viewers.StructuredViewer.setInput(StructuredViewer.java:1059)
+	at win32api.views.SampleView.createPartControlLocal(SampleView.java:250)
+	at win32api.views.SampleView.createPartControl(SampleView.java:241)
+	at org.eclipse.ui.internal.PartPane$2.run(PartPane.java:137)
+	at org.eclipse.core.internal.runtime.InternalPlatform.run(InternalPlatform.java:615)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:747)
+	at org.eclipse.ui.internal.PartPane.createChildControl(PartPane.java:133)
+	at org.eclipse.ui.internal.ViewPane.createChildControl(ViewPane.java:131)
+	at org.eclipse.ui.internal.ViewFactory$1.run(ViewFactory.java:337)
+	at org.eclipse.core.internal.runtime.InternalPlatform.run(InternalPlatform.java:615)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:747)
+	at org.eclipse.ui.internal.ViewFactory.busyRestoreView(ViewFactory.java:259)
+	at org.eclipse.ui.internal.ViewFactory$2.run(ViewFactory.java:516)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:69)
+	at org.eclipse.ui.internal.ViewFactory.restoreView(ViewFactory.java:514)
+	at org.eclipse.ui.internal.ViewFactory$ViewReference.getPart(ViewFactory.java:102)
+	at org.eclipse.ui.internal.WorkbenchPage$1.propertyChange(WorkbenchPage.java:132)
+	at org.eclipse.ui.internal.LayoutPart.setVisible(LayoutPart.java:268)
+	at org.eclipse.ui.internal.PartPane.setVisible(PartPane.java:317)
+	at org.eclipse.ui.internal.ViewPane.setVisible(ViewPane.java:564)
+	at org.eclipse.ui.internal.presentations.PresentablePart.setVisible(PresentablePart.java:122)
+	at org.eclipse.ui.internal.presentations.DefaultPartPresentation.selectPart(DefaultPartPresentation.java:1111)
+	at org.eclipse.ui.internal.PartStack.refreshPresentationSelection(PartStack.java:946)
+	at org.eclipse.ui.internal.PartStack.setSelection(PartStack.java:921)
+	at org.eclipse.ui.internal.PartStack.showPart(PartStack.java:1020)
+	at org.eclipse.ui.internal.PartStack.createControl(PartStack.java:383)
+	at org.eclipse.ui.internal.PartStack.createControl(PartStack.java:367)
+	at org.eclipse.ui.internal.PartSashContainer.createControl(PartSashContainer.java:432)
+	at org.eclipse.ui.internal.PerspectiveHelper.activate(PerspectiveHelper.java:155)
+	at org.eclipse.ui.internal.Perspective.onActivate(Perspective.java:722)
+	at org.eclipse.ui.internal.WorkbenchPage.onActivate(WorkbenchPage.java:2020)
+	at org.eclipse.ui.internal.WorkbenchWindow$4.run(WorkbenchWindow.java:1858)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:69)
+	at org.eclipse.ui.internal.WorkbenchWindow.setActivePage(WorkbenchWindow.java:1845)
+	at org.eclipse.ui.internal.WorkbenchWindow.busyOpenPage(WorkbenchWindow.java:498)
+	at org.eclipse.ui.internal.WorkbenchWindow$3.run(WorkbenchWindow.java:1076)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:69)
+	at org.eclipse.ui.internal.WorkbenchWindow.openPage(WorkbenchWindow.java:1073)
+	at org.eclipse.ui.internal.Workbench.openFirstTimeWindow(Workbench.java:992)
+	at org.eclipse.ui.internal.WorkbenchConfigurer.openFirstTimeWindow(WorkbenchConfigurer.java:174)
+	at org.eclipse.ui.application.WorkbenchAdvisor.openWindows(WorkbenchAdvisor.java:658)
+	at org.eclipse.ui.internal.Workbench.init(Workbench.java:819)
+	at org.eclipse.ui.internal.Workbench.runUI(Workbench.java:1325)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:254)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:141)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:96)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:335)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:273)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:129)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:183)
+	at org.eclipse.core.launcher.Main.run(Main.java:644)
+	at org.eclipse.core.launcher.Main.main(Main.java:628)
+!SESSION 2007-06-11 14:46:35.144 -----------------------------------------------
+eclipse.buildId=I20050627-1435
+java.version=1.5.0_04
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -data D:\Corre\Stage\javazip\Java swing -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 1 0 2007-06-11 14:46:38.128
+!MESSAGE Conversion of persistent properties completed successfully.
+
+!ENTRY org.eclipse.core.resources 1 0 2007-06-11 15:13:15.149
+!MESSAGE Conversion of local history completed successfully.
+!SESSION 2007-06-12 16:49:23.329 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.6.0_01
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 4 0 2007-06-12 16:49:23.595
+!MESSAGE Error reading configuration: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+!STACK 0
+java.io.FileNotFoundException: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+	at java.io.RandomAccessFile.open(Native Method)
+	at java.io.RandomAccessFile.<init>(Unknown Source)
+	at org.eclipse.core.runtime.internal.adaptor.Locker_JavaNio.lock(Locker_JavaNio.java:30)
+	at org.eclipse.osgi.storagemanager.StorageManager.lock(StorageManager.java:387)
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:694)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initFileManager(BaseStorage.java:160)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initialize(BaseStorage.java:137)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.initializeStorage(BaseAdaptor.java:124)
+	at org.eclipse.osgi.framework.internal.core.Framework.initialize(Framework.java:138)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:112)
+	at org.eclipse.osgi.framework.internal.core.OSGi.createFramework(OSGi.java:90)
+	at org.eclipse.osgi.framework.internal.core.OSGi.<init>(OSGi.java:31)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:286)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+
+!ENTRY org.eclipse.update.configurator 2007-06-12 16:49:24.689
+!MESSAGE C:\eclipse\configuration\org.eclipse.update\last.config.stamp (Accès refusé)
+
+!ENTRY org.eclipse.core.resources 2 10035 2007-06-12 16:49:27.626
+!MESSAGE A workspace crash was detected. The previous session did not exit normally.
+
+!ENTRY system.bundle 4 0 2007-06-12 16:49:54.688
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-06-12 16:49:54.875
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.lookup(StorageManager.java:424)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveStateData(BaseStorage.java:551)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:387)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-06-12 17:37:32.146
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.frameworkStop(BaseStorage.java:763)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.frameworkStop(BaseAdaptor.java:273)
+	at org.eclipse.osgi.framework.internal.core.SystemBundleActivator.stop(SystemBundleActivator.java:64)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$3.run(BundleContextImpl.java:1032)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:1028)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.suspendAllBundles(StartLevelManager.java:650)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:599)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:283)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:256)
+	at org.eclipse.osgi.framework.internal.core.SystemBundle.suspend(SystemBundle.java:190)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:546)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:449)
+	at org.eclipse.osgi.framework.internal.core.OSGi.close(OSGi.java:41)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:423)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:193)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+!SESSION 2007-06-14 11:07:34.653 -----------------------------------------------
+eclipse.buildId=I20050627-1435
+java.version=1.6.0_01
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 4 4 2007-06-14 14:51:35.926
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 1 org.eclipse.core.resources 4 273 2007-06-14 14:51:35.926
+!MESSAGE Could not delete: /arbre.
+!SESSION 2007-06-14 15:43:17.726 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.6.0_01
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 4 0 2007-06-14 15:43:18.194
+!MESSAGE Error reading configuration: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+!STACK 0
+java.io.FileNotFoundException: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+	at java.io.RandomAccessFile.open(Native Method)
+	at java.io.RandomAccessFile.<init>(Unknown Source)
+	at org.eclipse.core.runtime.internal.adaptor.Locker_JavaNio.lock(Locker_JavaNio.java:30)
+	at org.eclipse.osgi.storagemanager.StorageManager.lock(StorageManager.java:387)
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:694)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initFileManager(BaseStorage.java:160)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initialize(BaseStorage.java:137)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.initializeStorage(BaseAdaptor.java:124)
+	at org.eclipse.osgi.framework.internal.core.Framework.initialize(Framework.java:138)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:112)
+	at org.eclipse.osgi.framework.internal.core.OSGi.createFramework(OSGi.java:90)
+	at org.eclipse.osgi.framework.internal.core.OSGi.<init>(OSGi.java:31)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:286)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+
+!ENTRY org.eclipse.update.configurator 2007-06-14 15:43:22.804
+!MESSAGE C:\eclipse\configuration\org.eclipse.update\last.config.stamp (Accès refusé)
+
+!ENTRY system.bundle 4 0 2007-06-14 15:43:52.850
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-06-14 15:43:53.240
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.lookup(StorageManager.java:424)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveStateData(BaseStorage.java:551)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:387)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.update.configurator 2007-06-14 15:51:21.779
+!MESSAGE Cannot backup current configuration
+
+!ENTRY org.eclipse.update.configurator 2007-06-14 15:51:21.857
+!MESSAGE Could not rename configuration temp file
+
+!ENTRY system.bundle 4 0 2007-06-14 15:51:30.841
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.frameworkStop(BaseStorage.java:763)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.frameworkStop(BaseAdaptor.java:273)
+	at org.eclipse.osgi.framework.internal.core.SystemBundleActivator.stop(SystemBundleActivator.java:64)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$3.run(BundleContextImpl.java:1032)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:1028)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.suspendAllBundles(StartLevelManager.java:650)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:599)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:283)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:256)
+	at org.eclipse.osgi.framework.internal.core.SystemBundle.suspend(SystemBundle.java:190)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:546)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:449)
+	at org.eclipse.osgi.framework.internal.core.OSGi.close(OSGi.java:41)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:423)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:193)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+!SESSION 2007-06-14 15:51:31.122 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.6.0_01
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 4 0 2007-06-14 15:51:31.388
+!MESSAGE Error reading configuration: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+!STACK 0
+java.io.FileNotFoundException: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+	at java.io.RandomAccessFile.open(Native Method)
+	at java.io.RandomAccessFile.<init>(Unknown Source)
+	at org.eclipse.core.runtime.internal.adaptor.Locker_JavaNio.lock(Locker_JavaNio.java:30)
+	at org.eclipse.osgi.storagemanager.StorageManager.lock(StorageManager.java:387)
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:694)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initFileManager(BaseStorage.java:160)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initialize(BaseStorage.java:137)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.initializeStorage(BaseAdaptor.java:124)
+	at org.eclipse.osgi.framework.internal.core.Framework.initialize(Framework.java:138)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:112)
+	at org.eclipse.osgi.framework.internal.core.OSGi.createFramework(OSGi.java:90)
+	at org.eclipse.osgi.framework.internal.core.OSGi.<init>(OSGi.java:31)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:286)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+
+!ENTRY org.eclipse.update.configurator 2007-06-14 15:51:31.966
+!MESSAGE Cannot backup current configuration
+
+!ENTRY org.eclipse.update.configurator 2007-06-14 15:51:32.075
+!MESSAGE Could not rename configuration temp file
+
+!ENTRY org.eclipse.update.configurator 2007-06-14 15:51:32.591
+!MESSAGE C:\eclipse\configuration\org.eclipse.update\last.config.stamp (Accès refusé)
+
+!ENTRY org.eclipse.equinox.preferences 4 4 2007-06-14 15:51:38.044
+!MESSAGE Exception saving preferences to: C:/eclipse/configuration/.settings/org.eclipse.ui.ide.prefs.
+!STACK 0
+java.io.FileNotFoundException: C:\eclipse\configuration\.settings\org.eclipse.ui.ide.prefs (Accès refusé)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.save(EclipsePreferences.java:983)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.save(EclipsePreferences.java:953)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.flush(EclipsePreferences.java:352)
+	at org.eclipse.ui.internal.ide.ChooseWorkspaceData.writePersistedData(ChooseWorkspaceData.java:226)
+	at org.eclipse.ui.internal.ide.IDEApplication.checkInstanceLocation(IDEApplication.java:203)
+	at org.eclipse.ui.internal.ide.IDEApplication.run(IDEApplication.java:81)
+	at org.eclipse.core.internal.runtime.PlatformActivator$1.run(PlatformActivator.java:78)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:92)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:68)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+
+!ENTRY system.bundle 4 0 2007-06-14 15:52:02.575
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-06-14 15:52:02.762
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.lookup(StorageManager.java:424)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveStateData(BaseStorage.java:551)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:387)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-06-14 17:04:49.116
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.frameworkStop(BaseStorage.java:763)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.frameworkStop(BaseAdaptor.java:273)
+	at org.eclipse.osgi.framework.internal.core.SystemBundleActivator.stop(SystemBundleActivator.java:64)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$3.run(BundleContextImpl.java:1032)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:1028)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.suspendAllBundles(StartLevelManager.java:650)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:599)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:283)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:256)
+	at org.eclipse.osgi.framework.internal.core.SystemBundle.suspend(SystemBundle.java:190)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:546)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:449)
+	at org.eclipse.osgi.framework.internal.core.OSGi.close(OSGi.java:41)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:423)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:193)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+!SESSION 2007-07-19 09:45:15.160 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.6.0_01
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 4 0 2007-07-19 09:45:15.707
+!MESSAGE Error reading configuration: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+!STACK 0
+java.io.FileNotFoundException: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+	at java.io.RandomAccessFile.open(Native Method)
+	at java.io.RandomAccessFile.<init>(Unknown Source)
+	at org.eclipse.core.runtime.internal.adaptor.Locker_JavaNio.lock(Locker_JavaNio.java:30)
+	at org.eclipse.osgi.storagemanager.StorageManager.lock(StorageManager.java:387)
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:694)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initFileManager(BaseStorage.java:160)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initialize(BaseStorage.java:137)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.initializeStorage(BaseAdaptor.java:124)
+	at org.eclipse.osgi.framework.internal.core.Framework.initialize(Framework.java:138)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:112)
+	at org.eclipse.osgi.framework.internal.core.OSGi.createFramework(OSGi.java:90)
+	at org.eclipse.osgi.framework.internal.core.OSGi.<init>(OSGi.java:31)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:286)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+
+!ENTRY org.eclipse.update.configurator 2007-07-19 09:45:18.410
+!MESSAGE Cannot backup current configuration
+
+!ENTRY org.eclipse.update.configurator 2007-07-19 09:45:18.629
+!MESSAGE Could not rename configuration temp file
+
+!ENTRY org.eclipse.update.configurator 2007-07-19 09:45:19.238
+!MESSAGE C:\eclipse\configuration\org.eclipse.update\last.config.stamp (Accès refusé)
+
+!ENTRY system.bundle 4 0 2007-07-19 09:45:49.191
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-07-19 09:45:49.409
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.lookup(StorageManager.java:424)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveStateData(BaseStorage.java:551)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:387)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-07-19 16:49:32.805
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.frameworkStop(BaseStorage.java:763)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.frameworkStop(BaseAdaptor.java:273)
+	at org.eclipse.osgi.framework.internal.core.SystemBundleActivator.stop(SystemBundleActivator.java:64)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$3.run(BundleContextImpl.java:1032)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:1028)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.suspendAllBundles(StartLevelManager.java:650)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:599)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:283)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:256)
+	at org.eclipse.osgi.framework.internal.core.SystemBundle.suspend(SystemBundle.java:190)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:546)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:449)
+	at org.eclipse.osgi.framework.internal.core.OSGi.close(OSGi.java:41)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:423)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:193)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+!SESSION 2007-07-26 12:06:54.817 -----------------------------------------------
+eclipse.buildId=M20070212-1330
+java.version=1.6.0_01
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=fr_FR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 4 0 2007-07-26 12:06:55.098
+!MESSAGE Error reading configuration: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+!STACK 0
+java.io.FileNotFoundException: C:\eclipse\configuration\org.eclipse.osgi\.manager\.fileTableLock (Accès refusé)
+	at java.io.RandomAccessFile.open(Native Method)
+	at java.io.RandomAccessFile.<init>(Unknown Source)
+	at org.eclipse.core.runtime.internal.adaptor.Locker_JavaNio.lock(Locker_JavaNio.java:30)
+	at org.eclipse.osgi.storagemanager.StorageManager.lock(StorageManager.java:387)
+	at org.eclipse.osgi.storagemanager.StorageManager.open(StorageManager.java:694)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initFileManager(BaseStorage.java:160)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.initialize(BaseStorage.java:137)
+	at org.eclipse.osgi.baseadaptor.BaseAdaptor.initializeStorage(BaseAdaptor.java:124)
+	at org.eclipse.osgi.framework.internal.core.Framework.initialize(Framework.java:138)
+	at org.eclipse.osgi.framework.internal.core.Framework.<init>(Framework.java:112)
+	at org.eclipse.osgi.framework.internal.core.OSGi.createFramework(OSGi.java:90)
+	at org.eclipse.osgi.framework.internal.core.OSGi.<init>(OSGi.java:31)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:286)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:173)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.core.launcher.Main.invokeFramework(Main.java:336)
+	at org.eclipse.core.launcher.Main.basicRun(Main.java:280)
+	at org.eclipse.core.launcher.Main.run(Main.java:977)
+	at org.eclipse.core.launcher.Main.main(Main.java:952)
+
+!ENTRY org.eclipse.update.configurator 2007-07-26 12:06:55.942
+!MESSAGE Cannot backup current configuration
+
+!ENTRY org.eclipse.update.configurator 2007-07-26 12:06:56.004
+!MESSAGE Could not rename configuration temp file
+
+!ENTRY org.eclipse.update.configurator 2007-07-26 12:06:56.520
+!MESSAGE C:\eclipse\configuration\org.eclipse.update\last.config.stamp (Accès refusé)
+
+!ENTRY system.bundle 4 0 2007-07-26 12:07:26.550
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.add(StorageManager.java:216)
+	at org.eclipse.osgi.storagemanager.StorageManager.closeOutputStream(StorageManager.java:891)
+	at org.eclipse.osgi.storagemanager.ManagedOutputStream.close(ManagedOutputStream.java:52)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at java.io.FilterOutputStream.close(Unknown Source)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveBundleDatas(BaseStorage.java:519)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:386)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY system.bundle 4 0 2007-07-26 12:07:26.816
+!MESSAGE FrameworkEvent.ERROR
+!STACK 0
+java.io.IOException: Manager is not opened.
+	at org.eclipse.osgi.storagemanager.StorageManager.lookup(StorageManager.java:424)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveStateData(BaseStorage.java:551)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.saveAllData(BaseStorage.java:387)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage.access$1(BaseStorage.java:376)
+	at org.eclipse.osgi.internal.baseadaptor.BaseStorage$StateSaver.run(BaseStorage.java:1095)
+	at java.lang.Thread.run(Unknown Source)

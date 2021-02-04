@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="src/Camembert/CamembertGraphe.java"/>
+	<classpathentry kind="lib" path="src/Camembert/DonneeGraphe.java"/>
+	<classpathentry kind="lib" path="src/Camembert/DonneesEvent.java"/>
+	<classpathentry kind="lib" path="src/Camembert/DonneesListener.java"/>
+	<classpathentry kind="lib" path="src/Camembert/Graphe.java"/>
+	<classpathentry kind="lib" path="src/Camembert/HistogrammeGraphe.java"/>
+	<classpathentry kind="lib" path="src/Camembert/Lire.java"/>
+	<classpathentry kind="lib" path="src/Camembert/PanelLegende.java"/>
+	<classpathentry kind="lib" path="src/Camembert/PanelTitre.java"/>
+	<classpathentry kind="lib" path="src/Camembert/Portion.java"/>
+	<classpathentry kind="lib" path="src/Camembert/TypeGraphe.java"/>
+	<classpathentry kind="lib" path="src/Camembert/VueGraphe.java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

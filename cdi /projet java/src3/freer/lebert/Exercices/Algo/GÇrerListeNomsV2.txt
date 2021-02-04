@@ -1,0 +1,91 @@
+Procédure InitialiserPile(sortie pRef : Référence)
+// initialiser la pile
+Début
+	pRef := null
+Fin
+
+Fonction AjouterNom(entrée sortie pRef : Référence, entrée pNom : ChaineNom) : booléen
+// empiler par le haut de la pile
+Variables
+	Precedent : Référence
+	Succes : booléen
+Début
+	Si pRef <> null alors
+		Precedent := null
+		TantQue pRef <> null et pNom > pRef->.Nom faire
+			// je m'arrête à la fin de la liste ou au nom ajouté
+			Precedent := pRef
+			pRef := pRef->.Suivant
+		FinTantQue
+		Si Precedent = null alors
+			pRef->.Nom := pNom
+			pRef->.Suivant := pRef
+		Sinon
+			Precedent->.Suivant->.Nom := pNom
+			Precedent->.Suivant->.Suivant := pRef
+		FinSi
+		Succes := Vrai
+	Sinon
+		Succes := Faux
+	FinSi
+	Retourner Succes
+Fin
+
+Fonction RetirerNom(entrée sortie pRef : Référence, entrée pNom : ChaineNom) : booléen
+// dépiler par le haut de la pile
+Variables
+	Precedent : Référence
+	Succes : booléen
+Début
+	Si pRef <> null alors
+		Precedent := null
+		TantQue pRef <> null et pNom > pRef->.Nom faire
+			// je m'arrête à la fin de la liste ou au nom à retirer
+			Precedent := pRef
+			pRef := pRef->.Suivant
+		FinTantQue
+		Si Precedent = null alors
+			pRef := pRef.Suivant
+		Sinon
+			pRef->.Suivant := Precedent->.Suivant
+		FinSi
+		Succes := Vrai
+	Sinon
+		Succes := Faux
+	FinSi
+	Retourner Succes
+Fin
+
+Programme GérerListeNoms
+// gérer une liste de noms classés alphabétiquement
+Constante
+	NOM := 10
+Types
+	Référence = Pointeur de Element
+	ChaineNom = Tableau [NOM] de caractère
+	Element = Enregistrement
+		Nom : ChaineNom
+		Suivant : Référence
+	FinEnregistrement
+Variables
+	Tete : Référence	// tête de liste
+	Nom1 : ChaineNom	// nom à ajouter
+	Nom2 : ChaineNom	// nom à retirer
+Début
+	Ecrire("Saisir nom à ajouter : ")
+	Lire(Nom1)
+	Créer(Tete)
+	InitialiserPile(Tete)
+	Si AjouterNom(Tete, Nom1) alors
+		Ecrire(Nom1, " a été ajouté.")
+	Sinon
+		Ecrire("Tableau plein.")
+	FinSi
+	Ecrire("Saisir nom à retirer : ")
+	Lire(Nom2)
+	Si RetirerNom(Tete, Nom2) alors
+		Ecrire(Nom2, " a été retiré.")
+	Sinon
+		Ecrire("Ce nom n'existe pas dans le tableau.")
+	FinSi
+Fin

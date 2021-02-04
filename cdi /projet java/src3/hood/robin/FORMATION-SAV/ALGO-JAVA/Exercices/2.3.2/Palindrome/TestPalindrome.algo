@@ -1,0 +1,37 @@
+procédure TestPalindrome(entrée Texte : chaine, sortie Palindrome : booléen)
+
+	// Cette procédure permet de determiner si une chaine de caractère contient un palindrome
+	
+	// Texte tableau de caractère de type chaine a tester
+	
+	// Palindrome indique vrai si c'est un palindrome et faux dans le cas contraire.
+	
+//VARIABLES
+i : entier;
+j : entier;
+
+//PROCEDURES
+procédure CompterLesCaracteres(entrée Texte : chaine, sortie NbrCarac : entier)
+
+	// Cette procédure calcule le nombre de caractère contenu dans une chaine.
+	
+	// Texte est un tableau de caractère contenant la chaine.
+
+	// NbrCarac est le nombre de caractère contenu dans la chaine.
+
+
+début
+	// Initialisation
+	i := 1;
+	
+	CompterLesCaracteres(Texte, j)
+		
+	tantque (i < j) et (Texte[i] = Texte[j]) faire
+		// arrèt quand les indices se croisent et que les caractères sont différents
+		i := i + 1
+		j := j - 1
+	fintantque
+	
+	Palindrome := (i >= j) // Si les indexes se croisent c'est un palidrome.
+	
+fin

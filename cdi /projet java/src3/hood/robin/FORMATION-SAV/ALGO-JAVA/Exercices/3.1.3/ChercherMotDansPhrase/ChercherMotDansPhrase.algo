@@ -1,0 +1,28 @@
+procédure ChercherMotDansPhrase(entrée phrase: chaineP, entrée sortie i: entier, sortie lMotTrouver: entier)
+	// Cette procédure cherche un mot dans une phrase et la position après le mot trouvé et la longueur du mot
+	
+	// phrase est le tableau de caractère contenant la phrase à analyser
+	
+	// i en entrée indice de départ pour chercher un mot
+	// i en sortie indice juste après le mot, ou sur le point
+	
+	// lMotTrouver est la longueur du mot à rechercher ou zero si plus de mot (i sur le point)
+	
+début
+	tantque phrase[i] = ESPACE faire
+		// arrêt quand le caractère n'est pas un ESPACE
+		i := i + 1
+	fintantque
+	lMotTrouver := 0	
+	tantque (phrase[i] <> ESPACE) et (phrase[i] <> CARAFIN) faire
+		// arrêt quand le caractère est un ESPACE ou un CARAFIN
+		lMotTrouver := lMotTrouver + 1
+		i:= i + 1	
+	fintantque
+fin
+	
+	
+	
+	
+
+

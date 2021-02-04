@@ -1,0 +1,92 @@
+Phrase			Taille			Ascii
+""				0				""
+"A"				1				"41"
+"AFPA"			4				"41465041"
+"MMA"			3				"4D4D41"
+
+
+Fonction Coder(entrée pResultat : entier) : caractere
+// code le resultat en hexa
+// pResultat : resultat donnée
+Constante
+	ERREUR := '?'			// valeur si erreur
+Variable
+	car : caractere			// caractère retourné
+Début
+	Choix sur pResultat faire
+		0: car := '0'
+		1: car := '1'
+		2: car := '2'
+		3: car := '3'
+		4: car := '4'
+		5: car := '5'
+		6: car := '6'
+		7: car := '7'
+		8: car := '8'
+		9: car := '9'
+		10: car := 'A'
+		11: car := 'B'
+		12: car := 'C'
+		13: car := 'D'
+		14: car := 'E'
+		15: car := 'F'
+		Défaut: car := ERREUR
+	FinChoix
+	Retourner car
+Fin
+
+Procédure ConversionAscii(entrée pPhrase : Chaine, entrée pTaille : entier, sortie pAscii : Chaine2)
+// coder une phrase en une autre en code ascii
+// pPhrase : phrase donnée
+// pTaille : taille de la phrase
+// pAscii : phrase en ascii
+Variable
+	i : entier			// indice de parcours
+Fonction
+	Coder(entrée pResultat : entier) : caractere		// coder en hexa
+Début
+	i := 1
+	TantQue i < pTaille faire
+		// je m'arrête à la fin de la phrase
+		pAscii[2 * i - 1] := Coder(pPhrase[i] Div 16)
+		pAscii[2 * i] := Coder(pPhrase[i] Mod 16)
+		i := i + 1
+	FinTantQue
+Fin
+
+Procédure AfficherAscii(entrée pAscii : Chaine2, entrée pTaille : entier)
+// afficher la phrase en ascii
+// pAscii : phrase en ascii
+// pTaille : taille de la phrase
+Variable
+	i : entier			// indice de parcours
+Début
+	i := 1
+	TantQue i < pTaille faire
+		// je m'arrête à la fin de phrase
+		ecrire(pAscii[i])
+		i := i + 1
+	FinTantQue
+Fin
+
+Programme TestConversionAscii
+// programme de test
+Constante
+	N := 50									// taille du tableau
+Type
+	Chaine = tableau [N] de caractere		// chaine de caracteres
+	Chaine2 = tableau [2 * N] de caractere	// tableau deux fois plus grand
+Variables
+	Phrase : Chaine							// phrase saisie
+	Taille : entier							// taille du tableau
+	Ascii : Chaine2
+Procédure
+	LongueurPhrase(entrée pPhrase : Chaine, entrée pTaille : entier, sortie pAscii : Chaine2)		// calcule la longeur de la phrase
+	ConversionAscii(entrée pPhrase : Chaine, entrée pTaille : entier, sortie pAscii : Chaine2)		// conversion ascii
+	AfficherAscii(entrée pAscii : Chaine2, entrée pTaille : entier)									// affcher ascii
+Début
+	ecrire("Saisir une phrase : ")
+	lire(Phrase)
+	LongueurPhrase(Phrase, 2 * Taille, Ascii)
+	AfficherAscii(Ascii, 2 * Taille)
+Fin

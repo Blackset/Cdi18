@@ -1,0 +1,25 @@
+fonction empiler(entrée sortie liste: pile, entrée val: entier): booléen
+	// cette fonction permet d'ajouter une valeur après le dernier élément
+	// de la liste, si la liste est pleine elle renvoie faux
+	
+	// liste est en entrée : la liste dans laquelle on ajoute une valeur
+	//			 en sortie : la liste avec la nouvelle valeur et le nouvel indice, si elle n'est pas pleine
+	
+	// val est la valeur à ajouter
+	
+	// retourne vrai si val est ajouté, faux si la liste est pleine
+
+//VARIABLE
+empiler: booléen	// vrai si la valeur est ajoutée
+					// faux si la valeur n'est pas ajoutée --> liste pleine
+	
+début
+	empiler:= faux
+	
+	si liste.indice < TAILLETAB alors
+		liste.indice:= liste.indice + 1		//on avance l'indice
+		liste.tab[liste.indice]:= valeur	//on ajoute la valeur
+		empiler:= vrai						//on renvoie vrai
+	finsi
+	retourner empiler
+fin

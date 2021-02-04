@@ -1,0 +1,48 @@
+fonction CompterNombreBase(entrée chaineSaisie: chaineS, entrée base: entier): sommeNombre
+	// cette fonction retourne la somme des nombres de la chaine en prenant en compte la base
+	
+	// chaineSaisie est la chaine de caractère avec les nombres
+	
+	// base est la base dans laquelle les nombres sont écrit
+
+//VARIABLES
+i: entier				// indice de position du nombre
+lg: entier				// longueur du nombre
+resultatBase: entier	// resultat du calcue de base
+resultat: entier		// resultat de la somme des nombres de la chaine
+
+//PROCEDURE et FONCTION
+procédure ChercherNombre(entrée chaineSaisie: chaineS, entrée sortie indice: entier, sortie lg: entier)
+	// cette procédure cherche un nombre dans une chaine
+	
+	// indice	entrée: la position de l'indice de recherche au début de chaine
+	//			sortie: la position de l'indice de recherche après le nombre dans la chaine
+	
+	//lg longueur du nombre
+	
+fonction CalculBase(entrée chaineSaisie: chaineS, entrée base: entier, entrée indice: entier, entrée lg: entier): entier
+	// cette fonction retourne un entier du  résultat d'un nombre trouvé dans la chaine avec la base donnée
+	
+	// chaineSaisie est la chaine de caractère avec les nombres
+	
+	// base la base a utiliser
+	
+	// indice la position juste après le nombre trouvé dans la chaine
+	
+	// lg longueur du nombre dans la chaine
+
+début
+	
+	i:= 1
+	resultat := 0
+	
+	ChercherNombre(chaineSaisie, i, lg)
+	
+	tantque (lg > 0) faire
+		// arrêt quand plus nombre
+		resultatBase := CalculBase(chaineSaisie, base, i, lg)
+		resultat := resultat + resultatBase
+		ChercherNombre(chaineSaisie, i, lg)
+	fintantque
+
+fin

@@ -1,0 +1,18 @@
+package ExoObjet;
+
+public class boiteOutil
+{
+   public static boolean estAlpha (String mot)
+	{
+		if ( mot != null && mot.matches("^[\\p{L}]+$"))
+		{
+	
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}	
+ }
+}

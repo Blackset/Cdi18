@@ -1,0 +1,55 @@
+fonction InverserMot(entrée chaineSaisie: chaineS):chaineI
+	// cette fonction retoune une nouvelle chaine avec le caractère des mots inversé et 
+	// les espaces superflu supprimés
+	
+
+//VARIABLES
+i: entier					// indice de recherche du mot
+j: entier					// indice de l'emplacement de copie dans la chaineInversé
+lMotTrouver: entier 		// longueur du mot trouvé	
+chaineInversé : chaineJ		// chaine où l'on copie les mots à l'envers
+//PROCEDURES
+procédure ChercherMotDansPhrase(entrée chaineSaisie: chaineP, entrée sortie i: entier, sortie lMotTrouver: entier)
+	// Cette procédure cherche un mot dans une phrase et la position après le mot trouvé et la longueur du mot
+	
+	// chaineSaisie est le tableau de caractère contenant la phrase à analyser
+	
+	// i en entrée indice de départ pour chercher un mot
+	// i en sortie indice juste après le mot, ou sur le point
+	
+	// lMotTrouver est la longueur du mot à rechercher ou zero si plus de mot (i sur le point)
+
+procédure CopierMotInversé(entrée chaineSaisie: chaineS, entrée i : entier, entrée lMotTrouver : entier,
+					 entrée/sortie chaineInversé : chaineJ, entrée/sortie j : entier)
+	// cette procédure  permet de copier les mots à l'envers dans une nouvelle chaine
+	
+	// chaineSaisie est la chaine à copier
+	
+	// i est l'indice juste après le mot dans la phrase
+	
+	// lMotTrouver est la longueur du mot à copier
+		
+	// chaineInversé: est la chaine où l'on copie les mots à l'envers
+	
+	// j : -en entrée : indice où nous écrirons le mot 
+	//	  	-en sortie : indice après le mot copier	
+	
+
+début
+	i:= 1
+	j:= 1	
+	
+	ChercherMotDansPhrase(chaineSaisie, i, lMotTrouver)
+
+	tantque lMotTrouver > 0 faire
+	// arrêt quand plus de mot
+		CopierMotInversé(chaineSaisie: chaineS, i, lMotTrouver, chaineInversé, j)
+		chaineInversé[j] := ESPACE
+		j:= j + 1
+		ChercherMotDansPhrase(chaineSaisie, i, lMotTrouver)
+	fintantque
+	
+	chaineInversé[j] := CARACFIN
+	
+	retourner	chaineInversé
+fin

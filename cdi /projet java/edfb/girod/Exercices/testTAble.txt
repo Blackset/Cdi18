@@ -1,0 +1,125 @@
+
+
+
+								nouvel-indice
+tablenom		prénoms			indice-nom	
+1				Cunégonde			7	
+2				Berthe				6   
+3				Sidonie				0	
+4									8	  
+5				Agathe				2    premier 5 
+6				Cellulite			1	  libre 4 8
+7				Raymonde			3		
+8									9     
+9									10
+
+
+
+
+	  
+
+
+Init_tablenom
+tablenom		prénoms			indice	
+1							2	libre 1
+2							3   premier 0
+3							4	
+4							5	  
+5							6  
+6							7	  
+7							8		
+8							9     
+9							0 
+
+
+ajouter claude
+tablenom		prénoms			indice	
+1				Cunégonde			7	
+2				Berthe				6   
+3				Sidonie				0	
+4				CLAUDE				8/1	  
+5				Agathe				2    premier 5 
+6				Cellulite			1/4	  libre 4 devient libre 8  ---  indice 1 est égal à 4
+7				Raymonde			3									suivant devient 1
+8									9     
+9									0	  
+
+ajouter claude    tablepleine     on ne fait rien
+tablenom		prénoms			indice	
+1				Cunégonde			7	premier 5
+2				Berthe				6   libre 0
+3				Sidonie				9	
+4				CLAUDE				1	  
+5				Agathe				2    
+6				Cellulite			4	  
+7				Raymonde			8									
+8				renée				3    
+9				zoe					0	
+
+ajouter claude    tablevide 
+tablenom		prénoms			indice	
+1				CLAUDE			0	premier 1   indice 2 devient 0
+2								3   libre 2
+3								4	
+4								5	  
+5								6   
+6								7	  
+7								8		
+8								9     
+9								0	 
+0        
+
+
+enlever claude  				    
+tablenom		prénoms			indice	
+1				Cunégonde			7		premier 5     ne change pas
+2				Berthe				6   	libre 0			libre = 4
+3				Sidonie				9		indice 4 devient = 1
+4				CLAUDE				1	  
+5				Agathe				2    
+6				Cellulite			4	  
+7				Raymonde			8									
+8				renée				3    
+9				zoe					0	
+
+enlever Agathe (premier)  				    
+tablenom		prénoms			indice	
+1				Cunégonde			7		premier 5    devient premier 2
+2				Berthe				6   	libre 0			libre = 5
+3				Sidonie				9		indice ne change pas
+4				CLAUDE				1	  
+5				Agathe				2    
+6				Cellulite			4	  
+7				Raymonde			8									
+8				renée				3    
+9				zoe					0	
+	  
+
+enlever jeanne  il n'existe pas    on ne fait rien
+tablenom		prénoms			indice	
+1				Cunégonde			7	premier 5
+2				Berthe				6   libre 0
+3				Sidonie				9	
+4				CLAUDE				1	  
+5				Agathe				2    
+6				Cellulite			4	  
+7				Raymonde			8									
+8				renée				3    
+9				zoe					0	
+
+enlever claude    tablevide   on ne fait rien
+tablenom		prénoms		indice	
+1							2	libre 1
+2							3   premier 0
+3							4	
+4							5	  
+5							6  
+6							7	  
+7							8		
+8							9     
+9							0 
+
+
+
+
+

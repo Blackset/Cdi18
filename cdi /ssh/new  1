@@ -1,0 +1,1546 @@
+constantes: 
+ max = 100                       
+
+
+
+  \\ taille de tableau
+ carterm = '.'                          \\ caractere marquant la fin de la chaine
+ lettrereche = 'a'
+ 
+ types 
+ chaine = tableau [max] caractères       \\ type de tableau
+ 
+ variables 
+		 phrase :  chaine             \\ chaine ds la quelle on va finir par '.'
+         i :    entier                    \\ indice de parcour de la phrase terminée par la fin
+		 nombredea : entier               \\ le nombre de 'a' que l'on trouve 
+	   
+		 
+Debut 
+		 
+		 ecrire ( donnee une phrase terminée par '.')
+		 lire (phrase)                   \\ calcul de la longueur de la phrase
+		 i := 1
+		 
+		tant que  phrase[i] <> cartem faire      //traiter un caractere
+		          si  phrase[i] = lettrereche alors
+		              nombredea := nombredea + 1
+		          fin si 
+			         i := i+1
+			      
+		fintantque
+		écrire ("nombredea")
+		
+		  
+		 
+		   
+		   ________________________________________________________________________________________
+		   
+		   
+		Procédure compter caractère ( entrée phrase : chaine , entrée carfin : caractère,  sortie nbcar : entier)
+		 
+		            // cette procédure compte le nombre de caractère dans une chaine de caractère terminé par un caractère ici'.'
+                    // phrase est la chaine de caractère à traiter
+					// carfin est le caractère terminateur de la chaine à traiter
+                    // nbcar est le nombre de caractère trouvés
+					
+        variables		
+		i: entier    // indice de parcours du texte
+		
+		Début        // initialisation
+		
+		i := 1        // parcour de la phrase avec du nombre de caractères
+		nbcar := 0    
+		
+		   Tant que (phrase[i] <> carfin)   faire   // arret sur le caractère terminateur
+		            nbcar := nbcar + 1
+		               i := i + 1                   // passage au caractère suivant
+					   
+		   fintantque
+		              
+		écrire  ("nbcar")
+       
+        Fin	   
+		    
+	___________________________________________________________________		         
+		
+		Procédure compter occurence succ ( entré texte : chaine,  entré carfin : caractère, entrée lettre1 : caractère,
+		                                   entré lettre1 : caracère, entré lettre2 : caractère, sortie nbcouple : entier)
+										   
+                    // cette procédure compte l'occurence successives pour 2 lettres données ici 'l'et 'e'
+					 // successives dans une chaine de caractère
+					// texte est la chaine de caractère à traiter
+                    // carfin est le caractère terminateur
+					// entré lettre1 est le 1er caractère du couple de la lettre à cherchée
+					// entré lettre2 est le 2eme caractère du couple de la lettre à cherchée
+					// nbcouple est le nombre de couple de lettres successives trouvées
+ 
+        Variables
+		
+		i : entier   // indice de parcours du texte
+		
+		Début   initialisation
+		
+		    nbcouple := 0   // parcours de la chaine à la recherche de couple
+		           i := 1
+				  
+            Tant que texte [i] <> carfin   // caractere terminateur du texte
+		           
+				    si (texte [i]:= lettre1 )alors
+					
+					         si ((texte[i+1] := lettre2 et texte[i+1]) <> carfin)
+					
+					         alors nbcouple := nbcouple + 1 
+							 
+					         finsi
+							 
+					finsi
+					
+		       i = i + 1          // passage au caractère suivant
+			   
+			   
+					
+		    Fintantque
+			
+			écrire nbdecouple     // résultat de parcours
+ 
+        FIN
+ 
+ 
+ _____________________________________________________________________________
+ 
+
+
+        Programme test_verifier_palindrome 
+	  
+	                                  
+		   Constantes 
+                Max = 100
+                carterm = '.'
+            Types
+			    chaine = tableau[ Max] de caractère
+			
+            Variables
+		    
+			palin : chaine 
+			idem : bouléen   // vrai si palin
+			
+			
+			
+          // appel proc calcul longueur de la phrase
+		
+	    Procédure compter caractère ( entrée phrase : chaine , entrée carfin : caractère,  sortie nbcar : entier)
+		 
+		            // cette procédure compte le nombre de caractère dans une chaine de caractère terminé par un caractère ici'.'
+                    // phrase est la chaine de caractère à traiter
+					// carfin est le caractère terminateur de la chaine à traiter
+                    // nbcar est le nombre de caractère trouvés
+					
+        variables		
+		i: entier    // indice de parcours du texte
+		
+    Debut       // initialisation
+		
+		i := 1        // parcour de la phrase avec du nombre de caractères
+		nbcar := 0    
+		
+		   Tantque (phrase[i] <> carfin)   faire   // arret sur le caractère terminateur
+		            nbcar := nbcar + 1
+		               i := i + 1                   // passage au caractère suivant
+					   
+		   fintantque
+		              
+		écrire  ("nbcar")
+	
+       
+    Fin	  
+	
+	Debut	écrire  (donner une phrase avec un carctèere terminateur: carterm)
+		    Lire (phrase)      // donner la longueur de la  phrase
+		 	
+		    si palin = vrai      alors
+			écrire ( c'est un palindrome )
+		
+		sinon 
+			écrire ( pas de palindrome )
+		finsi
+    Fin
+	
+	
+	
+	    Procédure verifier_palindrome ( entrée phrase : chaine, entrée carterm : caractère, sortie palindrome: bouléen ) 
+	  
+	                                 // verifier si une chaine de caractère est un plindrome
+									 // phrase est la chaine à verifier
+									 // carterm est le caractère terminateur
+									 // palindrome est la chaine de caractère verififiée palindrome
+			
+            Variables
+		    
+		    i : entier               // indice de parcours de texte ascendant
+			j : entier               // indice de parcours de texte descandant
+			
+	    Procédure compter_caractère ( entrée phrase : chaine , entrée carterm : caractère,  sortie nbcar : entier)
+		 
+		            // cette procédure compte le nombre de caractère dans une chaine de caractère terminé par un caractère ici'.'
+                    // phrase est la chaine de caractère à traiter
+					// carfin est le caractère terminateur de la chaine à traiter
+                    // nbcar est le nombre de caractère trouvés
+			
+    Début    // appel proc calcul longueur de la phrase
+	    
+		 
+        compter_caractère(phrase, carterm,j)
+		 i := 1
+		 
+	    Tantque  i < j e phrase [i] = phrase[j]  faire  //  arret quand il y a croisement
+		          
+				  i := i + 1
+				  j := j - 1
+	    fintantque
+          
+             // palindrome := i>=j
+		
+				si i >= j       //fin de parcour il y a symetrie
+					  palidrome := vrai
+				
+				    sinon 
+					   palindrome := faux
+				finsi
+	
+	
+		
+	Fin
+	
+	
+    ______________________________________________________________________        
+	 
+	Etape 1
+	
+    La procédure trie le tableau d'un nombre d’entiers à traiter et sa longueur utile, selon la méthode de remontée des bulles
+	
+       tablo     _________ tri _________ tablo
+	   nbe utile
+	   
+	   
+
+	  
+     
+	Etape 2 
+	
+        Constantes   Max = 80                 // nombre maximum de nombres dans le tableau
+
+        Types 
+	
+	    tablo = tableau [ Max] entier        // type des tables d’entiers que l’on peut trier
+    
+	
+	Etape 3 
+	
+	 JEUX D’ESSAI : trier un tableau d’entiers par la méthode de tri par remontée des bulles.
+	 
+	 Table entier      Longutile      Tri
+	 1240                4             0124
+	 983                 3             389
+	 5                   1              5
+	 6543278             7             2345678
+						 0
+ 
+    Etape 4
+	
+	procédure pour Remplir ( sortie tablo : table, sortie longutile : entier, )
+	                  
+					       // cette procédure remplie le tableau d'entier sur sa longueur utile
+	                       // longutile est la longueur utile du tableau d'entiers
+                           // tablo sont les valeurs d'entiers sorties
+	
+	
+	procédure pour afficher ( entrée tablo : table, entrée longutile : entier )
+	
+	                         // cette procédure affiche les entiers remplie dans la procédure remplir
+							 // tablo est la valeur d'entier sortie
+	                         // longutile est la longueur utile du tableau d’entiers
+	
+	
+	Procédure tri ( Entrée Sortie tablo : table,  Entrée longutile : entier )
+	
+	
+                              // Cette procédure trie le tableau d’entiers sur sa longueur utile, selon la méthode de remontée des bulles
+                              // tablo est : en entrée le tableau d’entiers à trier.
+                             // en sortie le tableau d’entiers triés.
+                             // longutile est la longueur utile du tableau d’entiers.
+	
+	
+	
+	
+	Etape 5 
+
+
+	constante
+	
+	Constantes   Max = 80                  // nombre maximum de nombres dans le tableau  
+	
+	types 
+	    tablo = tableau [ Max] entier         // type des tables d’entiers que l’on peut trier
+	
+	
+	variables
+	
+	    longueur : entier  
+		table : tablo		
+	
+	Début
+	
+	
+	
+	     Remplir  ( table, longueur)
+	     Afficher ( table, longueur)
+	     Trier    ( table, longueur)
+	     Afficher ( table, longueur)
+	
+	fin
+	
+	
+	Etape 6
+	
+	procédure pour Remplir ( sortie table : tablo, sortie longutile : entier, )
+	                  
+					       // cette procédure remplie le tableau d'entier sur sa longueur utile
+	                       // longutile est la longueur utile du tableau d'entiers
+                           // tablo sont les valeurs d'entiers sorties
+	Variables
+		i : entier  // indice de parcours du tableau
+		
+	Debut
+	
+		// demander la longueur utile et la vérifier
+		
+		 lire (longueur) 
+		 
+		  tantque longueur > max et longueur < 0	faire    // Si l'utilisateur entre une valeur qui est superieur à 80 et inferieur à 0, demande une nouvelle valeur
+		  
+		           lire (longueur) 
+		  fintantque
+		 
+		// remplir les longutile premières valeurs de la table
+		
+		 i = 1
+		
+		Tanque i <= longueur    faire   
+		 
+		       ( lire )  table[i] 
+		 
+		        i = i + 1
+	     
+	    fintanque
+	
+	Fin
+	 
+    procédure pour afficher ( entrée tablo : table, entrée longutile : entier )
+	
+	                         // cette procédure affiche les entiers remplie dans la procédure remplir
+							 // tablo est la valeur d'entier sortie
+	                         // longutile est la longueur utile du tableau d’entiers
+	  
+	variables 
+	
+	i = entier
+Debut
+	    i = 1 
+		
+	    Tanque i <= longueur    faire   
+		 
+		       ( afficher)  table[i] 
+		 
+		        i = i + 1
+				
+	    Fintantque
+	
+	Procédure tri ( Entrée Sortie tablo : table,  Entrée longutile : entier )
+	
+	
+                              // Cette procédure trie le tableau d’entiers sur sa longueur utile, selon la méthode de remontée des bulles
+                              // tablo est : en entrée le tableau d’entiers à trier.
+                             // en sortie le tableau d’entiers triés.
+                             // longutile est la longueur utile du tableau d’entie
+							 
+							 
+							 					 
+    variables 
+		
+		i : entier                     // indice de parcours de la table d’entier
+
+        inversion : booléen                     // vrai quand il y a eu au moins une inversion lors du parcours du tableau d’entier                        
+									  
+        stock : entier                        // variable intermédiaire permettant l’inversion de deux entiers du tableau
+                                     
+									
+									
+    Début                                  // parcours jusqu’à ne plus avoir d’inversion
+
+
+    Repeter
+            inversion := Faux                        // pour ce nouveau parcours, il n’y a pas d’inversion
+
+             i := 1                                  // début au nouveau parcours
+
+   
+.   Tantque i < longueur  Faire              // arrêt sur le dernier élément du tableau 
+
+                                       
+           // comparaison de l’élément à son suivant
+	
+         Si table [ i ] > table [ i + 1 ] Alors
+                                     // il faut inverser les deux éléments du tableau
+             stock := table [ i ]
+
+             table [ i ] := table [ i + 1 ]
+
+              table [ i + 1 ] := stock
+
+                                     // il y a eu au moins une inversion
+
+             inversion := Vrai
+
+         Finsi
+
+       i := i + 1                         // passage à l’élément suivant
+
+    Fintantque
+
+  Jusquà Non inversion                  // le tableau est trié quand il n’y a pas eu d’inversionlors d’un parcours du tableau
+
+Fin
+	
+____________________________________________________________________________
+
+ 
+  Etape 1
+	
+	La procédure Dichotomie cherche, par dichotomie, un prénom dans un tableau
+de prénoms, classés par ordre alphabétique.
+
+  Etape 2
+  
+	Constantes  
+             
+    	Max = 80                 // nombre maximum de nombres dans le tableau
+    
+	    nmaxp = 25              // nombre maximum de caractères d’un prénom
+	
+    Types 
+	    nom = tableau [ nmaxp] de caractère    // type des prénoms de la table
+	
+	    tabloprénom = tableau [ Max] nom      // type de table de prénom que l’on peut traiter
+    
+	   
+		
+  Etape 3
+
+     Jeux d'essai
+ 
+   1/ Tabloprénom       Longutile       Ordre alphabitique     numprénom
+
+      Bernard 	            1            A                       0
+	  Dinard                1            B                       1
+	  Florent               1            C                       0
+	                                     D                       2
+										 F                      
+										 G
+	2/ Tble vide
+	                                     A                       0
+   Etape 4
+ 
+    Prprocédure Remplir ( sortie tabloprénom : table , sortie longutile : entier, )
+ 
+                    // cette procédure remplie le tableau de prénoms sur sa longueur utile
+					// tabloprénom est la liste des prénoms que l'utilisateur rentre dans la table
+	                // longutile est la longueur utile du tableau de prénom
+                    
+					
+    Procédure tri ( Entrée Sortie tabloprénom : table,  Entrée longutile : entier )
+
+                    // Cette procédure traite le tableau de prénom sur sa longueur utile par ordre alphabétique
+                    // tabloprénom est : en entrée le tableau de prénom à traiter.
+                    // en sortie le tableau de prénom traiter.
+                    // longutile est la longueur utile du tableau de prénom.			
+
+
+    procédure pour afficher ( entrée tabloprénom : table, entrée longutile : entier )
+	
+	                 // cette procédure affiche  le tableau de prénom sur sa longueur utile par ordre alphabétique                  les entiers remplie dans la procédure remplir
+					 // tabloprénom est les prénoms affichés par ordre alphabitique
+	                 // longutile est la longueur utile du tableau d’entiers
+	
+ 
+ 
+    Procédure dichotomie ( Entrée tabloprénom : table,  Entrée longutile : entier, Entrée prénomrecherché: tabloprénom, 
+                       Sortie numprénom : entier )
+	                 
+					 // Cette procédure affiche le numéro des prénoms affichés par ordre alphabétique
+					 // tabloprénom est : en entrée le tableau de prénom à traiter.
+                     // prénomrecherché est le prénom que l'on veut recherché dans le tabloprénom
+                     // longutile est la longueur utile du tableau de prénom.			
+                     // numprénom est le rang de prénom recherché
+					 
+ Etape 5
+ 
+		Constantes  
+             
+    	Max = 80                 // nombre maximum de nombres dans le tableau
+    
+	    nmaxp = 25              // nombre maximum de caractères d’un prénom
+	
+        Types 
+		
+	    nom = tableau [ nmaxp] de caractère    // type des prénoms de la table
+	
+	    tabloprénom = tableau [ Max] nom      // type de table de prénom que l’on peut traiter
+    
+        Variables	
+					
+        rangprénom : entier
+		longueur : entier  
+		
+        		
+	Début
+	
+	     Remplir  ( table, longueur)
+		 Trier    ( table, longueur)
+	     Afficher ( table, longueur)
+	     Dichotomie ( table, longueur)
+	
+	fin
+	
+	 Etape6
+	 
+	
+	procédure Dichotomie
+	
+	Variables
+	
+	Min : 1 ( min prends la valeur du premiere case du tableau)
+	Max : longutile ( max de la table ou sous table)
+	i : entier ( median)
+	numprénom : entier
+	
+		
+	
+		Ecrire ( ‘donnez le nombre de prénoms à entrer dans le tableau : ‘ )
+        Lire ( longuer )
+		
+     rangprénom := 0
+
+ 
+Tantque   rangprénom < longueur     Faire
+
+          rangprénom := rangprénom + 1           // saisie d’un nouveau prénom de la table
+
+         Ecrire ( ‘donnez le prénom numéro ’rangprénom’ de la table’ )
+         Lire ( tableprénom [ longueur ] )
+  
+Fintantque
+		
+	Debut
+	
+	
+		
+		
+	Fin
+	
+	
+	
+	____________________________________________________________________
+
+	
+	
+	
+	Etapes1		
+	
+    Constantes  
+             
+    	MAX = 80                 // nombre maximum de nombres dans le tableau
+    
+	   CARTERM = '.'           // caractere terminateur
+	
+       types
+	   
+	   phrase = tableau [ 80] mots      // type de table de mots que l’on peut traiter
+
+	
+	
+	
+Etape2
+
+jeux d'essai
+
+phrase                | motCherché         | motTrouvé    
+
+le chat est gris      | chat               | vrai
+le chat est gros      | gris               | faux
+le lapin est gris     | chat               | faux
+' '                   | ' '                | vrai
+
+Etape2
+	
+ Algorithme de principe    // chercher un mot dans une phrase
+	
+Répéter
+
+prendre un mot
+
+Si le mot a la même longueur que le mot cherché Alors
+comparer les deux mots
+Finsi
+
+Jusquà avoir trouvé le mot ou avoir parcouru toute la phrase
+
+
+
+
+Définition des données :
+
+longueur de mot : entier
+phrase : chaine   // chaine de caractère finie par '.'
+un caractère terminateur carterm
+
+un mot de la phrase est donné par :
+la phrase initiale
+
+l’indice juste après le mot ou sur le caractère terminateur
+la longueur du mot est 0 si le mot est le caractère terminateur
+
+
+Etape3
+
+programme de test
+
+Début    
+
+               
+Ecrire ( 'donnez la phrase terminée par un caractère ' ,carterm, ‘ : ‘)
+
+Lire ( phrase )
+
+Ecrire ( 'donnez le mot recherché : ’ )         // saisie du mot et de sa longueur
+Lire ( mot, longueur )
+
+
+chercher_mot ( phrase, mot, longueur, résultat )
+
+
+Si       résultat Alors                // résultat de la recherche
+
+Ecrire (‘le mot', mot, ‘ est dans la phrase' )
+
+Sinon
+
+Ecrire (‘le mot', mot, ‘ nest pas dans la phrase.‘ )
+		
+		
+		 
+
+
+	
+On a 3 procédures à faire:
+
+ Procédure chercherMot ( entrée phrase : chaine; entrée motCherché: chaine; entrée longueur: entier, sortie resultats: booléen)
+ 
+                         // cette procédure cherche un mot dans la phrase originale,si le mot est dans la phrase alors le resultats est vrai.
+						 // phrase c'est la phrase d'origine
+						 // mot cherché cest le mot que l'on cherche dans la phrase originale
+						 // longueur cest la longueur du mot cherché
+						 // mot trouvé cest le mot trouvé dans la phrase
+		
+        Variables	
+					
+        i : entier
+		
+        	
+       
+	   Debut
+
+	   resultats := faux	
+	   i := 1
+	  si longueur <> 0 alors
+	  
+	    Tanque ( phrase (i]<> CARTERM ) et resultats = faux  faire
+	  
+            prendreMot ( phrase , i, motcherché)
+		    compareMot ( phrase,mot, i, lgMot, resultats ) 
+		    
+		
+        Fintantque
+	   
+	 sinon resultats = vrai
+	 
+	 finsi
+				
+ 
+ 
+ 
+ Procédure prendreMot (entrée phrase: chaine, entrée sortie i : entier, sortie lg:entier)
+ 
+                          // Cette procédure positionne un indice sur le caractère suivant le mot
+                          // repéré, et donne sa longueur, ou positionne l’indice sur le caractère
+                          // terminateur, et donne la longueur 0.
+		                  // i en entrée : place l'indice ou le mot est cherché
+		                  // i en sortie : position juste après le mot, ou sur le point 
+		                  // lg est la longueur du mot, 0 si plus de mot
+						
+						
+						
+
+
+ CONSTANTE
+
+  ESPACE = ' '    // caractere séparateur du mot
+
+  Debut
+
+  Tantque  phrasee [ i] = ESPACE   Faire     // arrêt quand on a autre chose qu’un espace
+
+          i := i + 1
+
+  Fintantque
+
+    
+   lg := 0
+
+    // recherche de la fin du mot
+
+  Tantque ( phrase [i] <> ESPACE ) et (phrase[i] <> CARTERM) Faire      // arrêt quand on a un espace ou le carterm
+ 
+            i := i + 1
+	
+            lg := lg + 1
+
+ 
+ Fintantque
+						
+									
+						
+		
+ ProcédureComparer  ( entrée phrase : chaine, entrée i : entier, entrée mot : chaine, entrée lgMot : entier, sortie: motPareil: bouléen) 	
+	
+		                 // cette procédure compare le mot cherché avec le mot de la phrase initiale
+						 // phrase est la chaine où se trouve le mot
+						 // i en entrée : est la position dans la phrase juste après le mot
+						 // mot est le mot recherché
+						 // lgmot est la longueur des deux mots
+		                 // motPareil est vrai si les deux mots sont égaux
+
+		
+
+Début 
+
+         i:= i - 1                                            // indice sur le dernier caractère du mot de la phrase
+
+
+// parcours du mot en comparant avec le mot de la phrase
+
+
+Tantque ( lgMot <> 0 ) et ( phrase [i] = mot [ lgMot ] )    Faire   // arrêt quand le mot est parcouru, ou quand les deux mots sont différents
+ 
+    
+      i := i - 1
+
+      lgMot := lgMot - 1
+
+Fintantque 
+
+
+motPareil := ( lgMot = 0 )      // résultat de la comparaison
+
+
+Fin	
+		
+		
+		
+_______________________________________________________________________________________________
+
+
+
+
+    Etape 1 
+
+La procedure recopier une phrase en inversant chaque mot cherché dans la phrase initiale en la recopiant dans 
+une nouvelle phrase en gardant qu un seul espace entre les mots.
+
+    Etape2 
+	
+	LE#CHAT##EST###GRIS#####. donnera  
+	
+	EL#TAHC#TSE#SIRG.      //  un seul espace entre les mots avec un point final
+	
+	Etape3
+	
+    Constantes  
+	           MAX = 80
+	           CARTERM = '.'
+			   SEPARATEUR = ' '
+    Types
+	            
+	        chaine = tableau[ Max] de caractère 
+			
+    Etape 4
+	
+	 Algorithme de principe   
+
+
+	
+	
+	
+	
+	Etape 5
+	
+	3 procédure
+	
+  Procédure prendreMot (entrée phrase: chaine, entrée sortie i : entier, sortie lg:entier)
+ 
+                          // Cette procédure positionne un indice sur le caractère suivant le mot
+                          // repéré, et donne sa longueur, ou positionne l’indice sur le caractère
+                          // terminateur, et donne la longueur 0.
+		                  // i en entrée : place l'indice ou le mot est cherché
+		                  // i en sortie : position juste après le mot, ou sur le point 
+		                  // lg est la longueur du mot, 0 si plus de mot
+						
+						
+
+  Debut
+
+  Tantque  phrasee [ i] = SEPARATEUR  Faire     // arrêt quand on a autre chose qu’un espace
+
+          i := i + 1
+
+  Fintantque
+
+    
+   lg := 0
+
+    // recherche de la fin du mot
+
+  Tantque ( phrase [i] <> ESPACE ) et (phrase[i] <> CARTERM) Faire      // arrêt quand on a un espace ou le carterm
+ 
+            i := i + 1
+	
+  fintantque          lg := lg + 1
+
+fin
+	
+	
+	procedure inversermot ( entrée phrase : chaine ; entrée i : entier ; entrée lg : entier ; 
+					entrée/sortie phrase inverser : chaine ; entrée/sortie j : entier )
+
+					// inverser mot recopie le mot repéré dans la phrase par sa position.
+					// phrase : phrase ou est le mot
+					// i : indice juste après le mot
+					// lg : longueur du mot
+					// phrase cryptée  
+					// phrase inversée entrée : la portion du mot qui a été inversé
+					// en sortie : recopié le mot inversé dans la phrase inversée
+					// j indicateur de la phrase inversée, en entré, l'endroit ou le mot est recopié
+					// en sortie l'endroit où mettre 
+					
+					
+					
+debut
+i := i -1
+ tantque lg>0 faire     // tantqu'il y a un caractere à copier
+    phraseInverser[j] =  phrase[i]
+    j:=j+1
+	lg:=lg-1
+	i := i - 1
+ fintantque
+ 
+	
+fin
+
+
+	
+	procedure inverserphrase (entrée phrase : chaine ; sortie phraseinversée : chaine)
+	
+	                  // Cette procédure recopie le texte de la phrase en inversant chaque mot.
+                      // Dans la chaîne phrase inversée il y aura un espace minimum.
+		
+		              // phrase : phrase à inverser
+		             // phraseInversée: phrase  inversée
+
+Variables :
+
+	i : entier		// indice de parcours de phrase
+	j : entier		// indice de parcours de phrase inversée
+	lg : entier		// longueur du mot trouvé dans la phrase
+debut
+		
+		
+
+	i := 1			
+	j := 1			
+	
+	prendreMot(phrase,i,lg)											// On prend un mot
+	
+	tantque lg <> 0 faire											// Est-ce un '.' Arret quand le terminateur est détecté?
+	  
+	  										
+	  	inverserMot(phrase,i,lg,j)				                  // Appel de la procédure inverserMot
+	  	prendreMot(phrase,i,lg)		                         // Prise d'un nouveau Mot
+		
+	  	si lg <> 0 alors											// Vérification s'il s'agit du '.'
+	  		phraseInverser[j] := SEPARATEUR							// Si le mot suivant n'est pas le '.', on met un espace après notre mot
+	  		j := j + 1
+	  	finsi
+      
+	fintantque
+	
+	phraseInversée[j] := STOP	
+	// Une fois que notre phrase est terminée, nous ajoutons un point
+ fin
+			
+			   
+
+
+	_______________________________________________________________________________________________	
+		
+		
+		
+		
+	Etape 1
+	___________________________
+	la procédure 'justifier une phrase' consiste à répartir les mots sur la totalité d'une phrase de 80 caractères terminé par un point,
+	en  répartissant équitablement les espaces entre les mots. ils seront rajoutés aux premiers intervalles.
+		
+		
+	Etape 2
+    ___________________
+	
+    phrase en entrée:  le#chat#est#gris.##################################_____ donnera
+	
+	phraseModifiée :   le#############chat############est############gris.
+	
+	Etape 3
+	_________________________
+	
+	  Constantes 
+	  
+	           MAX = 80
+	           CARTERM = '.'
+			   SEPARATEUR = ' '
+      Types
+	            
+	        chaineI = tableau[ Max] de caractère 
+			chaineJ = tableau [ MAX] de caractère
+    Etape 4
+	________________________
+			
+		Algorithme de principe  
+	
+	    
+		
+		prendre un mot
+		
+ Tantque la longueur du mot est differente de zero             Faire
+ 
+compter les mots
+compter le nombre total des lettres des mots
+prendre un mot
+
+Fintantque
+
+          calculer le reste d’espaces 
+          calculer le nombre d’espaces à mettre entre les mots
+
+
+		  
+Tantque tous les mots ne sont pas copiés       Faire
+
+prendre un mot
+copier le mot
+
+        Si ce n’est pas le dernier mot         Alors
+           mettre les espaces
+
+        Si il reste des espaces en trop    Alors
+           mettre un espace
+		   
+		   
+          décrémenter le nombre d’espaces en trop
+
+       Finsi
+       
+Fintantque
+
+mettre le point à la fin
+  _____________________________________
+
+Etape 5
+
+Programme justifier_phrase ( répartir les mots)
+		
+		
+     // Ce programme réparti les mots sur la totalité de la longueur 
+     // de la phrase en plaçant les espaces d'une façon equitable.
+
+
+
+    Début          
+
+    Ecrire ( ‘donnez la phrase terminée par un caractère ‘,carterm, ‘ : ‘)
+    Lire ( phrase )
+
+
+    // appel de la procédure qui fait tout le travail
+    justifier ( phrase, phrase_finale )
+
+
+    // résultat du travail
+
+    Ecrire (‘la phrase est : ‘, phrase )
+
+    Ecrire (‘la phrase justifiée est : ‘, phrase_répartie )
+	fin
+________________________________________
+
+	
+Etapes 6
+
+On a 4 procédures
+
+procédure justifier
+procédure prendre mot
+procédure copier mot
+procédure mettre n espaces
+___________________________________
+
+	procédure justifier ( Entrée phrase : chaîne , Sortie phrase_just : chaîne)
+		                  
+		               // Cette procédure répartie une chaîne de caractères dans une autre chaîne.
+                       // phrase est la chaîne de caractères à traiter
+                       // phrase_justifier est le résultat de la justification de texte
+					   
+
+	variables
+
+    i          : entier         // indice de parcour de la phrase initiale
+	j          : entier         // indice de parcour de la phrase justifiée
+    nb_lettres : entier                                                         
+    reste      : entier                               
+    nb_espaces : entier                            
+    nb_mots    : entier
+  
+	
+						                                
+Debut
+      
+      i := 1
+      nb_mots := 0
+      nb_lettres := 0
+
+
+    
+
+    prendreMot ( phrase, i, lg_mots )
+
+    Tantque lg <> 0 Faire                               // arrêt quand on a détecté le terminateur
+
+        nb_Mots := nb_Mots + 1                              // comptage des mots
+        nb_lettres := nb_lettres + lg_mots                // comptage des caractères utiles
+        prendreMot ( phrase, i, lg_mot )                  // repérage d’un mot dans la phrase
+ 
+    Fintantque
+
+      // calcul des intervalles et le reste
+ 
+        nb_espaces = ( MAX- nb_lettres - 1 )
+		
+    si  nb_mots <> 0
+
+        intervalle := ( nb_espaces ) div ( nb_mots - 1 )
+		
+        reste := ( nb_espaces ) mod ( nb_mots - 1 )
+    finsi
+	
+	i := 1
+	j := 1
+    Tantque nb_mots > 0 faire 
+		 prendreMot ( phrase, i, lg_mot )           
+		 copierMot( phrase[i] ,phrase_just[j], i , j )       // decouper les procedureS
+		 nb_mots := nb_mots - 1 
+		 espaces ( phrase_just, nb_mots, j , intervalle , reste )
+    Fintantque
+	
+  
+
+  phrase_juste [j] := CARTERM
+
+ Fin
+ 
+________________________________________________						 
+
+
+ procédure espaces (Entrée phrase_just[j], Entrée nb_mots : entier, Entrée intervalle : entier,   Entrée sortie reste : entier  )
+ 
+                           // cette procédure calcul l'intervalle d’espaces,
+             			   // et calcul le reste à répartir entre les mots
+						   // nb_lettres est le nombre de lettre trouvées dans la phrase
+						   // nb_mots est le nombre de mots trouvé dans la phrase
+						   // intervalle est les espaces entre les mots
+						   // reste est l'espace restant à répartir dans les premiers mots de la phrase
+
+variables
+
+
+    nb_lettres : entier                             
+    intervalle : entier                             
+    reste      : entier                               
+    nb_espaces : entier                            
+   
+
+
+Debut 
+ 
+    // traitement des espaces à mettre entre les mots
+		
+		
+    Si nb_mots <> 0 Alors        // il reste des mots, il faut mettre des espaces
+                       
+ 
+         Si reste <> 0 Alors 	     // il reste des espaces en trop, on les met entre les premiers mots
+	
+            reste := reste - 1
+            intervalle = intervalle + 1
+		 
+	    finsi
+    
+
+  			
+		
+
+		// mettre les espaces entre les mots
+
+		Tantque intervalle _<> 0 Faire             // arrêt quand il n’y a plus d’espaces à copier
+
+			phrase_just [j] := ' '
+
+			j := j + 1
+			intervalle := intervalle - 1
+
+
+		Fintantque  
+	Finsi		  
+Fin	  
+____________________________________
+					   
+Procédure prendreMot (entrée phrase: chaine, Entrée sortie i : entier, sortie lg_mot:entier)
+ 
+                          // Cette procédure positionne un indice sur le caractère suivant le mot
+                          // repéré, et donne sa longueur, ou positionne l’indice sur le caractère
+                          // terminateur, et donne la longueur 0.
+		                  // i en entrée : place l'indice ou le mot est cherché
+		                  // i en sortie : position juste après le mot, ou sur le point 
+		                  // lg est la longueur du mot, 0 si plus de mot
+		
+variables
+	i          : entier         // indice de parcour de la phrase 
+	j          : entier         // indice de la phrase justifiée	
+		
+
+  Debut
+
+    Tantque  phrasee [ i] = SEPARATEUR  Faire                             // arrêt quand on a autre chose qu’un espace
+
+          i := i + 1
+
+    Fintantque
+
+    
+     lg_mot := 0
+
+     // recherche de la fin du mot
+
+    Tantque ( phrase [i] <> SEPARATEUR ) et (phrase[i] <> CARTERM) Faire      // arrêt quand on a un espace ou le carterm
+ 
+            i := i + 1
+	
+	      lg_mot := lg_mot + 1
+		  
+	
+    fintantque         
+
+fin
+
+
+
+___________________________________
+					  
+ Procédure copierMot ( Entrée phrase : chaîne , Entrée i : entier, Entrée lg_mots : entier,
+                           Entrée Sortie j : entier, Entrée Sortie phrase-just : chaîne )
+	 
+                          // Cette procédure recopie un mot repéré dans la chaîne par sa position
+                          // “ après ”, à l’emplacement indiqué par j dans la chaîne phrase-just
+                          // phrase est la chaîne où se trouve le mot
+                          // i est la position dans texte juste après le mot
+                          // longmot est la longueur du mot
+                          // j est en entrée l’endroit où recopier le mot
+                          // en sortie l’endroit où mettre l’espace ou le point final
+                          // phrase-just est en entrée la portion de chaîne qui a déjà été justifiée
+						  // en sortie le mot est recopié à la suite.
+
+variables					  
+    i          : entier         // indice de parcour de la phrase 
+	j          : entier         // indice de la phrase justifiée   
+
+	
+Debut
+
+  
+
+   i = i - lg_mots      // indice positionné sur le premier caractère du mot à recopier
+
+
+  Tantque lg_mots <> 0       faire     // copier lettre à lettre et on arrete quand le mot est parcouru
+   
+          phrase[j] := phrase[i]
+   
+          lg_mots := lg_mots - 1
+          j := j + 1
+          i := i + 1
+   
+   Fintantque
+   
+   
+fin
+
+_________________________________________
+
+___________________________________________________
+
+
+
+structurer des données associees à des pieces
+
+Constantes     MAX = 100   // nombres de pieces dans le tableau
+             
+
+Types  
+
+       chaine = tableau[ Max] de pieces
+
+
+        mois = ( janvier, fevrier, mars, avril, mai, juin, juillet, aout, septembre, octobre, novembre, decembre)
+        semaines = ( lundi, mardi, mercrecdi, jeudi, vendredi, samedi, dimanche)
+        couleurs = ( jaune, vert, bleu, rouge, orange, mauve)
+        formes =( cylindrique, sphériques, cubiques )
+
+    Date=             // les informations sur la date
+    enregistrement
+
+    nom_mois : mois              // le nom du mois
+    nom_jour : jour             // le nom du jour
+    année: entier
+    jour : entier
+
+    finenregistrement
+
+    Dimension =  
+	enregistrement
+	rayon : entier         // rayon de la piece
+	hauteur: entier        // heuteur dfe la piece
+	genre :  forme         // forme de la piece ( sphérique, cubiques, cylindriques)
+	
+	finenregistrement
+
+
+    Pieces                // les informations sur la piece
+    enregistrement
+    dim : Dimension
+    couleur  : chaine
+    numero_serie: entier
+    date_fabrication : Date
+
+    finenregistrement
+ 
+	Variables
+	
+	tab : chaine
+	
+	// la couleur de la 2eme piece à jaune
+	tab[2].couleur := jaune
+	
+	// le jour de fab de la 2eme piece à jeudi
+	tab[2].date_fabrication.nom_jour := jeudi
+	
+	// la hauteur de la 2eme piece à 5
+	tab[2].Dimension.hauteur := 5
+     
+  
+
+___________________________________________________
+
+ __________________________________________________            
+                     
+    Manipuler une pile d'entiers gérée avec un tableau et un indice
+
+    CONSTANTES
+
+    MAX = 100
+	
+    TYPES
+
+    tabEntier = tableau[ Max] de entier
+	
+	
+    pile_entier  enregistrement
+	
+    tabpile : tabEntier
+	i : entier
+	
+	finenregistrement
+
+    variables
+	
+    val : entier
+	
+	
+	procédure init_pile ( sortie pile : pile_entier )
+	                    // cette procedure permet d'initialiser une pile
+	                    // pile cest la pile initialisée
+	
+	debut
+	
+	pile.i := 0      // il n y a pas d'élément dans la pile
+	
+	
+	fin
+	
+	
+    procédure empiler ( Entrée Sortie pile : pile_entier, Entrée val : entier , sortie pile_ok: booléen)
+	
+	                   //  cette procédure permet d'empiler des éléménts dans le tableau
+					   // pile en entrée c'est la pile que l'on veut empiler
+					   // pile en sortie c'est la pile empiler si cest possible
+					   // val cest la valeur que l'on rentre
+	                	// tabloPlein est un bouleen; on donne la valeur vraie quand le taleau est plein.
+	variables
+            
+	pile_ok = booléen
+	DEBUT	
+	
+	    
+		pile_ok:= vraie          //   On arrive à empiler donc pile_ok est vraie 
+	    Si pile.i = MAX	alors   // la pile est pleine donc on peut pas empiler
+            pile_ok = faux
+       
+	
+		sinon
+		 
+		  pile.i := pile.i + 1
+		  pile.tabpile[pile.i] := val
+	
+		  pile_ok = vrai        // on arrive à empiler
+
+	      
+		finsi
+		
+	FIN
+			   
+	
+	
+	procédure depiler ( Entrée sortie pile : pile_entier, sortie val : entier , sortie pile_ok:  booléen )
+	                  // cette procédure permet de depiler des éléments dans le tableau
+					  // pile en entrée c'est la pile que l 'on veut dépiler
+					  // pile en sortie c'est la pile dépiler
+					  // val cest la valeur sortie
+					  // 
+					  
+	variables 
+	
+	                 
+	pile ok= bouléen
+	
+	Debut
+	pile_ok : vrai                 // on arrive à depiler donc pile_ok est vraie
+     
+	 
+	Si         pile.i = 0 alors      // la pile est vide donc on peut pas dépiler
+	           pile_ok = faux
+	   
+	    sinon
+	           
+               val := pile.tabpile[pile.i] 
+	           pile.i = pile.i - 1       
+	           pile_ok = vrai              
+	
+	  
+	finsi
+   FIN
+
+ 
+ 
+ ______________________________________________________
+ 
+ 
+ 
+ Gerer une liste de noms classés alphabétiquement
+ 
+	Constantes   tailtable = 100
+	             tailnom   = 10
+	             final     = 0
+				 
+    Types       chainenom = tableau [ tailnom] de caractère
+	      
+		  élément = enregistrement                                 // type des éléments de la tables des noms
+		    nom : chainenom                                        // nom est le nom contenu dans la table
+		    suivant : entier                                       // indice du nom suivant dans la table
+		  Finenregistrement
+		  
+		  
+		  tablenom = enregistrement
+		     table : tableau [ tailtable] de élément                   // table permet de ranger les informations
+		     libre : entier                                           // libre est le premier élément de la liste libre
+		     premier : entier                                         // premier est le premier élément de la liste des noms
+		  
+		  Finenregistrement
+		  
+
+ 
+  Procédure init_table ( Sortie tab_nom : tablenom )
+   
+                             // Cette procédure permet d’initialiser une table de noms
+                             // cad qu 'il n y  aurait aucun éléments dans la table
+                             // tab_nom est la table de noms initialisée
+                             
+	i:entier
+ Debut
+
+    tab_nom.premier := final     // il n y pas déléments dans la table des noms
+
+
+    //  remplir la liste des libres
+  
+      tab_nom.libre := 1 
+	i := 1
+    tantque i <> tailtable faire        // on crée la liste des 'tailtable' d'éléments libre
+  
+            tab_nom.table[i].suivant := i + 1 
+ 
+ 
+            i := i + 1 
+    fintantque
+	
+	
+	    tab_nom.table[i].suivant := final        // la fin de liste
+ 
+ 
+ 
+ Fin
+	
+	
+ 
+ procedure ajouter ( Entrée Sortie tab_nom : tablenom, Entrée nom : chaine,  i : entier )
+ 
+                     // Cette procedure permet d’ajouter un nom dans la table des noms.
+                     // Si la table de noms est pleine la procedure ne fait rien, mais écrit -1
+                     // Si le nom est déjà présent dans la table de noms, la procedure écrit 1
+                     // tab_nom est en entrée la table de noms dans laquelle on veut ajouter des noms
+                     // en sortie le nom ajouté dans la table des noms.
+                     // nom est le nom à ranger dans le tableau
+                     // i prend la valeur -1  si la table est pleine, 0 si le nom est rangé dans 
+					 // la table et 1 si le nom est déja dans la table
+                  
+                     
+  variables
+ 
+    confirmation : entier                // indice de remplissage de la table
+	precedent : entier               //  nom_precedent est le nom avant le nom choisi
+    i_nomRrangé : entier               //  l’indice ou on va ranger le nom
+	j_nomChoisi: entier               //  l’indice du nom choisi 
+  
+ 
+ 
+ Debut
+
+      Si   tab_nom.libre = final      Alors                // la table de noms est pleine
+ 
+                confirmation = -1
+    	   
+               sinon                                         // on recherche un lieu pour ranger un nom dans le tableau
+			   precedent := final                       
+               i  := tab_nom.premier             
+			   
+		     
+ 
+              // parcours de la liste des noms jusqu’à trouver le nom à l’indice j_nomInspect 
+              // sa place entre nom_precedent et j_nomInspect, ou la fin de liste
+			  
+           Tantque (i <> final ) et ( tab_nom.table [i].nom < nomchoisi ) Faire // 
+		   
+            
+			 
+             precedent := i
+             i := tabnom.table [i].suivant
+			 
+            Fintantque
+
+         i_nonRanger = tab_nom.libre
+         tab_nom.libre = tab_nom.tab[tab_nom.libre].suivant
+		 
+			si precedent:= final alors
+			
+			tab_nom.premier:= i_nonRanger
+			sinon 
+			
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+	
+	
+	
+
+	
+	
+	
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 

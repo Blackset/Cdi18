@@ -1,0 +1,36 @@
+fonction CopieTexte(entrée texteSaisie: chaineS): chaineC
+	// entrée un tableau de caractère remplie par l'utilisateur
+	// retourne une copie de texteSaisie  formaté avec le point en bout de chaine
+	
+
+//CONSTANTES
+
+//TYPES
+chaineC = tableau[TAILLETEXTECOPIE]caractère; // tableau de caractère pour la chaine copié
+
+//VARIABLES
+i : entier;			// indice de déplacement dans la chaine de caractère
+texteCopie: chaineC	// TAbleau de caractère de la chaine copié	
+
+//FONCTIONS
+		
+fonction Ascii(entrée val : entier) : caractère
+		// retourne le caractère ascii correspondant à l'entier donné
+		// entrée val : l'entier dont on veut le caractère correspondant selon la table ascii
+
+début
+	i := 1;
+	tantque (Ascii(texteSaisie[i]) <> CARIAGERETURN et (Ascii(texteSaisie[i]) <> LINEFEED)) ou (i < TAILLETEXTECOPIE - 1) faire
+		// arrêt quand il y a un CARIAGERETURN ou un LINEFEED et quand l'indice est supérieur à la TAILLETEXTECOPIE - 1
+		
+		si texteSaisie[i] <> CARACFIN alors
+			texteCopie[i] := texteSaisie[i]
+			i := i + 1
+		finsi
+		
+	fintantque
+
+	texteCopie[i] := CARACFIN
+	
+	retourner texteCopie
+fin

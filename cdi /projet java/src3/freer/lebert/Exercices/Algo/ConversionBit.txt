@@ -1,0 +1,42 @@
+Numero			Resultat			Choix
+0				0					0
+11				1011				1
+
+
+Fonction ConversionBit(entrée pNumero : entier, entrée pChoix : entier) : booléen
+// donner la valeur du bit numéro x d'un entier
+// pNumero : numéro donné
+// pChoix : numéro de bit donné
+Variables
+	i : entier				// indice de recherche
+	bit : booléen			// valeur du bit
+Début
+	// initialisation
+	i := 0
+	TantQue i <= pChoix et pNumero <> 0 faire
+		// je m'arrête quand je trouve le bit recherché ou quand le numéro est trop petit
+		pNumero := pNumero Div 2
+		i := i + 1
+	FinTantQue
+	Si pNumero Mod 2 = 1 alors
+		bit := Vrai
+	Sinon
+		bit := Faux
+	FinSi
+	retourne bit
+Fin
+
+Programme TestConversionBit
+// programme de test
+Valeurs
+	Numero : entier						// numéro à convertir en bits
+	Choix : entier						// numéro du bit recherché
+Procédure
+	ConversionBit(entrée pNumero : entier, sortie pResultat : Binaire, sortie pTaille : entier)			// conversion d'un numéro en bits
+Début
+	ecrire("Saisir un numéro : ")
+	lire(Numero)
+	ecrire("Saisir le numéro de bit choisi : ")
+	lire(Choix)
+	ecrire("Valeur du bit numéro ", Choix, " : ", ConversionBit(Numero, Choix))
+Fin

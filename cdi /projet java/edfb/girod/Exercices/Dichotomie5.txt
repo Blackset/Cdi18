@@ -1,0 +1,116 @@
+Programme test_dichotomie 
+ 
+ // Ce programme met en oeuvre la recherche dichotomique d’un prénom dans un tableau de   
+ // prénoms classés par ordre alphabétique     
+ 
+Constantes 
+	N = 80 // nombre maximum de prénoms dans le tableau    
+	CP = 20 // nombre maximum de caractères d’un prénom  
+ 
+Types  
+	Tabprenom = tableau [ CP ] de caractères // type des prénoms de la table    
+	table  = tableau [ N ] de Tabprenom// type des tab prénoms que l’on peut traiter  
+ 
+Variables 
+	Tableprenom : table  // table de prénoms dans laquelle on va chercher    
+	taille   : entier  // longueur de la table de prénoms        
+	Position  : entier  // position du prénom dans la table    
+	Prenom  : Tabprenom// prénom à chercher dans la table       
+	Compteur   : entier  // compteur des prénoms saisies dans la table    
+	
+
+Jeu d'essai					
+1  	 agathe
+2	 berthe
+3	 cellulite
+4	 cunegonde
+5	 olga
+6 	 raymonde
+7 	 sidonie	
+
+Jeu d'essai					cunegonde			sidonie			sidonie			sidonie			zoe				zoe				zoe			albertine		albertine albertine
+1  	 agathe																																	agathe			agathe		agathe
+2	 berthe																																	berthe			berthe
+3	 cellulite																																cellulite
+
+4	 cunegonde				cunegonde			cunegonde										cunegonde									cunegonde
+
+5	 olga					olga				olga											olga
+6 	 raymonde				raymonde			raymonde		raymonde						raymonde		raymonde
+7 	 sidonie				sidonie				sidonie			sidonie			sidonie			sidonie			sidonie			sidonie
+
+ 
+Procédure Dichotomie  ( Entrée Tabprenom : table, Entrée longueurtabprenom : entier,  Entrée PrénomRecherché : Tabprenom, Sortie index : entier ) 
+ 
+   // procédure de recherche par dichotomie d'un prénom dans un tableau     
+   // de  prénoms. Les prénoms sont classés par ordre alphabétique
+   // retourne l’index du prénom dans la table - 0 si il n'y est pas  
+ 
+   // Tabprenom est le tableau des prénoms.        
+   // longueurtabprenom est la longueur utile du tableau de prénoms.       
+   // PrénomRecherché est le prénom que l’on cherche dans la table.      
+   // l'index donne la position du prénom dans la table - 0 si il n'y est pas  dixit spécifications
+ 
+	Début // saisie de la table de prénoms 
+	 
+				ECRIRE ( "nombre de prénoms à entrer dans le tableau : " )  
+				LIRE ( taille ) 
+	 
+				Compteur := 0  
+				TANTQUE    Compteur < taille    Faire   
+						Compteur := Compteur + 1 					// nouveau prénom de la table     
+						ECRIRE ( "prénom numéro ",Compteur," de la table des prénoms." )   
+						LIRE ( Tableprenom [ Compteur ] )  
+				Fintantque 
+	 
+			   // saisie du prénom à rechercher   
+			   ECRIRE ( "donnez le prénom à rechercher dans le tableau : " )  
+			   LIRE ( Prenom ) 
+			 
+				// appel de la procédure Dichotomie   
+				Dichotomie ( Tableprenom, taille, Prenom, Position) 
+	 
+				// retour de la recherche   
+				SI    Position = 0    Alors   
+					ECRIRE ( "Le prénom ", Prenom, " n’est pas dans la table" )  
+						SINON 
+						ECRIRE ( "Le prénom ", Prenom, " est dans la table à l’index ", Position )  
+				Finsi 
+	 
+	Fin  
+
+
+	
+Procédure Dichotomie ( Tableprenom, taille, Prenom, Position)
+  // Tabprenom est le tableau des prénoms.    
+  // longueurtabprenom est la longueur utile du tableau de prénoms.    
+  // PrénomRecherché est le prénom que l’on cherche dans la table.    
+  // Milieu est la position du prénom dans la table ou 0 si il est absent.  
+ 
+Variables Debut : entier  // indice de début de zone de recherche     
+Fin : entier   // indice de fin de zone de recherche  
+ 
+DEBUT
+// init des indices de zone de recherche et médian   
+
+ Début := 1  
+ Fin := longueurtabprenom  
+ Milieu := ( Debut + Fin ) DIV 2 // trouver l'élément du milieu
+ 
+ TANTQUE   ( Debut < Fin ) et ( Tabprenom [ Milieu ] <> PrénomRecherché )    FAIRE
+ 
+			SI    Tabprenom [ Milieu ] > PrénomRecherché    ALORS    
+				  Fin := Milieu - 1 // fin zone du haut        
+			SINON    Debut := Milieu + 1 // début zone du bas        
+			FINSI 
+ 
+			 Milieu := ( Debut + Fin ) DIV 2 // trouver de nouveau l'élément du milieu de la nouvelle zone
+ 
+			Fintantque
+			
+			SI ( Debut > Fin ) ET ( Tabprenom [ Milieu ] <> PrénomRecherché ) // si pas le prénom dans le tableau
+				Milieu :=0
+			FinSI
+ FIN
+ 
+ 

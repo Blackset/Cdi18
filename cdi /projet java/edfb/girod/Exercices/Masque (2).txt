@@ -1,0 +1,29 @@
+PROGRAMME  Compter une lettre
+	//
+	//
+
+Constantes
+
+
+Types
+
+
+Variables
+
+
+
+DEBUT
+	//
+
+
+
+
+
+
+
+
+
+
+
+
+FIN

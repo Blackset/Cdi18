@@ -1,0 +1,22 @@
+procédure retirerEntier(entrée sortie tete: référence, sortie val: entier)
+	// cette procédure retourne la nouvelle référence de tete
+		
+	// tete la référence de tête de la liste vaut null si la liste est vide 
+	
+	// val la valeur retirée
+	
+//VARIABLES
+pointeurD: référence	// la référence à detruire
+
+début
+	si tete <> null alors
+	// si le pointeur de tête est différent de null la liste à un élément
+	
+		pointeurD:= tete		// on récupère la référence de tete
+		
+		tete:= tete->.suivant	// on fait pointer tete sur la référence suivante
+		
+		détruire(pointeurD)		// on détruie l'ancienne référence de tete
+		
+	finsi
+fin

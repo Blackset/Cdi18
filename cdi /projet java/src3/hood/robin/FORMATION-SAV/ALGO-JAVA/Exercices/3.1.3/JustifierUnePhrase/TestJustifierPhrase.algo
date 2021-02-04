@@ -1,0 +1,29 @@
+programme : TestJustifierPhrase
+
+//CONSTANTES
+TAILLESAISIE = 80		// Taille du tableau de caractère saisie par l'utilisateur
+TAILLEJUSTIF = 80		// Taille du tableau de caractère
+CARACFIN = '.'			// Caractère de fin d une chaine
+ESPACE = ' '			// Caractère séparateur mot
+
+//TYPES
+chaineS = tableau[TAILLESAISIE]caractère	// chaineS tableau de caractère pour la chaine saisie
+chaineJ = tableau[TAILLEJUSTIF]caractère	// chaineJ tableau de caractère pour chaine justifiée
+
+//VARIABLES
+phraseSaisie: chaineS 		// chaine saisie
+
+//FONCTION
+fonction JustifierPhrase(entrée phraseSaisie: chaineS): chaineJ
+	// cette fonction répartie les espaces selon le nombre de mot, équitablement
+	
+	// nbrMot est le nombre de mot dans phraseSaisie
+	
+	// nbrEspace est le nombre d'ESPACE dans phraseSaisie
+
+début
+	écrire("Saisir un phrase à justifier : ")
+	lire(phraseSaisie)
+
+	écrire("La phrase justifiée est : ", JustifierPhrase(phraseSaisie))
+fin

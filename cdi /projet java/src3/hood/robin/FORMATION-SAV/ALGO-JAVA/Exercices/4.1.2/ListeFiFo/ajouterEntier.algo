@@ -1,0 +1,34 @@
+procédure ajouterEntier(entrée sortie tete: référence, entrée valeur: entier)
+	// cette procédure retourne la nouvelle référence de tete
+	
+	// tete la référence de tête de la liste vaut null si la liste est vide
+	
+	// valeur est la valeur à ajouter à la liste
+
+//VARIABLE
+pointeurS: référence	//permet d'avancer dans la liste des références
+début
+	créer(nouveau)				// on créé une nouvelle référence d'élément
+	nouveau->.valeur:= valeur	// on ajoute la nouvelle valeur
+	nouveau->.suivant:= null	// on fait pointer suivant sur null car la liste est vide
+	si tete = null alors
+	// si le pointeur de tête vaut null la liste est vide
+		tete := nouveau
+		
+	sinon
+	
+		pointeurS:= tete
+		
+		tantque pointeurS->.suivant <> null faire
+		// arrêt quand le pointeur sur suivant vaut null pour ajout en fin de liste
+			
+			pointeurS:= pointeurS.suivant	// on en avance en récupérant la prochaine référence
+			
+		fintantque
+		
+		
+		pointeurS->.suivant:= nouveau	// on fait pointer suivant sur null car la liste est vide		
+		
+	finsi
+	
+fin

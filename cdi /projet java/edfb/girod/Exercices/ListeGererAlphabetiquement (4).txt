@@ -1,0 +1,169 @@
+ gérer une liste de noms classés alphabétiquement. 
+ 
+Il s’agit de constituer une liste de noms classés par ordre alphabétique. Cette liste peut évoluer dans le temps, un  nom pouvant être ajouté ou retranché à cette liste, tout en conservant l’ordre alphabétique. 
+ 
+Pour cela, et pour optimiser les temps de traitement, utilisez la structure de données suivante : 
+ 
+ 
+Constantes tailtable = 100 // taille du tableau contenant les noms      tailnom = 10  // les noms ont dix caractères maximum   final = 0  // indicateur de fin de liste    
+ 
+Types chaînenom = tableau [ tailnom ] de caractère     // type des noms rangés dans le tableau   élément = Enregistrement                                                                     // type des éléments de la table des noms      nom : chaînenom // nom est le nom contenu dans la table       suivant : entier // indice du nom suivant dans la table    Finenregistrement 
+ 
+  tablenom = Enregistrement                                                    // type des tables de noms       table : tableau [ tailtable ] de élément     // table permet de ranger les informations       libre : entier // libre est le premier élément de la liste libre       premier : entier // premier est le premier élément de la liste                                                                     // des noms   Finenregistrement 
+ 
+ 
+Questions 1) donnez une procédure permettant d’initialiser la table des noms à l’origine (vide). 
+ 
+2) donnez une procédure permettant d’ajouter un nom à la table des noms. 
+ 
+3) donnez une procédure permettant d’enlever un nom de la table des noms. 
+
+
+
+
+
+
+
+
+
+
+ Constantes tailtable = 100 // taille du tableau contenant les noms      
+ tailnom = 10 // les noms ont dix caractères maximum     
+ final = 0  // indicateur de fin de liste    
+ 
+Types chaînenom = tableau [ tailnom ] de caractère      // type des noms rangés dans le tableau     
+élément = Enregistrement // type des éléments de la table des noms       
+	nom : chaînenom  // nom est le nom contenu dans la table       
+	suivant : entier  // indice du nom suivant dans la table     
+Finenregistrement 
+ 
+  tablenom = Enregistrement // type des tables de noms         
+	  table : tableau [ tailtable ] de élément      // table permet de ranger les informations        
+	  libre : entier  // libre est le premier élément de la liste libre         
+	  premier : entier  // premier est le premier élément de la liste nom    
+  Finenregistrement 
+ 
+ Constantes tailtable = 100 // taille du tableau contenant les noms       tailnom = 10 // les noms ont dix caractères maximum     final  = 0 // indicateur de fin de liste     
+ 
+Types chaînenom = tableau [ tailnom ] de caractère      // type des noms rangés dans le tableau  
+ 
+  élément  = Enregistrement // type des éléments de la table des noms       nom  : chaînenom  // nom est le nom contenu dans la table        suivant  : entier  // indice du nom suivant dans la table      Finenregistrement 
+ 
+  tablenom  = Enregistrement // type des tables de noms         table  : tableau [ tailtable ] de élément // table permet de ranger les informations        libre  : entier   // libre est le premier élément de la liste libre        premier  : entier  // premier est le premier élément de la liste nom       Finenregistrement 
+ 
+Principe de fonctionnement de la table des noms 
+ 
+La table de noms est vide quand premier vaut « final ». La table de noms est pleine quand libre vaut « final ». 
+ 
+«  ajouter » et « enlever » sont des fonctions qui retournent un entier qui indique si la fonction s’est bien déroulée. Si on ajoute un nom à une table pleine, la fonction retourne la valeur -1. Si on enlève un nom à une table vide, la fonction retourne la valeur -1. Si on ajoute un nom déjà présent dans la table, la fonction retourne la valeur 1. Si on enlève un nom absent de la table, la fonction retourne la valeur 1. Dans les autres cas ces deux fonctions retournent des comptes rendus à 0. 
+ 
+Note :Il est supposé qu’il est possible de comparer des chaînes de caractères de même type entre elles. 
+
+
+
+Procédure init_table ( Sortie tabnom : tablenom ) 
+ 
+ // Cette procédure permet d’initialiser une table de noms, c’est à dire    // qu’elle n’ait aucun élément        // tabnom est la table de noms initialisée      // la constante final a été définie en amont et représente la fin de liste  
+ 
+ 
+Fonction ajouter ( Entrée Sortie tabnom : tablenom, Entrée nom : chaînenom ) : entier 
+ 
+ // Cette fonction permet d’ajouter un nom dans la table des noms.      // Si la table de noms est pleine la fonction ne fait rien, mais retourne -1     // Si le nom est déjà présent dans la table de noms, la fonction ne fait rien et retourne la valeur 1  
+ 
+ // tabnom est  en entrée la table de noms dans laquelle on veut ajouter     //     en sortie la table de nom dans laquelle nom a pris sa place si possible.   // nom est le nom à ranger dans le tableau.      
+ 
+ // la fonction retourne -1 si la table est pleine      //  0  si le nom est rangé dans la table    //  1  si le nom était déjà dans la table     
+ // la constante final a été définie en amont et représente la fin de liste  
+ 
+Fonction enlever ( Entrée Sortie tabnom : tablenom, Entrée nom : chaînenom ) : entier      // Cette fonction permet d’enlever un nom de la table des noms.      // Si la table de noms est vide la fonction ne fait rien, mais retourne -1.      // Si le nom est absent de la table de noms, la fonction ne fait rien, mais retourne la valeur 1.   
+ 
+ // tabnom est en entrée la table de noms dans laquelle on veut enlever     //    en sortie la table de nom dans laquelle nom a été enlevé si possible.    // nom est le nom à enlever du tableau.        
+ 
+ // la fonction retourne -1 si la table est vide      //  0  si le nom est enlevé de la table     //  1  si le nom n’était pas dans la table
+ 
+ 
+ Procédure init_table ( Sortie tabnom : tablenom ) 
+ 
+ // Cette procédure permet d’initialiser une table de noms, c’est à dire    // qu’elle n’ait aucun élément       // tabnom est la table de noms initialisée       // la constante final a été définie en amont et représente la fin de liste  
+ 
+ 
+Début // il n’y a pas d’élément dans la table des noms  
+ 
+ tabnom.premier := final 
+ 
+  // construction de la liste des libres  
+ 
+ tabnom.libre := 1  
+ Tantque    tabnom.libre <> tailtable    Faire  // création de la liste des « tailtable » éléments libres    
+ tabnom.table [ tabnom.libre ].suivant := tabnom.libre + 1   
+ tabnom.libre := tabnom.libre + 1  
+ Fintantque 
+ 
+  // insertion de la fin de la liste des libres  
+ 
+ tabnom.table [ tabnom.libre ].suivant := final 
+ 
+  // initialisation au début de la liste des libres  
+ 
+ tabnom.libre := 1 
+ 
+Fin 
+ 
+ 
+ Fonction ajouter ( Entrée Sortie tabnom : tablenom, Entrée nom : chaînenom ) : entier 
+ 
+ // Cette fonction permet d’ajouter un nom dans la table des noms.      // Si la table de noms est pleine la fonction ne fait rien, mais retourne -1     // Si le nom est déjà présent dans la table de noms, la fonction ne fait rien et retourne la valeur 1  
+ 
+ // tabnom est  en entrée la table de noms dans laquelle on veut ajouter     //     en sortie la table de nom dans laquelle nom a pris sa place si possible.   // nom est le nom à ranger dans le tableau.       
+ 
+ // la fonction retourne -1 si la table est pleine      //  0  si le nom est rangé dans la table     //  1  si le nom était déjà dans la table      // la constante final a été définie en amont et représente la fin de liste  
+ 
+ 
+Variables ok  : entier // ok est le code de retour de la fonction     précède : entier // précède est le nom avant le nom inspecté    ptnom  : entier // ptnom est l’indice du nom inspecté       nouvel  : entier // nouvel est l’indice ou on va ranger le nom  
+ 
+Début   
+ 
+ Si    tabnom.libre = final    Alors // si la table de noms est pleine, rajout impossible   
+ 
+  ok := -1 
+ 
+ Sinon  // recherche du lieu de rangement du nom dans le tableau   
+ 
+  précède := final   ptnom := tabnom.premier 
+ 
+   // parcours de la liste des noms jusqu’à trouver le nom à l’indice ptnom      // sa place entre précède et ptnom, ou la fin de liste     
+ 
+  Tantque    ( ptnom <> final ) et ( tabnom.table [ ptnom ].nom < nom )    Faire     // arrêt en fin de liste, ou quand on trouve       // un nom plus grand ou égal dans la table   
+ 
+   précède := ptnom    ptnom := tabnom.table [ ptnom ].suivant 
+ 
+  Fintantque 
+ 
+   // soit on a trouvé le nom, soit il faut ajouter le nom en tête, soit il faut     // ajouter le nom en milieu ou fin de liste.     
+ 
+  Si    ( ptnom <> final ) et ( nom = tabnom.table [ ptnom ].nom )    Alors 
+ 
+   // nom trouvé dans la table des noms  
+ 
+   ok := 1   Sinon // rangement du nom dans la table des noms  
+ 
+   ok := 0    nouvel := tabnom.libre 
+ tabnom.table [ nouvel ].nom := nom 
+ 
+   // remise à jour la liste des libres  
+ 
+   tabnom.libre := tabnom.table [ tabnom.libre ].suivant 
+ 
+   // soit on insère le nom en tête de liste, soit on l’insère dans la liste  
+ 
+   Si    précède = final    Alors      // soit c’est le premier élément de la table de noms       // soit nom est le plus petit nom de la table       tabnom.table [ nouvel ].suivant := tabnom.premier     tabnom.premier := nouvel     Sinon      // soit on insère au milieu de la liste de noms       // soit en fin de liste de noms        tabnom.table [ précède ].suivant := nouvel     tabnom.table [ nouvel ].suivant := ptnom    Finsi 
+ 
+  Finsi 
+ 
+ Finsi 
+ 
+   // retour du compte rendu de l’ajout  
+ 
+ Retourner ( ok ) 
+ 
+Fin

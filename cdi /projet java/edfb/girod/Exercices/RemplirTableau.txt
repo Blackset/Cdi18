@@ -1,0 +1,39 @@
+package remplirTableau;
+
+/*************************************************************************
+ * Programme : ProcedureRemplirTableau.java Auteur : Di Giovanni Anne-Sophie 
+ * Mise a jour : octobre 2016 
+ * Fonction : Procedure permettant de remplir un tableau de
+ * caractère à partir d'une chaine lue au clavier
+ ************************************************************************/
+public class ProcedureRemplirTableau
+{
+
+	public static char[] remplirTableau(int max)
+	{
+
+		final char TERMINATEUR = '.'; // caractère terminateur
+
+		String chaineLue = new String(); // chaine de caractère lue au clavier
+		char[] tabCar = new char[max]; // tableau de caractère qui sera remplie a partir de la chaine de caractères chaineLue
+
+		// On demande à l'utilisateur de saisir une chaine de caractère
+		System.out.println("Veuillez saisir une phrase : ");
+		chaineLue = Lire.S();
+
+		int i = 0; // indice de parcours de chaineLue et de tabCar
+
+		while ((i < chaineLue.length()) && (chaineLue.charAt(i) != TERMINATEUR) && (i < tabCar.length - 1))
+		// on arrête de copier les lettres quand on a fini de parcourir chaineLue (i>=chaineLue.length())
+		// ou quand on rencontre un '.' (chaineLue.charAt(i)==TERMINATEUR)
+		// ou quand on arrive à l'avant dernière case de tabCar (i>=tabCar.length-1) (on laisse la dernière case libre pour y ajouter un '.')
+		{
+			tabCar[i] = chaineLue.charAt(i);
+			++i;
+		}
+
+		tabCar[i] = TERMINATEUR;
+		return tabCar;
+
+	}
+}

@@ -1,0 +1,50 @@
+MANIPULER une pile d’entiers gérée avec un tableau et un indice. 
+ 
+ // Une pile d’entiers est une structure de données qui permet de stocker des entiers 
+ // et de les restituer dans un ordre bien précis. 
+ // Ces données seront restituées une à une sur demande selon la règle : dernière entrée, première sortie    
+ // ( LIFO: Last In First Out ). Ceci correspond à l'usage habituel d'une pile d'assiettes ou de torchons. 
+ // Cette pile est réalisée à l’aide d’un tableau d’entier et d’un indice de parcours. 
+ 
+ 
+1) Donnez le principe de fonctionnement avec les structures de données de cette pile (ajout et retrait d’un élément) 
+	en étudiant particulièrement ce qui se passe quand le tableau est vide et quand il est plein. 
+ 
+2) Donnez les interfaces des procédures « init_pile », « empiler », « dépiler ». 
+ 
+3) Donnez les algoritmes des trois procédures. 
+
+
+CONSTANTES
+N = 50 // taille du tableau contenant les entiers à empiler   
+ 
+Type
+ pile = Enregistrement  // type des piles d’entiers         
+			table : tableau [ N ] entier  // ranger les informations       
+			nbrElement : entier  // nombre d’élément dans table    
+		Finenregistrement 
+	 
+
+Principe de fonctionnement
+	 
+pile vide quand nbrElement de pile = 0
+pile pleine quand nbrElement = N 
+
+« init_pile »  // vider la pile
+
+
+« empiler »    // entrée une donnée
+« depiler »    // sortir la dernière entrée
+
+
+« init_pile »  // vider la pile
+« empiler »    // entrée une donnée
+Si nbrElement = N alors  possible = false     // pile.nbrElement = N
+ 
+	 Sinon  // on range l’élément dans le tableau    
+	 nbrElement := nbrElement + 1   
+	 table [ nbrElement ] := nouvelDonnee   // pile.table [ nbrElement ] = nouvelDonnee
+	 possible = true
+	 
+Finsi 
+« dépiler »    // sortir la derniére donnée "empiler"

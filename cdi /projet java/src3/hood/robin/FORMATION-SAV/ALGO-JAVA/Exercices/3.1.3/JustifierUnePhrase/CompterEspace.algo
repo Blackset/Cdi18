@@ -1,0 +1,15 @@
+fonction CompterEspace(entrée interval: entier, entrée tailleMot: entier): entier
+	// cette fonction calcule le nombre d'espace disponible dans une chaine
+		
+	// interval est nombre d'interval entre chaque mots 
+	
+	// tailleMot est la somme de la taille de chaque mot de la phrase
+	
+// VARIABLES
+i: entier			// Indice de parcours de la chaine
+numEspace: entier	// nombre d'espace
+	
+début	
+	retourner (TAILLESAISIE - tailleMot) + (interval - 1)
+fin
+	
